@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import React from "react";
-import { Select, Space } from "antd";
+// import { Select, Space } from "antd";
 // import './styles.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./page/Login";

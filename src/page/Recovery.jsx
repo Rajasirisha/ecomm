@@ -89,9 +89,9 @@ const backtoLogin = {
              </div>
          </div>
       <div className="w-full">
-         <p className="absolute top-[520px] left-[370px] w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
-          >      
-        <a href="" onClick={handleBacktoLogin} style={backtoLogin}> Back to Login</a>
+      <p className="absolute top-[520px] left-[370px] w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
+          onClick={handleBacktoLogin} style={backtoLogin}>      
+        <Link to="" > Back to Login</Link>
        <img
           className="absolute top-[2px] left-[0px] w-[25px] h-[25px] overflow-hidden"
           alt=""

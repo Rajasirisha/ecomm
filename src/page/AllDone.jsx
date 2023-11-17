@@ -1,17 +1,17 @@
-import { useCallback } from "react";
+// import { useCallback } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate} from 'react-router-dom';
 
 const Alldone = () => {
-  const onOkClick = useCallback(() => {navigate('/')
-  console.log('Ok clicked');
+  // const onOkClick = useCallback(() => {navigate('/')
+  // console.log('Ok clicked');
 
-  }, []);
+  // }, []);
   const navigate = useNavigate();
-//   const handleOkClicked = () => {
-//    navigate('/')
-//        console.log('Ok clicked');
-// };
+  const handleOkClicked = () => {
+   navigate('/')
+       console.log('Ok clicked');
+};
 
     return (
     <div className="h-screen h-full">
@@ -45,7 +45,7 @@ const Alldone = () => {
                     <button
                       style={{ background: "#173767" }}
                       className="w-full bg-[#173767] text-white p-2 rounded-xl outline-none border-[1px] font-semibold"
-                    onClick={onOkClick}>
+                    onClick={handleOkClicked}>
                    <Link to="/">Ok</Link>
                     </button>
                   </div>
