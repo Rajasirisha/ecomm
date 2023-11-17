@@ -1,14 +1,14 @@
 import { useCallback } from "react";
-import Login from "./Login";
+// import Login from "./Login";
 import { Link } from 'react-router-dom';
 import { useNavigate} from 'react-router-dom';
+
 const ForgotPassword = () => {
   const onSendcodeClick = useCallback(() => {
-    // Please sync "code" to the project
+  
   }, []);
   const navigate = useNavigate();
-const handleBacktoLogin = () => {
- 
+  const handleBacktoLogin = () => {
   navigate('/')
        console.log('Back to login clicked');
 };
@@ -49,8 +49,7 @@ const backtoLogin = {
                       style={{ background: "#173767" }}
                       className="w-full bg-[#173767] text-white p-2 rounded-xl outline-none border-none font-semibold"
                     onClick={onSendcodeClick}>
-                      {/* Send Code */}
-                      <Link to="/recovery">Send Code</Link>
+                     <Link to="/recovery">Send Code</Link>
                     </button>
                   </div>
       </div>
@@ -69,9 +68,9 @@ const backtoLogin = {
         </div>
         <div className="w-2/6 right">
         </div>
-        <div className="absolute top-[600px] left-[320px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
-        <div className="absolute top-[600px] left-[400px] rounded-8xs  bg-[#B3B3B3] w-[70px] h-1.5" />
-        <div className="absolute top-[600px] left-[480px] rounded-8xs  bg-[#B3B3B3] w-[70px] h-1.5" />
+        <div className="absolute top-[600px] left-[330px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
+        <div className="absolute top-[600px] left-[410px] rounded-8xs  bg-[#B3B3B3] w-[70px] h-1.5" />
+        <div className="absolute top-[600px] left-[490px] rounded-8xs  bg-[#B3B3B3] w-[70px] h-1.5" />
         </div>
  </div>
 );

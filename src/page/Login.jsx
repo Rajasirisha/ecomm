@@ -18,10 +18,8 @@ const Login = () => {
       navigate('/freelancer')
     }
   }
-  const handleForgotPassword = () => {
-        console.log('Forgot Password clicked');
-  };
-    return (
+
+  return (
         <div className="h-screen h-full">
           <div className="flex w-full h-full">
             <div className="w-4/6 p-8">
@@ -62,10 +60,10 @@ const Login = () => {
                     <input
                       className="text-base w-full outline-none leading-none bg-transparent border-2 border-[#B3B3B3] p-2 rounded"
                       placeholder="Enter Your Password"
+                      type="password"
                     />
                     <p className="flex pt-2 justify-end text-sm w-full text-[#173767]">
-                          {/* <a href="Forgotpassword" onClick={handleForgotPassword}>Forgot Password?</a> */}
-                          <Link to="/forgotpassword">Forgot Password?</Link>
+                     <Link to="/forgotpassword">Forgot Password?</Link>
                     </p>
                   </div>
                   <div className="w-full pt-10">
