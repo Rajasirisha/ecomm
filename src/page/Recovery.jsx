@@ -85,7 +85,6 @@ const backtoLogin = {
               </div>
               <div className="absolute top-[485px] left-[485px] cursor-pointer [text-decoration:underline] font-medium text-[#173767] text-center">
                     Click to resend
-                    {/* alert('Code resend to your email') */}
               </div>
              </div>
          </div>
