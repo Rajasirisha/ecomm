@@ -52,8 +52,7 @@ const backtoLogin = {
                      <Link to="/recovery">Send Code</Link>
                     </button>
                   </div>
-      </div>
-      </div>
+     
       <div className="w-full">
          <p className="absolute top-[520px] left-[370px] w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
           onClick={handleBacktoLogin} style={backtoLogin}>      
@@ -64,7 +63,8 @@ const backtoLogin = {
           src="/pharrowleft.svg"
         /></p>
       </div>
-      
+       </div>
+      </div>
         </div>
         <div className="w-2/6 right">
         </div>

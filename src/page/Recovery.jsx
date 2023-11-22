@@ -86,8 +86,7 @@ const backtoLogin = {
               <div className="absolute top-[485px] left-[485px] cursor-pointer [text-decoration:underline] font-medium text-[#173767] text-center">
                     Click to resend
               </div>
-             </div>
-         </div>
+             
       <div className="w-full">
       <p className="absolute top-[520px] left-[370px] w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
           onClick={handleBacktoLogin} style={backtoLogin}>      
@@ -97,9 +96,10 @@ const backtoLogin = {
           alt=""
           src="/pharrowleft.svg"
         /></p>
+          </div>
+        </div>
       </div>
-      
-        </div> 
+    </div> 
         <div className="w-2/6 right">
         </div>
         <div className="absolute top-[600px] left-[330px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />

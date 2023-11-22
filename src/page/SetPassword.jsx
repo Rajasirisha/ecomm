@@ -79,8 +79,9 @@ const backtoLogin = {
           alt=""
           src="/pharrowleft.svg"
         /></p>
-      </div></div>
-      </div> 
+            </div>
+          </div>
+         </div> 
         </div> 
         <div className="w-2/6 right">
         </div>
