@@ -1,0 +1,30 @@
+.nav-pills i.bi {
+  color: white;
+
+}
+.nav-pills li a:hover {
+  background-color: #E2A925;
+}
+
+.nav-item a:hover{
+  background-color: #E2A925;
+}
+
+.dashboard-header{
+  background-color: #173767;
+  color: white;
+  font-size: 20px;
+  padding-left: 27px;
+}
+
+@media screen {
+  .sidebarOpen{
+    width: 80px;
+  }
+  .sidebarOpen .nav-pills a{
+    display: none;
+  }
+  .sidebarOpen .nav-pills{
+    padding: 28px;
+  }
+}

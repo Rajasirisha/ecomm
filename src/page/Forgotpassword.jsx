@@ -24,10 +24,10 @@ const backtoLogin = {
               <img src="images/Logo.png" alt="logo" />
             </div>
           </div>
-          <div className="absolute top-[120px] left-[420px] w-[63px] h-[63px]">
-          <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" />
+          <div className="w-full w-[63px] h-[63px]">
+          {/* <div className="max-w-[600px] mx-auto rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
-              className="absolute top-[15px] left-[15px] w-[35px] h-[35px] overflow-hidden "
+              className=" mx-auto rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro w-[35px] h-[35px] overflow-hidden "
               alt=""
               src="/heroiconsoutlinefingerprint.svg"/>
           </div>
@@ -51,13 +51,10 @@ const backtoLogin = {
                     </button>
               </div>
               <div className="w-full">
-              <p className="absolute top-[520px] left-[370px] w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
-                  onClick={handleBacktoLogin} style={backtoLogin}>      
-                  <Link to="" > Back to Login</Link>
-                  <img
-                      className="absolute top-[2px] left-[0px] w-[25px] h-[25px] overflow-hidden"
-                      alt=""
-                      src="/pharrowleft.svg"/>
+                <p className="mx-auto w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
+                  onClick={handleBacktoLogin} style={backtoLogin}>
+                         
+                  <Link to="" ><span>&#8701; </span> Back to Login</Link>
               </p>
               <div className="absolute top-[600px] left-[330px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
               <div className="absolute top-[600px] left-[410px] rounded-8xs  bg-[#B3B3B3] w-[70px] h-1.5" />

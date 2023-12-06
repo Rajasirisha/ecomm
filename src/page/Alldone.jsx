@@ -22,31 +22,31 @@ const Alldone = () => {
           <img src="images/Logo.png" alt="logo" />
           </div>
         </div>
-        <div className="absolute top-[120px] left-[420px] w-[63px] h-[63px]">
-          <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" />
+        <div className="w-full">
+          {/* <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
-              className="absolute top-[15px] left-[15px] w-[35px] h-[35px] overflow-hidden "
+              className="mx-auto  w-[63px] h-[63px] w-[35px] h-[35px] overflow-hidden"
               alt=""
               src="/tick.svg"/>
           </div>
           <div className="h-full flex justify-center items-center">
             <div className="w-full m-auto" style={{ maxWidth: "293px" }}>
-              <h4 className="absolute pb-10 top-[240px] left-[370px] text-4xl justify-center">All Done !</h4>
-                <div className="absolute top-[310px] left-[345px] justify-center">
-                  <p className="pb-2 leading-none">
+              <h4 className="pb-5 text-4xl text-center">All Done !</h4>
+                <div className="w-full">
+                  <p className="pb-1 leading-none text-center">
                       Your password has been reset.
                   </p>
-                  <p className="pb-2 leading-none">
+                  <p className="pb-1 leading-none text-center">
                       Now you can go to Login Page</p>
-                </div>
-            </div>
-            <div className="absolute top-[350px] left-[380px] w-[120px] cursor-pointer text-center pt-10">
+                
+            <div className="cursor-pointer text-center pt-10">
                 <button
                     style={{ background: "#173767" }}
-                    className="w-full bg-[#173767] text-white p-2 rounded-xl outline-none border-[1px] font-semibold"
+                    className="w-[120px] h-[40px] bg-[#173767] text-white p-2 rounded-xl outline-none border-[1px] font-semibold"
                     onClick={handleOkClicked}>
                    <Link to="/">Ok</Link>
                 </button>
+            </div></div>
             </div>
           </div>
         </div>         

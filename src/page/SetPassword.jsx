@@ -24,21 +24,21 @@ const backtoLogin = {
           <img src="images/Logo.png" alt="logo" />
           </div>
         </div>
-        <div className="absolute top-[120px] left-[420px] w-[63px] h-[63px]">
-          <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" />
+        <div className="w-full">
+          {/* <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
-              className="absolute top-[15px] left-[15px] w-[35px] h-[35px] overflow-hidden "
+              className="mx-auto w-[63px] h-[63px] w-[35px] h-[35px] overflow-hidden"
               alt=""
               src="/group-5.svg"/>
           </div>
           <div className="h-full flex justify-center items-center">
             <div className="w-full m-auto" style={{ maxWidth: "293px" }}>
-              <h4 className="absolute pb-10 top-[250px] left-[305px] text-4xl justify-center">Set New Password</h4>
-                <div className="absolute top-[295px] left-[345px] justify-center">
-                  <p className="pb-2 leading-none">
+              <h4 className="pb-10 text-center text-4xl">Set New Password</h4>
+                <div className="w-full">
+                  <p className="pb-1 leading-none text-center">
                     Must be atleast 8 characters</p>
                 </div>
-                <div className="absolute m-auto top-[320px] left-[300px] w-[293px] h-[40px]"> 
+                <div className="pb-2 leading-none font-semibold"> 
                   <div className="w-full">
                     <p className="pb-2 leading-none font-semibold">
                         Password
@@ -65,20 +65,17 @@ const backtoLogin = {
                      <Link to="/alldone">Reset Password</Link>
                     </button>
                   </div>
-                </div>
+               
                 <div className="w-full">
-                  <p className="absolute top-[520px] left-[370px] w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
-                      onClick={handleBacktoLogin} style={backtoLogin}>      
-                      <Link to="" > Back to Login</Link>
-                  <img
-                      className="absolute top-[2px] left-[0px] w-[25px] h-[25px] overflow-hidden"
-                      alt=""
-                      src="/pharrowleft.svg"/>
-                  </p>
+                <p className="mx-auto w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
+                  onClick={handleBacktoLogin} style={backtoLogin}>
+                         
+                  <Link to="" ><span>&#8701; </span> Back to Login</Link>
+              </p>
                   <div className="absolute top-[600px] left-[330px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
                   <div className="absolute top-[600px] left-[410px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
                   <div className="absolute top-[600px] left-[490px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
-                </div>
+                </div> </div>
               </div>
             </div> 
           </div> 
