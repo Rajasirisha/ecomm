@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate} from 'react-router-dom';
 
 const ForgotPassword = () => {
-  const onSendcodeClick = useCallback(() => {
+  const onSendcodeClick = useCallback(() => {'/recovery'
   
   }, []);
   const navigate = useNavigate();
@@ -31,9 +31,9 @@ const backtoLogin = {
               alt=""
               src="/heroiconsoutlinefingerprint.svg"/>
           </div>
-          <div className="h-full flex justify-center items-center">
+          <div className="flex justify-center items-center">
             <div className="w-full m-auto" style={{ maxWidth: "293px" }}>
-              <h4 className="pb-10 text-4xl text-center">Forgot Password?</h4>
+              <h4 className="pt-10 pb-10 text-4xl text-center">Forgot Password?</h4>
               <div className="w-full">
                 <p className="pb-2 leading-none font-semibold">
                     Email<span className="text-[#FF0000]"> *</span>
@@ -42,23 +42,25 @@ const backtoLogin = {
                   className="text-base w-full outline-none leading-none bg-transparent border-2 border-[#B3B3B3] p-2 rounded"
                   placeholder="Enter Your Email"/>
               </div>
-              <div className="w-full pt-10">
+              <div className="w-full pb-2 pt-10">
                     <button
                       style={{ background: "#173767" }}
-                      className="w-full bg-[#173767] text-white p-2 rounded-xl outline-none border-none font-semibold"
-                    onClick={onSendcodeClick}>
-                     <Link to="/recovery">Send Code</Link>
+                      className="w-full bg-[#173767]  p-2 rounded-xl outline-none border-none font-semibold"
+                      onClick={onSendcodeClick}>
+                     <Link to="/recovery" className="link-no-underline text-white">Send Code</Link>
                     </button>
               </div>
               <div className="w-full">
                 <p className="mx-auto w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
                   onClick={handleBacktoLogin} style={backtoLogin}>
                          
-                  <Link to="" ><span>&#8701; </span> Back to Login</Link>
+                  <Link to="" className="link-no-underline text-[#173767]"><span>&#8701; </span> Back to Login</Link>
               </p>
-              <div className="absolute top-[600px] left-[330px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
-              <div className="absolute top-[600px] left-[410px] rounded-8xs  bg-[#B3B3B3] w-[70px] h-1.5" />
-              <div className="absolute top-[600px] left-[490px] rounded-8xs  bg-[#B3B3B3] w-[70px] h-1.5" />
+               <div className="w-full max-w-[600px] flex justify-between mt-8">
+               <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
+               <div className="bg-[#B3B3B3] w-[70px] h-1.5 rounded-8xs" />
+               <div className="bg-[#B3B3B3] w-[70px] h-1.5 rounded-8xs" />
+            </div>
             </div>
           </div>
         </div>

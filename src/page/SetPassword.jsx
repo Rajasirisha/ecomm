@@ -31,16 +31,16 @@ const backtoLogin = {
               alt=""
               src="/group-5.svg"/>
           </div>
-          <div className="h-full flex justify-center items-center">
-            <div className="w-full m-auto" style={{ maxWidth: "293px" }}>
-              <h4 className="pb-10 text-center text-4xl">Set New Password</h4>
+          <div className="flex justify-center items-center">
+            <div className="w-full" style={{ maxWidth: "293px" }}>
+              <h4 className="pt-10 text-center text-4xl w-[319px]">Set New Password</h4>
                 <div className="w-full">
-                  <p className="pb-1 leading-none text-center">
+                  <p className="leading-none text-center">
                     Must be atleast 8 characters</p>
                 </div>
-                <div className="pb-2 leading-none font-semibold"> 
+                <div className="pb-1 leading-none font-semibold"> 
                   <div className="w-full">
-                    <p className="pb-2 leading-none font-semibold">
+                    <p className="pb-1 leading-none font-semibold">
                         Password
                     </p>
                     <input
@@ -49,7 +49,7 @@ const backtoLogin = {
                       type="password"/>
                   </div>
                   <div className="w-full">
-                    <p className="pb-2 pt-5 leading-none font-semibold">
+                    <p className="pb-1 pt-3 leading-none font-semibold">
                       Confirm Password
                     </p>
                     <input
@@ -57,12 +57,12 @@ const backtoLogin = {
                       placeholder="********"
                       type="password"/>
                   </div>
-                  <div className="w-full pt-3">
+                  <div className="w-full pb-2 pt-3">
                     <button
-                      style={{ background: "#173767" }}
+                      style={{ background: "#173767", height:"40px" }}
                       className="w-full bg-[#173767] text-white p-2 rounded-xl outline-none border-none font-semibold"
                       onClick={onResetClick}>
-                     <Link to="/alldone">Reset Password</Link>
+                     <Link to="/alldone" className="link-no-underline text-white">Reset Password</Link>
                     </button>
                   </div>
                
@@ -70,12 +70,15 @@ const backtoLogin = {
                 <p className="mx-auto w-[164px] h-[30px] cursor-pointer text-center font-semibold text-darkslateblue"
                   onClick={handleBacktoLogin} style={backtoLogin}>
                          
-                  <Link to="" ><span>&#8701; </span> Back to Login</Link>
+                  <Link to="" className="link-no-underline text-[#173767]"><span>&#8701; </span> Back to Login</Link>
               </p>
-                  <div className="absolute top-[600px] left-[330px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
-                  <div className="absolute top-[600px] left-[410px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
-                  <div className="absolute top-[600px] left-[490px] rounded-8xs  bg-[#173767] w-[70px] h-1.5" />
-                </div> </div>
+                <div className="w-full max-w-[600px] flex justify-between mt-8">
+                <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
+                <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
+                <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
+                </div>
+                </div> 
+                </div>
               </div>
             </div> 
           </div> 

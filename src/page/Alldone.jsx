@@ -29,22 +29,22 @@ const Alldone = () => {
               alt=""
               src="/tick.svg"/>
           </div>
-          <div className="h-full flex justify-center items-center">
+          <div className="flex justify-center items-center">
             <div className="w-full m-auto" style={{ maxWidth: "293px" }}>
-              <h4 className="pb-5 text-4xl text-center">All Done !</h4>
+              <h4 className="pt-10 pb-2 text-4xl text-center">All Done !</h4>
                 <div className="w-full">
-                  <p className="pb-1 leading-none text-center">
+                  <p className="leading-none text-center">
                       Your password has been reset.
                   </p>
-                  <p className="pb-1 leading-none text-center">
+                  <p className="leading-none text-center">
                       Now you can go to Login Page</p>
                 
-            <div className="cursor-pointer text-center pt-10">
+            <div className="cursor-pointer text-center pt-5">
                 <button
                     style={{ background: "#173767" }}
                     className="w-[120px] h-[40px] bg-[#173767] text-white p-2 rounded-xl outline-none border-[1px] font-semibold"
                     onClick={handleOkClicked}>
-                   <Link to="/">Ok</Link>
+                   <Link to="/" className="link-no-underline text-white">Ok</Link>
                 </button>
             </div></div>
             </div>

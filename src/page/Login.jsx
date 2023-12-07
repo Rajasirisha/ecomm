@@ -62,8 +62,8 @@ const Login = () => {
                       placeholder="Enter Your Password"
                       type="password"
                     />
-                    <p className="flex pt-2 justify-end text-sm w-full text-[#173767]">
-                     <Link to="/forgotpassword">Forgot Password?</Link>
+                    <p className="flex pt-2 justify-end text-sm w-full ">
+                     <Link to="/forgotpassword" className="link-no-underline text-[#173767]">Forgot Password?</Link>
                     </p>
                   </div>
                   <div className="w-full pt-10">
