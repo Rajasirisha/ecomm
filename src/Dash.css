@@ -1,0 +1,86 @@
+.datecalendar  {
+    color: #173767;
+    background: #FFE19B;
+    border-radius: 20px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
+    }
+
+.datecalendar  :hover{
+    
+    color: #173767;
+    }
+
+.bgcolor {
+    min-height: 100vh;
+    min-width: fit-content;
+    background: #ECEFF1;
+    background: linear-gradient(158deg, rgb(224, 224, 224) 0%, rrgb(233,237,254)100%);
+}
+
+.card {
+    background: #FFE19B;
+    border-radius: 20px;
+    border-color: #173767;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card1 {
+    background: white;
+    border-radius: 10px;
+}
+
+.iconCircle{
+    display: flex;
+    justify-content: center;
+    align-Items: center;
+    width: 45px;
+    height: 45px;
+    border-Radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.number {
+    color: #173767;
+    text-align: center;
+    background: transparent;
+    border-radius: 8px;
+    border-color: #E2A925;
+    border-width: 1px 1px 1px 10px;
+    width: 70px;;
+    height: 30px;
+   
+}
+
+.title {
+    text-align: center;
+    color: black;
+    margin-bottom: 2px;
+}
+
+.slide1 {
+    background: #FFE19B;
+    border-radius: 15px;
+    border-color: #173767;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
+    width: 380px;
+    height: 140px;
+}
+
+.slide2 {
+    background:  #173767;
+    border-radius: 15px;
+    border-color: #173767;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
+    width: 380px;
+    height: 140px;
+}
+
+.slide3 {
+    background: #E2A925;
+    border-radius: 15px;
+    border-color: #173767;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
+    width: 380px;
+    height: 140px;
+}

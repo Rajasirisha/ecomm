@@ -11,10 +11,9 @@
 }
 
 .dashboard-header{
-  background-color: #173767;
   color: white;
   font-size: 20px;
-  padding-left: 27px;
+  padding-left: 10px;
 }
 
 .input-style{
@@ -33,15 +32,15 @@
     width: 80px;
   }
   .sidebarOpen .nav-pills a{
-    display: none;
+    display: flex ;
   }
   .sidebarOpen .nav-pills{
-    padding: 28px;
+    padding: 10px;
   }
 }
 
 @media screen and (max-width: 576px) {
   .sidebarOpen {
-    display: none;
+    display: flex;
   }
 }
