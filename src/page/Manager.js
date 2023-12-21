@@ -21,11 +21,11 @@ import Barchart from "../chart/Barchart";
 import Linechart from "../chart/Linechart";
 import Button from '@mui/material/Button';
 import { Line } from 'rc-progress';
-import Paper from '@mui/material/Paper';
-import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
-import PublishedWithChangesOutlinedIcon from '@mui/icons-material/PublishedWithChangesOutlined';
-import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSearchOutlined';
-import AssignmentLateOutlinedIcon from '@mui/icons-material/AssignmentLateOutlined';
+// import Paper from '@mui/material/Paper';
+// import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
+// import PublishedWithChangesOutlinedIcon from '@mui/icons-material/PublishedWithChangesOutlined';
+// import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSearchOutlined';
+// import AssignmentLateOutlinedIcon from '@mui/icons-material/AssignmentLateOutlined';
 
 const Manager = () => {
 
@@ -57,13 +57,14 @@ const Manager = () => {
               <Stack spacing={2} direction="row">
                 <Box sx={{width: "40%", height: "20%"}}>
                   <div  className='card w-[210px] h-[170px]'> 
-                  <Paper className="iconCircle" elevation={0}>
+                  {/* <Paper className="iconCircle" elevation={3}>
                   <AssignmentOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper>
+                  </Paper> */}
                {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150, bg: '#FFE19B', radius: '20px' }}> */}
+               <img className="iconCircle" src="/assignment.png" alt="" />
                <CardContent>
                
-                  <Typography className='title' gutterBottom variant="subtitle1" component="div">
+                  <Typography className='title' variant="subtitle1" component="div">
                       Assignment
                   </Typography>
                   <Typography className="number" variant="h5">
@@ -78,10 +79,11 @@ const Manager = () => {
               
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  <Paper className="iconCircle" elevation={0}>
+                  {/* <Paper className="iconCircle" elevation={3}>
                   <AssignmentLateOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper>
+                  </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+              <img className="iconCircle" src="/yettoallocate.png" alt="" />
               <CardContent>
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       Yet to Allocate
@@ -98,10 +100,11 @@ const Manager = () => {
               
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  <Paper className="iconCircle" elevation={0}>
+                  {/* <Paper className="iconCircle" elevation={3}>
                   <PublishedWithChangesOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper>
+                  </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+              <img className="iconCircle" src="/inprogress.png" alt="" />
               <CardContent>
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       InProgress
@@ -118,10 +121,11 @@ const Manager = () => {
              
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  <Paper className="iconCircle" elevation={0}>
+                  {/* <Paper className="iconCircle" elevation={3}>
                   <ContentPasteSearchOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper>
+                  </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+              <img className="iconCircle" src="/inreview.png" alt="" />
               <CardContent>
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       InReview
@@ -147,10 +151,11 @@ const Manager = () => {
               <Stack spacing={2} direction="row">
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  <Paper className="iconCircle" elevation={0}>
+                  {/* <Paper className="iconCircle" elevation={3}>
                   <AssignmentOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper>
+                  </Paper> */}
               {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150 }}> */}
+              <img className="iconCircle" src="/assignment.png" alt="" />
               <CardContent>
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       Dissertation
@@ -167,10 +172,11 @@ const Manager = () => {
 
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  <Paper className="iconCircle" elevation={0}>
+                  {/* <Paper className="iconCircle" elevation={3}>
                   <AssignmentLateOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper>
+                  </Paper> */}
               {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150 }}> */}
+              <img className="iconCircle" src="/yettoallocate.png" alt="" />
               <CardContent>
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       Yet to Allocate
@@ -188,10 +194,11 @@ const Manager = () => {
               
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  <Paper className="iconCircle" elevation={0}>
+                  {/* <Paper className="iconCircle" elevation={3}>
                   <PublishedWithChangesOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper>
+                  </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+              <img className="iconCircle" src="/inprogress.png" alt="" />
               <CardContent>
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       InProgress
@@ -208,10 +215,11 @@ const Manager = () => {
              
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[220px] h-[170px]'> 
-                  <Paper className="iconCircle" elevation={0}>
+                  {/* <Paper className="iconCircle" elevation={3}>
                   <ContentPasteSearchOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper>
+                  </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+              <img className="iconCircle" src="/inreview.png" alt="" />
               <CardContent>
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       InReview

@@ -29,15 +29,15 @@
     border-radius: 10px;
 }
 
-.iconCircle{
+.iconCircle {
     display: flex;
     justify-content: center;
     align-Items: center;
     width: 45px;
     height: 45px;
-    border-Radius: 50%;
+    /* border-Radius: 50%;
     background-color: #ffffff;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .number {
@@ -56,31 +56,4 @@
     text-align: center;
     color: black;
     margin-bottom: 2px;
-}
-
-.slide1 {
-    background: #FFE19B;
-    border-radius: 15px;
-    border-color: #173767;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
-    width: 380px;
-    height: 140px;
-}
-
-.slide2 {
-    background:  #173767;
-    border-radius: 15px;
-    border-color: #173767;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
-    width: 380px;
-    height: 140px;
-}
-
-.slide3 {
-    background: #E2A925;
-    border-radius: 15px;
-    border-color: #173767;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.15);
-    width: 380px;
-    height: 140px;
 }
