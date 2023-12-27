@@ -32,11 +32,11 @@ export default function DissButton() {
         variant="solid"
         color="#FFF"
         aria-label="split button"
-        sx={{ width: 150, height: 25, borderRadius: 20 }}
+        sx={{ width: 150, height: 20, borderRadius: 20 }}
       >
         <Button variant="filled" style={{ backgroundColor: '#173767', 
         width: '150px', 
-        height: '25px', 
+        height: '20px', 
         borderRadius: "20px 0 0 20px", 
         color: '#FFF' }} 
         onClick={handleClick}>{options[selectedIndex]}
@@ -55,7 +55,7 @@ export default function DissButton() {
           onClick={() => {
             actionRef.current?.();
           }}
-          style={{width: 25, height: 25, color: '#173767', borderRadius: "0 20px 20px 0", backgroundColor: '#E2A925' }}
+          style={{width: 20, height: 20, color: '#173767', borderRadius: "0 20px 20px 0", backgroundColor: '#E2A925' }}
         >
           <ArrowDropDownIcon />
         </IconButton>

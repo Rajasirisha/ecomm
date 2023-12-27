@@ -91,7 +91,6 @@ import MuiDrawer from '@mui/material/Drawer';
 // import MuiAppBar from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import FormatIndentDecreaseIcon from '@mui/icons-material/FormatIndentDecrease';
 import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease'; 
@@ -109,7 +108,7 @@ import { useNavigate } from 'react-router-dom';
 import './Sidebarmenu.css';
 import { useAppStore } from '../appStore';
 
-const drawerWidth = 200;
+const drawerWidth = 180;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -181,7 +180,6 @@ export default function Sidebar() {
             {theme.direction === 'rtl' ? <FormatIndentDecreaseIcon /> : <FormatIndentIncreaseIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
         <List sx={{ backgroundColor: '#173767',color: '#ffffff', height: '100%' }}>
         <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate( "/manager")}}>
               <ListItemButton

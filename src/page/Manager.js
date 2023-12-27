@@ -33,12 +33,14 @@ const Manager = () => {
     <>
              <div className="bgcolor">
              <Navbar />
-             <Box height={70} />
+             <Box height={65} />
               <Grid container justifyContent="flex-end">
              <Stack direction="row" spacing={2}>
              <Button variant="filled" sx={{ backgroundColor: '#173767', position: 'relative', 
-             color: '#fff', 
-             borderRadius: '10px',
+             color: '#fff',
+             height: '30px',
+             textTransform: 'none', 
+             borderRadius: '20px',
              '&:hover': {
               backgroundColor: '#E2A925',
               color: '#fff',
@@ -62,16 +64,19 @@ const Manager = () => {
                   </Paper> */}
                {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150, bg: '#FFE19B', radius: '20px' }}> */}
                <img className="iconCircle" src="/assignment.png" alt="" />
-               <CardContent>
-               
-                  <Typography className='title' variant="subtitle1" component="div">
+               <Typography className='title'  variant="subtitle1">
                       Assignment
                   </Typography>
-                  <Typography className="number" variant="h5">
+                  <CardContent>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Typography className="number" gutterBottom  variant="h5">
                    400
-                  </Typography> 
-                  <Divider sx={{ color: '#173767', marginBottom: 1, marginTop: 1 }}/>
+                  </Typography>
+                   </div>
+                  <Divider sx={{ color: '#173767', marginBottom: 0.5, marginTop: 1 }}/>
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
                   <Namebutton />
+                  </div>
                  </CardContent>
                 {/* </Card> */}
                 </div>
@@ -84,15 +89,23 @@ const Manager = () => {
                   </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
               <img className="iconCircle" src="/yettoallocate.png" alt="" />
-              <CardContent>
+             
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       Yet to Allocate
                   </Typography>
-                  <Typography variant="h5"  className="number">
+                   <CardContent>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Typography variant="h5" gutterBottom  className="number">
                     100
                   </Typography>
-                  <Divider sx={{ color: '#173767', marginBottom: 1, marginTop: 1 }}/>
-                  <Line percent={60} strokeWidth={5} strokeColor="#173767" />
+                  </div>
+                  <Divider sx={{ color: '#173767', marginTop: 1 }}/>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Line percent={60} strokeWidth={5} strokeColor="#173767"/> 
+                   <Typography variant="subtitle2" style={{ marginLeft: '5px' }}>
+                      60%
+                   </Typography>
+                  </div>
                   </CardContent>
               {/* </Card> */}
               </div>
@@ -105,15 +118,23 @@ const Manager = () => {
                   </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
               <img className="iconCircle" src="/inprogress.png" alt="" />
-              <CardContent>
+              
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       InProgress
                   </Typography>
-                  <Typography variant="h5"  className="number">
+                  <CardContent>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Typography variant="h5" gutterBottom  className="number">
                     100
                   </Typography>
-                  <Divider sx={{ color: '#173767', marginBottom: 1, marginTop: 1 }}/>
-                  <Line percent={60} strokeWidth={5} strokeColor="#173767" />
+                  </div>
+                  <Divider sx={{ color: '#173767', marginTop: 1 }}/>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Line percent={60} strokeWidth={5} strokeColor="#173767"/> 
+                   <Typography variant="subtitle2" style={{ marginLeft: '5px' }}>
+                      60%
+                   </Typography>
+                  </div>
                   </CardContent>
               {/* </Card> */}
               </div>
@@ -126,15 +147,23 @@ const Manager = () => {
                   </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
               <img className="iconCircle" src="/inreview.png" alt="" />
-              <CardContent>
+              
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       InReview
                   </Typography>
-                  <Typography variant="h5"  className="number">
+                  <CardContent>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Typography variant="h5" gutterBottom  className="number">
                   100 
                   </Typography>
-                  <Divider sx={{ color: '#173767', marginBottom: 1, marginTop: 1 }}/>
-                  <Line percent={60} strokeWidth={5} strokeColor="#173767" />
+                  </div>
+                  <Divider sx={{ color: '#173767', marginTop: 1 }}/>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Line percent={60} strokeWidth={5} strokeColor="#173767"/> 
+                   <Typography variant="subtitle2" style={{ marginLeft: '5px' }}>
+                      60%
+                   </Typography>
+                  </div>
                   </CardContent>
               {/* </Card> */}
               </div>
@@ -156,15 +185,19 @@ const Manager = () => {
                   </Paper> */}
               {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150 }}> */}
               <img className="iconCircle" src="/assignment.png" alt="" />
-              <CardContent>
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       Dissertation
                   </Typography>
-                  <Typography variant="h5" className="number">
+                  <CardContent>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Typography variant="h5" gutterBottom  className="number">
                    400
                   </Typography>
-                  <Divider sx={{ color: '#173767', marginBottom: 1, marginTop: 1 }}/>
+                  </div>
+                  <Divider sx={{ color: '#173767', marginBottom: 0.5, marginTop: 1 }}/>
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
                   <Dissbutton />
+                  </div>
                   </CardContent>
               {/* </Card> */}
               </div>
@@ -177,16 +210,23 @@ const Manager = () => {
                   </Paper> */}
               {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150 }}> */}
               <img className="iconCircle" src="/yettoallocate.png" alt="" />
-              <CardContent>
+              
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       Yet to Allocate
                   </Typography>
-                  <Typography variant="h5" className="number">
+                  <CardContent>
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Typography variant="h5" gutterBottom  className="number">
                     100
                   </Typography>
-                
-                  <Divider sx={{ color: '#173767', marginBottom: 1, marginTop: 1 }}/>
-                  <Line percent={60} strokeWidth={5} strokeColor="#173767" />
+                  </div>
+                  <Divider sx={{ color: '#173767', marginTop: 1 }}/>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Line percent={60} strokeWidth={5} strokeColor="#173767"/> 
+                   <Typography variant="subtitle2" style={{ marginLeft: '5px' }}>
+                      60%
+                   </Typography>
+                  </div>
                   </CardContent>
               {/* </Card> */}
               </div>
@@ -199,15 +239,23 @@ const Manager = () => {
                   </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
               <img className="iconCircle" src="/inprogress.png" alt="" />
-              <CardContent>
+             
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       InProgress
                   </Typography>
-                  <Typography variant="h5" className="number">
+                   <CardContent>
+                   <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Typography variant="h5" gutterBottom className="number">
                     100
                   </Typography>
-                  <Divider sx={{ color: '#173767', marginBottom: 1, marginTop: 1 }}/>
-                  <Line percent={60} strokeWidth={5} strokeColor="#173767" />
+                  </div>
+                  <Divider sx={{ color: '#173767', marginTop: 1 }}/>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Line percent={60} strokeWidth={5} strokeColor="#173767"/> 
+                   <Typography variant="subtitle2" style={{ marginLeft: '5px' }}>
+                      60%
+                   </Typography>
+                  </div>
                   </CardContent>
               {/* </Card> */}
               </div>
@@ -220,15 +268,23 @@ const Manager = () => {
                   </Paper> */}
               {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
               <img className="iconCircle" src="/inreview.png" alt="" />
-              <CardContent>
+             
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       InReview
                   </Typography>
-                  <Typography variant="h5" className="number">
+                   <CardContent>
+                   <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Typography variant="h5" gutterBottom className="number">
                   100 
                   </Typography>
-                  <Divider sx={{ color: '#173767', marginBottom: 1, marginTop: 1 }}/>
-                  <Line percent={60} strokeWidth={5} strokeColor="#173767" />
+                  </div>
+                  <Divider sx={{ color: '#173767', marginTop: 1 }}/>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Line percent={60} strokeWidth={5} strokeColor="#173767"/> 
+                   <Typography variant="subtitle2" style={{ marginLeft: '5px' }}>
+                      60%
+                   </Typography>
+                  </div>
                   </CardContent>
               {/* </Card> */}
               </div>
@@ -268,8 +324,8 @@ const Manager = () => {
               <Stack spacing={2} direction="row">
               <Grid item xs={8}>
                 <Card className='card1' sx={{ width: 410, height: 200}}>
-                <CardContent className='title'>
-                 <span >Today due Date</span>
+                 <Typography className='title'>Today due Date</Typography
+                 ><CardContent >
                  <Carousel />     
                 </CardContent>
                 </Card>

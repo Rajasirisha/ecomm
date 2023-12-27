@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Box from '@mui/material/Box';
 import Sidebar from '../components/Sidebar';
+import TabBar from '../components/TabBar';
 
 const Invoicebills = () => {
     return (
@@ -12,6 +13,7 @@ const Invoicebills = () => {
              <Sidebar />
             <Box component="main" sx={{ flexGrow: 1, p:4}}>
             <h1>Welcome to Invoice Bills</h1>
+            <TabBar/>
             </Box>
             </Box>
         </> 

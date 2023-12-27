@@ -2,21 +2,22 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Box from '@mui/material/Box';
 import Sidebar from '../components/Sidebar';
-// import { Calendar } from "antd";
+import { Calendar } from "antd";
 
-const Calendar = () => {
+const Calendarpicker = () => {
     return (
         <>
         <Navbar />
-        <Box height={30} />
+        <Box height={40} />
         <Box sx={{display: "flex"}}>  
         <Sidebar />
-       <Box component="main" sx={{ flexGrow: 1, p:4}}>
-       <h1>Welcome to Calendar</h1>
+       <Box component="main" sx={{ flexGrow: 1, p:3}}>
+       <h1 >Calendar - Tasks Deadline</h1>
+       <Calendar/>
        </Box>
        </Box>
    </> 
     );
 };
 
-export default Calendar;
+export default Calendarpicker;
