@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Box from '@mui/material/Box';
 import Sidebar from '../components/Sidebar';
-import TabBar from '../components/TabBar';
+import TabBarcont from '../components/TabBarcont';
 // import Grid from '@mui/material/Grid';
 // import Button from '@mui/material/Button';
 // import AddIcon from '@mui/icons-material/Add';
@@ -16,7 +16,7 @@ const Contacts = () => {
              <Sidebar />
             <Box component="main" sx={{ flexGrow: 1, p:4}}>
             <h1>Welcome to Contacts</h1>
-            <TabBar/>
+            <TabBarcont/>
             {/* <Grid container alignItems="center" justifyContent="flex-end" spacing={1}>
              <Grid item>
                 <Search />
