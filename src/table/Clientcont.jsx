@@ -26,39 +26,25 @@ import Search from '../components/Search';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import AttachmentIcon from '@mui/icons-material/Attachment';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 
-function createData(id, name, code, description, words, date, owner, writer, reviewer, link, status, marks, result) {
+function createData(sno, name, id, phone, email, address) {
   return {
-    id,
+    sno,
     name,
-    code,
-    description,
-    words,
-    date,
-    owner,
-    writer,
-    reviewer,
-    link,
-    status,
-    marks,
-    result,
+    id,
+    phone,
+    email,
+    address,
   };
 }
 
 const rows = [
-  createData(1, 'Aneesh', 'KRZ-2023-0814', 'Data science', 1500, '31-Oct-2023', 'Kayal', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(2, 'Prathik', 'KRZ-2023-0815', 'Manufacturing', 2500, '31-Dec-2023', 'Zubair', 'Mariyam', 'Completed', 'link', 'Inprogress', 80, 'Pass'),
-  createData(3, 'Sruthi', 'KRZ-2023-0816', 'Medicin', 1000, '31-Jan-2023', 'Khalique', 'Jafreen', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(4, 'Abdul', 'KRZ-2023-0817', 'Design', 500, '01-Jan-2023', 'Zubair', 'Rahul', 'Inprogress', '', 'Inprogress', '-', ''),
-  createData(5, 'A', 'KRZ-2023-0818', 'PPT', 1600, '01-Feb-2023', 'Kayal', 'Antara', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(6, 'B', 'KRZ-2023-0819', 'Data science', 900, '11-Jan-2023', 'Khalique', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(7, 'C', 'KRZ-2023-0810', 'Data science', 800, '11-Feb-2023', 'Zubair', 'Monu', 'Inprogress', '', 'Inprogress', '-', 'Pass'),
-  createData(8, 'D', 'KRZ-2023-0811', 'Data science', 1300, '20-Feb-2023', 'Zubair', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(9, 'E', 'KRZ-2023-0812', 'Data science', 1800, '30-Jan-2023', 'Khalique', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(10, 'F', 'KRZ-2023-0813', 'Data science', 1500, '10-Jan-2023', 'Kayal', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
+  createData(1, 'Aneesh', 10814, 9999999900, 'abc@gmail.com', 'Chennai'),
+  createData(2, 'Prathik', 10815,  8888882500, 'abc@gmail.com', 'Chennai'),
+  createData(3, 'Sruthi', 10816,  7777771000, 'abc@gmail.com', 'Vellore'),
+  createData(4, 'Abdul', 10817, 9999999500, 'abc@gmail.com', 'Vellore'),
+  createData(5, 'A', 10818,  8888881600, 'abc@gmail.com', 'Vellore'),
+  createData(6, 'B', 10819,  9009999999, 'abc@gmail.com', 'Vellore'),
 
 ];
 
@@ -92,82 +78,46 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: 'name',
+    id: 'sno',
     numeric: false,
     disablePadding: true,
-    label: 'Client Name',
+    label: 'S.No',
   },
   {
-    id: 'code',
+    id: 'name',
     numeric: true,
     disablePadding: false,
-    label: 'Task Code',
+    label: 'Name',
   },
   {
-    id: 'description',
+    id: 'id',
     numeric: true,
     disablePadding: false,
-    label: 'Description',
+    label: 'Client Id',
   },
   {
-    id: 'words',
+    id: 'phone',
     numeric: true,
     disablePadding: false,
-    label: 'Words',
+    label: 'Phone Number',
   },
   {
-    id: 'date',
+    id: 'email',
     numeric: true,
     disablePadding: false,
-    label: 'Deadline',
+    label: 'Email',
   },
   {
-    id: 'owner',
+    id: 'adderss',
     numeric: true,
     disablePadding: false,
-    label: 'Owner',
-  },
-  {
-    id: 'writer',
-    numeric: true,
-    disablePadding: false,
-    label: 'Writer',
-  },
-  {
-    id: 'reviewer',
-    numeric: true,
-    disablePadding: false,
-    label: 'Reviewer',
-  },
-  {
-    id: 'link',
-    numeric: true,
-    disablePadding: false,
-    label: 'Folder Link',
-  },
-  {
-    id: 'status',
-    numeric: true,
-    disablePadding: false,
-    label: 'Overall Status',
-  },
-  {
-    id: 'marks',
-    numeric: true,
-    disablePadding: false,
-    label: 'Marks',
-  },
-  {
-    id: 'result',
-    numeric: true,
-    disablePadding: false,
-    label: 'Pass/Fail',
+    label: 'Address',
   },
   {
     id: 'action',
     numeric: true,
     disablePadding: false,
-    label: 'Edit/View',
+    label: 'Action',
   },
 ];
 
@@ -276,7 +226,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-          Tasks
+          Client Details
         </Typography>
       )}
      
@@ -296,7 +246,7 @@ function EnhancedTableToolbar(props) {
               backgroundColor: '#E2A925',
               color: '#fff',
               }, }}>
-                <AddIcon sx={{mr: '2px'}}/>Add Task
+                <AddIcon sx={{mr: '2px'}}/>Add Client
               </Button>
               </Grid>
               </Grid>
@@ -378,18 +328,6 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const [tableData, setTableData] = React.useState(rows);
-
-  const handleResultChange = (event, rowId) => {
-    const updatedData = tableData.map((row) => {
-      if (row.id === rowId) {
-        return { ...row, result: event.target.value };
-      }
-      return row;
-    });
-    setTableData(updatedData);
-  };
-
   const isSelected = (id) => selected.indexOf(id) !== -1;
 
   const emptyRows =
@@ -460,47 +398,22 @@ export default function EnhancedTable() {
                       padding="none"
                       sx={{ textAlign: 'center' }}
                     >
-                      {row.name }
+                      {row.sno }
                     </TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{ row.code}</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.description }</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.words }</TableCell>
-                    <TableCell align="right" sx={{height: '30px', '& .MuiSelect-root': {height: '30px',}, borderRadius: '20px',backgroundColor: 'red', whiteSpace: 'nowrap', color: '#fff' }}>{row.date }</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.owner }</TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap',textAlign: 'center' }}>{row.writer }</TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{row.reviewer }</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>
-                    {row.link ? (
-                      <Tooltip title="Attachment">
-                              <IconButton>
-                                <AttachmentIcon sx={{ color: '#173767' }}/>
-                              </IconButton>
-                            </Tooltip>
-                          ) : (
-                          'No attachment'
-                    )}
-                    </TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.status }</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.marks }</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>
-                      <Select
-                        value={row.result || ''}
-                        onChange={(event) => handleResultChange(event, row.id)} 
-                        displayEmpty
-                        inputProps={{ 'aria-label': 'Result' }}
-                        style={{ minWidth: '80px' }}
-                        >
-                        <MenuItem value="">
-                        <em>Select</em>
-                        </MenuItem>
-                        <MenuItem value="Pass">Pass</MenuItem>
-                        <MenuItem value="Fail">Fail</MenuItem>
-                        </Select>
-                    </TableCell>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{ row.name}</TableCell>
+                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.id }</TableCell>
+                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.phone }</TableCell>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap',textAlign: 'center' }}>{row.email }</TableCell>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{row.address }</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>
                             <Tooltip title="View">
                               <IconButton>
                                 <VisibilityIcon sx={{ color: '#173767' }}/>
+                              </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Delete">
+                              <IconButton>
+                                <DeleteIcon sx={{ color: '#173767' }}/>
                               </IconButton>
                             </Tooltip>
                           </TableCell>
@@ -513,7 +426,7 @@ export default function EnhancedTable() {
                     height: (dense ? 33 : 53) * emptyRows,
                   }}
                 >
-                  <TableCell colSpan={14} />
+                  <TableCell colSpan={7} />
                 </TableRow>
               )}
             </TableBody>

@@ -7,6 +7,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Clientcont from '../table/Clientcont';
+import Empcont from '../table/Empcont';
+import Freelancercont from '../table/Freelancercont';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,7 +57,7 @@ export default function FullWidthTabs() {
   };
 
   return (
-    <Box sx={{ width: 350 }}>
+    <Box sx={{ width: '100%' }}>
       <AppBar position="static">
         <Tabs
           value={value}
@@ -73,6 +76,7 @@ export default function FullWidthTabs() {
               '&.Mui-selected': {
                 color: '#173767', 
               },
+              width: 350,
             },
           }}
         >
@@ -85,15 +89,16 @@ export default function FullWidthTabs() {
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
+        style={{ width: '100%' }}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Client 
+        {value === 0 && <Clientcont />}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Employee 
+        {value === 1 && <Empcont />}
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Freelancer 
+        {value === 2 && <Freelancercont />}
         </TabPanel>
       </SwipeableViews>
     </Box>
