@@ -24,28 +24,26 @@ import { visuallyHidden } from '@mui/utils';
 import Grid from '@mui/material/Grid';
 import Search from '../components/Search';
 import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
+import DownloadIcon from '@mui/icons-material/Download';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
-function createData(sno, name, id, phone, email, address) {
+function createData(sno, name, id, amount, date) {
   return {
     sno,
     name,
     id,
-    phone,
-    email,
-    address,
+    amount,
+    date,
   };
 }
 
 const rows = [
-  createData(1, 'Aneesh', 10814, 9999999900, 'abc@gmail.com', 'Chennai'),
-  createData(2, 'Prathik', 10815,  8888882500, 'abc@gmail.com', 'Chennai'),
-  createData(3, 'Sruthi', 10816,  7777771000, 'abc@gmail.com', 'Vellore'),
-  createData(4, 'Abdul', 10817, 9999999500, 'abc@gmail.com', 'Vellore'),
-  createData(5, 'A', 10818,  8888881600, 'abc@gmail.com', 'Vellore'),
-  createData(6, 'B', 10819,  9009999999, 'abc@gmail.com', 'Vellore'),
+  createData(1, 'Rahul', 10814, 15000, '27 Dec 2023'),
+  createData(2, 'Madhu Bala', 10815,  10000, '27 Dec 2023'),
+  createData(3, 'Mariyam', 10816,  20000, '27 Dec 2023'),
+  createData(4, 'Jafreen', 10817, 25000, '27 Dec 2023'),
+  createData(5, 'Antara', 10818,  15000, '27 Dec 2023'),
+  createData(6, 'Monu', 10819,  12000, '27 Dec 2023'),
 
 ];
 
@@ -88,37 +86,31 @@ const headCells = [
     id: 'name',
     numeric: true,
     disablePadding: false,
-    label: 'Name',
+    label: 'Employee Name',
   },
   {
     id: 'id',
     numeric: true,
     disablePadding: false,
-    label: 'Client Id',
+    label: 'Employee Id',
   },
   {
-    id: 'phone',
+    id: 'amount',
     numeric: true,
     disablePadding: false,
-    label: 'Phone Number',
+    label: 'Amount(₹)',
   },
   {
-    id: 'email',
+    id: 'date',
     numeric: true,
     disablePadding: false,
-    label: 'Email',
+    label: 'Date',
   },
   {
-    id: 'adderss',
+    id: 'payslip',
     numeric: true,
     disablePadding: false,
-    label: 'Address',
-  },
-  {
-    id: 'action',
-    numeric: true,
-    disablePadding: false,
-    label: 'Action',
+    label: 'Payslip',
   },
 ];
 
@@ -227,7 +219,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-          Client Contact Details
+          Employee Payslip Details
         </Typography>
       )}
      
@@ -247,7 +239,7 @@ function EnhancedTableToolbar(props) {
               backgroundColor: '#E2A925',
               color: '#fff',
               }, }}>
-                <AddIcon sx={{mr: '2px'}}/>Add Client
+                Generate
               </Button>
               </Grid>
               </Grid>
@@ -408,18 +400,17 @@ export default function EnhancedTable() {
                     </TableCell>
                     <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{ row.name}</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>{row.id }</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.phone }</TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap',textAlign: 'center' }}>{row.email }</TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{row.address }</TableCell>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap',textAlign: 'center' }}>{row.amount }</TableCell>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap',textAlign: 'center' }}>{row.date }</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>
                             <Tooltip title="View">
                               <IconButton>
                                 <VisibilityIcon sx={{ color: '#173767' }}/>
                               </IconButton>
                             </Tooltip>
-                            <Tooltip title="Edit details">
+                            <Tooltip title="Invoice Download">
                               <IconButton>
-                                <EditIcon sx={{ color: '#173767' }}/>
+                                <DownloadIcon sx={{ color: '#173767' }}/>
                               </IconButton>
                             </Tooltip>
                           </TableCell>

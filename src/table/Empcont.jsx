@@ -25,6 +25,7 @@ import Grid from '@mui/material/Grid';
 import Search from '../components/Search';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
 function createData(sno, name, id, phone, email, address) {
@@ -39,12 +40,12 @@ function createData(sno, name, id, phone, email, address) {
 }
 
 const rows = [
-  createData(1, 'Aneesh', 10814, 9999999900, 'abc@gmail.com', 'Chennai'),
-  createData(2, 'Prathik', 10815,  8888882500, 'abc@gmail.com', 'Chennai'),
-  createData(3, 'Sruthi', 10816,  7777771000, 'abc@gmail.com', 'Vellore'),
-  createData(4, 'Abdul', 10817, 9999999500, 'abc@gmail.com', 'Vellore'),
-  createData(5, 'A', 10818,  8888881600, 'abc@gmail.com', 'Vellore'),
-  createData(6, 'B', 10819,  9009999999, 'abc@gmail.com', 'Vellore'),
+  createData(1, 'Rahul', 10814, 9999999900, 'abc@gmail.com', 'Chennai'),
+  createData(2, 'Madhu Bala', 10815,  8888882500, 'abc@gmail.com', 'Chennai'),
+  createData(3, 'Mariyam', 10816,  7777771000, 'abc@gmail.com', 'Vellore'),
+  createData(4, 'Jafreen', 10817, 9999999500, 'abc@gmail.com', 'Vellore'),
+  createData(5, 'Antara', 10818,  8888881600, 'abc@gmail.com', 'Vellore'),
+  createData(6, 'Monu', 10819,  9009999999, 'abc@gmail.com', 'Vellore'),
 
 ];
 
@@ -226,7 +227,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-        Employee Details
+        Employee Contact Details
         </Typography>
       )}
      
@@ -297,23 +298,28 @@ export default function EnhancedTable() {
   };
 
   const handleClick = (event, id) => {
-    const selectedIndex = selected.indexOf(id);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
-      );
+    const checkbox = event.target.closest('input[type="checkbox"]');
+    
+    if (checkbox) {
+      const selectedIndex = selected.indexOf(id);
+      let newSelected = [];
+  
+      if (selectedIndex === -1) {
+        newSelected = newSelected.concat(selected, id);
+      } else if (selectedIndex === 0) {
+        newSelected = newSelected.concat(selected.slice(1));
+      } else if (selectedIndex === selected.length - 1) {
+        newSelected = newSelected.concat(selected.slice(0, -1));
+      } else if (selectedIndex > 0) {
+        newSelected = newSelected.concat(
+          selected.slice(0, selectedIndex),
+          selected.slice(selectedIndex + 1),
+        );
+      }
+      setSelected(newSelected);
     }
-    setSelected(newSelected);
   };
+  
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -344,7 +350,7 @@ export default function EnhancedTable() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '1250px', mb: 2 }}>
+      <Paper sx={{ width: '1200px', mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} />
          <div style={{ overflowX: 'auto' }}>
         <TableContainer>
@@ -411,9 +417,9 @@ export default function EnhancedTable() {
                                 <VisibilityIcon sx={{ color: '#173767' }}/>
                               </IconButton>
                             </Tooltip>
-                            <Tooltip title="Delete">
+                            <Tooltip title="Edit details">
                               <IconButton>
-                                <DeleteIcon sx={{ color: '#173767' }}/>
+                                <EditIcon sx={{ color: '#173767' }}/>
                               </IconButton>
                             </Tooltip>
                           </TableCell>
@@ -446,8 +452,14 @@ export default function EnhancedTable() {
         />
       </Paper>
       <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
+        control={<Switch checked={dense} onChange={handleChangeDense}  color={dense ? 'primary' : 'default'}
+        />}
         label="Dense padding"
+        sx={{
+    [`& .MuiSwitch-switchBase.Mui-checked`]: {
+      color: dense ? '#173767' : 'disabled',
+    },
+  }}
       />
     </Box>
   );

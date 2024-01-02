@@ -7,6 +7,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Clientib from '../table/Clientib';
+import Empib from '../table/Empib';
+import Freelancerib from '../table/Freelancerib';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -20,7 +23,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{  p: 1, height: 'calc(100vh - 48px)', }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -54,7 +57,7 @@ export default function FullWidthTabs() {
   };
 
   return (
-    <Box sx={{ width: 350 }}>
+    <Box sx={{ width: '100%', maxWidth: 350 }}>
       <AppBar position="static">
         <Tabs
           value={value}
@@ -73,27 +76,29 @@ export default function FullWidthTabs() {
               '&.Mui-selected': {
                 color: '#173767', 
               },
+              // width: 350,
             },
           }}
         >
-          <Tab label="Client" {...a11yProps(0)} /> 
-          <Tab label="Employee" {...a11yProps(1)} /> 
-          <Tab label="Freelancer" {...a11yProps(2)} /> 
+          <Tab label="Client" {...a11yProps(0)} sx={{ maxWidth: '100%' }}/> 
+          <Tab label="Employee" {...a11yProps(1)} sx={{ maxWidth: '100%' }}/> 
+          <Tab label="Freelancer" {...a11yProps(2)} sx={{ maxWidth: '100%' }}/> 
         </Tabs>
       </AppBar>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
+        style={{ width: '1210px' }}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Client 
+        {value === 0 && <Clientib />}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Employee 
+        {value === 1 && <Empib />}
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Freelancer 
+        {value === 2 && <Freelancerib />}
         </TabPanel>
       </SwipeableViews>
     </Box>

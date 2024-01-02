@@ -54,3 +54,27 @@
     color: black;
     /* margin-bottom: 2px; */
 }
+
+@media (max-width: 600px) {
+
+    .datecalendar {
+        width: 325px;
+        height: 385px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+   
+      .datecalendar {
+          width: 325px;
+          height: 385px;
+      }
+}
+
+@media (min-width: 1025px) {
+    
+      .datecalendar {
+          width: 325px;
+          height: 385px;
+      }
+}

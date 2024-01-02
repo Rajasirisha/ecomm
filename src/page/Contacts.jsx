@@ -15,7 +15,7 @@ const Contacts = () => {
              <Box sx={{display: "flex"}}>  
              <Sidebar />
             <Box component="main" sx={{ flexGrow: 1, p:4}}>
-            <h1>Welcome to Contacts</h1>
+            {/* <h1>Welcome to Contacts</h1> */}
             <TabBarcont/>
             {/* <Grid container alignItems="center" justifyContent="flex-end" spacing={1}>
              <Grid item>

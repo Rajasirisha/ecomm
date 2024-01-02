@@ -347,23 +347,28 @@ export default function EnhancedTable() {
   };
 
   const handleClick = (event, id) => {
-    const selectedIndex = selected.indexOf(id);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
-      );
+    const checkbox = event.target.closest('input[type="checkbox"]');
+    
+    if (checkbox) {
+      const selectedIndex = selected.indexOf(id);
+      let newSelected = [];
+  
+      if (selectedIndex === -1) {
+        newSelected = newSelected.concat(selected, id);
+      } else if (selectedIndex === 0) {
+        newSelected = newSelected.concat(selected.slice(1));
+      } else if (selectedIndex === selected.length - 1) {
+        newSelected = newSelected.concat(selected.slice(0, -1));
+      } else if (selectedIndex > 0) {
+        newSelected = newSelected.concat(
+          selected.slice(0, selectedIndex),
+          selected.slice(selectedIndex + 1),
+        );
+      }
+      setSelected(newSelected);
     }
-    setSelected(newSelected);
   };
+  
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -533,8 +538,14 @@ export default function EnhancedTable() {
         />
       </Paper>
       <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
+        control={<Switch checked={dense} onChange={handleChangeDense}  color={dense ? 'primary' : 'default'}
+        />}
         label="Dense padding"
+        sx={{
+    [`& .MuiSwitch-switchBase.Mui-checked`]: {
+      color: dense ? '#173767' : 'disabled',
+    },
+  }}
       />
     </Box>
   );
