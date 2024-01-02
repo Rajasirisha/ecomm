@@ -26,6 +26,25 @@ import Search from '../components/Search';
 import Button from '@mui/material/Button';
 import DownloadIcon from '@mui/icons-material/Download';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import jsPDF from 'jspdf';
+
+const handleDownloadPdf = (rowData) => {
+  const { sno, name, id, amount, date } = rowData;
+
+  const doc = new jsPDF();
+
+  const content = `
+    S.No: ${sno}
+    Employee Name: ${name}
+    Employee Id: ${id}
+    Amount(₹): ${amount}
+    Date: ${date}
+    `;
+
+  doc.text(content, 10, 10);
+
+  doc.save(`${name}_details.pdf`);
+};
 
 function createData(sno, name, id, amount, date) {
   return {
@@ -39,7 +58,7 @@ function createData(sno, name, id, amount, date) {
 
 const rows = [
   createData(1, 'Rahul', 10814, 15000, '27 Dec 2023'),
-  createData(2, 'Madhu Bala', 10815,  10000, '27 Dec 2023'),
+  createData(2, 'Madhu Bala', 10815,  22000, '27 Dec 2023'),
   createData(3, 'Mariyam', 10816,  20000, '27 Dec 2023'),
   createData(4, 'Jafreen', 10817, 25000, '27 Dec 2023'),
   createData(5, 'Antara', 10818,  15000, '27 Dec 2023'),
@@ -409,7 +428,7 @@ export default function EnhancedTable() {
                               </IconButton>
                             </Tooltip>
                             <Tooltip title="Invoice Download">
-                              <IconButton>
+                            <IconButton onClick={() => handleDownloadPdf(row)}>
                                 <DownloadIcon sx={{ color: '#173767' }}/>
                               </IconButton>
                             </Tooltip>

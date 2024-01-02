@@ -385,16 +385,6 @@ export default function EnhancedTable() {
 
   const [tableData, setTableData] = React.useState(rows);
 
-  const handleResultChange = (event, rowId) => {
-    const updatedData = tableData.map((row) => {
-      if (row.id === rowId) {
-        return { ...row, result: event.target.value };
-      }
-      return row;
-    });
-    setTableData(updatedData);
-  };
-
   const isSelected = (id) => selected.indexOf(id) !== -1;
 
   const emptyRows =
@@ -402,12 +392,52 @@ export default function EnhancedTable() {
 
   const visibleRows = React.useMemo(
     () =>
-      stableSort(rows, getComparator(order, orderBy)).slice(
+      stableSort(tableData, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage,
       ),
-    [order, orderBy, page, rowsPerPage],
-  );
+    [order, orderBy, page, rowsPerPage, tableData],
+  );  
+
+  const handleStatusChange = (event, rowId) => {
+    const updatedData = tableData.map((row) => {
+      if (row.id === rowId) {
+        return { ...row, status: event.target.value };
+      }
+      return row;
+    });
+    setTableData(updatedData);
+  };
+
+  const handleMarksChange = (event, rowId) => {
+    const marks = parseInt(event.target.value);
+    const updatedData = tableData.map((row) => {
+      if (row.id === rowId) {
+        return { ...row, marks };
+      }
+      return row;
+    });
+    setTableData(updatedData);
+  };
+  
+  const handleMarksBlur = (event, rowId) => {
+    const marks = event.target.value;
+  let updatedResult = '';
+  
+  if (marks === '' || isNaN(marks)) {
+    updatedResult = '';
+  } else {
+    updatedResult = marks >= 40 ? 'Pass' : 'Fail';
+  }
+  
+  const updatedData = tableData.map((row) => {
+    if (row.id === rowId) {
+      return { ...row, result: updatedResult, marks };
+    }
+    return row;
+  });
+  setTableData(updatedData);
+};
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -485,23 +515,35 @@ export default function EnhancedTable() {
                           'No attachment'
                     )}
                     </TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.status }</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.marks }</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>
-                      <Select
-                        value={row.result || ''}
-                        onChange={(event) => handleResultChange(event, row.id)} 
-                        displayEmpty
-                        inputProps={{ 'aria-label': 'Result' }}
-                        style={{ minWidth: '80px' }}
-                        >
-                        <MenuItem value="">
-                        <em>Select</em>
-                        </MenuItem>
-                        <MenuItem value="Pass">Pass</MenuItem>
-                        <MenuItem value="Fail">Fail</MenuItem>
-                        </Select>
+                    <Select
+                      value={row.status || ''}
+                      onChange={(event) => handleStatusChange(event, row.id)} 
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Status' }}
+                      style={{ minWidth: '120px' }}
+                    >
+                    <MenuItem value=""><em>Status</em></MenuItem>
+                    <MenuItem value="Yet to Allocate">Yet to Allocate</MenuItem>
+                    <MenuItem value="In Progress">In Progress</MenuItem>
+                    <MenuItem value="Delivered/Done">Delivered/Done</MenuItem>
+                    <MenuItem value="Canceled">Canceled</MenuItem>
+                    <MenuItem value="On Hold">On Hold</MenuItem>
+                    <MenuItem value="Yet to Deliver">Yet to Deliver</MenuItem>
+                    </Select>
                     </TableCell>
+
+                    <TableCell align="right" sx={{ textAlign: 'center' }}>
+                    <input
+                      type="number"
+                      value={row.marks}
+                      onChange={(event) => handleMarksChange(event, row.id)}
+                      onBlur={(event) => handleMarksBlur(event, row.id)}
+                      style={{ width: '60px', height: '40px', textAlign: 'center' }}
+                    />
+                    </TableCell>
+
+                    <TableCell align="right" sx={{ textAlign: 'center' }}>{ row.result}</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>
                             <Tooltip title="View">
                               <IconButton>
