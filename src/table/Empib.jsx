@@ -361,7 +361,7 @@ export default function EnhancedTable() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '1200px', mb: 2 }}>
+      <Paper sx={{ width: '1220px', mb: 1 }}>
         <EnhancedTableToolbar numSelected={selected.length} />
          <div style={{ overflowX: 'auto' }}>
         <TableContainer>
@@ -442,7 +442,7 @@ export default function EnhancedTable() {
                     height: (dense ? 33 : 53) * emptyRows,
                   }}
                 >
-                  <TableCell colSpan={7} />
+                  <TableCell colSpan={6} />
                 </TableRow>
               )}
             </TableBody>

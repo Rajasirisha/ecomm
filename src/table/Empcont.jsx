@@ -350,7 +350,7 @@ export default function EnhancedTable() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '1200px', mb: 2 }}>
+      <Paper sx={{ width: '1220px', mb: 1 }}>
         <EnhancedTableToolbar numSelected={selected.length} />
          <div style={{ overflowX: 'auto' }}>
         <TableContainer>

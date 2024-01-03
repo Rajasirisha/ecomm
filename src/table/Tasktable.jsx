@@ -49,16 +49,16 @@ function createData(id, name, code, description, words, date, owner, writer, rev
 }
 
 const rows = [
-  createData(1, 'Aneesh', 'KRZ-2023-0814', 'Data science', 1500, '31-Oct-2023', 'Kayal', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(2, 'Prathik', 'KRZ-2023-0815', 'Manufacturing', 2500, '31-Dec-2023', 'Zubair', 'Mariyam', 'Completed', 'link', 'Inprogress', 80, 'Pass'),
-  createData(3, 'Sruthi', 'KRZ-2023-0816', 'Medicin', 1000, '31-Jan-2023', 'Khalique', 'Jafreen', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(4, 'Abdul', 'KRZ-2023-0817', 'Design', 500, '01-Jan-2023', 'Zubair', 'Rahul', 'Inprogress', '', 'Inprogress', '-', ''),
-  createData(5, 'A', 'KRZ-2023-0818', 'PPT', 1600, '01-Feb-2023', 'Kayal', 'Antara', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(6, 'B', 'KRZ-2023-0819', 'Data science', 900, '11-Jan-2023', 'Khalique', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(7, 'C', 'KRZ-2023-0810', 'Data science', 800, '11-Feb-2023', 'Zubair', 'Monu', 'Inprogress', '', 'Inprogress', '-', 'Pass'),
-  createData(8, 'D', 'KRZ-2023-0811', 'Data science', 1300, '20-Feb-2023', 'Zubair', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(9, 'E', 'KRZ-2023-0812', 'Data science', 1800, '30-Jan-2023', 'Khalique', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
-  createData(10, 'F', 'KRZ-2023-0813', 'Data science', 1500, '10-Jan-2023', 'Kayal', 'Madhu Bala', 'Inprogress', 'link', 'Inprogress', '-', ''),
+  createData(1, 'Aneesh', 'KRZ-2023-0814', 'Data science', 1500, '31-Oct-2023', 'Kayal', 'Madhu Bala', 'Inprogress', 'link', '', '', ''),
+  createData(2, 'Prathik', 'KRZ-2023-0815', 'Manufacturing', 2500, '31-Dec-2023', 'Zubair', 'Mariyam', 'Completed', 'link', 'Delivered/Done', 80, 'Pass'),
+  createData(3, 'Sruthi', 'KRZ-2023-0816', 'Medicin', 1000, '31-Jan-2023', 'Khalique', 'Jafreen', 'Inprogress', 'link', '', '', ''),
+  createData(4, 'Abdul', 'KRZ-2023-0817', 'Design', 500, '01-Jan-2023', 'Zubair', 'Rahul', 'Inprogress', '', '', '', ''),
+  createData(5, 'A', 'KRZ-2023-0818', 'PPT', 1600, '01-Feb-2023', 'Kayal', 'Antara', 'Inprogress', 'link', '', '', ''),
+  createData(6, 'B', 'KRZ-2023-0819', 'Data science', 900, '11-Jan-2023', 'Khalique', 'Madhu Bala', 'Inprogress', 'link', '', '-', ''),
+  createData(7, 'C', 'KRZ-2023-0810', 'Data science', 800, '11-Feb-2023', 'Zubair', 'Monu', 'Inprogress', '', 'Delivered/Done', '33', 'Fail'),
+  createData(8, 'D', 'KRZ-2023-0811', 'Data science', 1300, '20-Feb-2023', 'Zubair', 'Madhu Bala', 'Inprogress', 'link', '', '', ''),
+  createData(9, 'E', 'KRZ-2023-0812', 'Data science', 1800, '30-Jan-2023', 'Khalique', 'Madhu Bala', 'Inprogress', 'link', '', '', ''),
+  createData(10, 'F', 'KRZ-2023-0813', 'Data science', 1500, '10-Jan-2023', 'Kayal', 'Madhu Bala', 'Inprogress', 'link', '', '', ''),
 
 ];
 
@@ -500,7 +500,17 @@ export default function EnhancedTable() {
                     <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{ row.code}</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>{row.description }</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>{row.words }</TableCell>
-                    <TableCell align="right" sx={{height: '30px', '& .MuiSelect-root': {height: '30px',}, borderRadius: '20px',backgroundColor: 'red', whiteSpace: 'nowrap', color: '#fff' }}>{row.date }</TableCell>
+                    <TableCell align="right" sx={{ textAlign: 'center', height: '30px', padding: '0',
+                    '& .MuiSelect-root': {height: '30px',},}}>
+                    <div
+                    style={{
+                     borderRadius: '10px',
+                     backgroundColor: 'red', 
+                     padding: '5px',
+                     whiteSpace: 'nowrap', 
+                     color: '#fff', 
+                     lineHeight: '30px', }}>{row.date }</div>
+                     </TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>{row.owner }</TableCell>
                     <TableCell align="right" sx={{ whiteSpace: 'nowrap',textAlign: 'center' }}>{row.writer }</TableCell>
                     <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{row.reviewer }</TableCell>
@@ -520,22 +530,24 @@ export default function EnhancedTable() {
                       value={row.status || ''}
                       onChange={(event) => handleStatusChange(event, row.id)} 
                       displayEmpty
-                      inputProps={{ 'aria-label': 'Status' }}
-                      style={{ minWidth: '120px' }}
+                      inputProps={{ 'aria-label': 'Status'}}
+                      style={{ minWidth: '100%', maxHeight: '40px', fontSize: '14px' }}
+                      renderValue={(selected) => (!selected ? 'Status' : selected)}
                     >
-                    <MenuItem value=""><em>Status</em></MenuItem>
-                    <MenuItem value="Yet to Allocate">Yet to Allocate</MenuItem>
-                    <MenuItem value="In Progress">In Progress</MenuItem>
-                    <MenuItem value="Delivered/Done">Delivered/Done</MenuItem>
-                    <MenuItem value="Canceled">Canceled</MenuItem>
-                    <MenuItem value="On Hold">On Hold</MenuItem>
-                    <MenuItem value="Yet to Deliver">Yet to Deliver</MenuItem>
+                    <MenuItem value="" sx={{color: '#173767', fontSize: '14px'}}><em>Status</em></MenuItem>
+                    <MenuItem value="Yet to Allocate" sx={{fontSize: '14px'}}>Yet to Allocate</MenuItem>
+                    <MenuItem value="In Progress" sx={{fontSize: '14px'}}>In Progress</MenuItem>
+                    <MenuItem value="Delivered/Done" sx={{fontSize: '14px'}}>Delivered/Done</MenuItem>
+                    <MenuItem value="Canceled" sx={{fontSize: '14px'}}>Canceled</MenuItem>
+                    <MenuItem value="On Hold" sx={{fontSize: '14px'}}>On Hold</MenuItem>
+                    <MenuItem value="Yet to Deliver" sx={{fontSize: '14px'}}>Yet to Deliver</MenuItem>
                     </Select>
                     </TableCell>
 
                     <TableCell align="right" sx={{ textAlign: 'center' }}>
                     <input
                       type="number"
+                      placeholder="00"
                       value={row.marks}
                       onChange={(event) => handleMarksChange(event, row.id)}
                       onBlur={(event) => handleMarksBlur(event, row.id)}
