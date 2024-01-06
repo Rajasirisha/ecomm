@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Sidebar from '../components/Sidebar';
 import Divider from '@mui/material-next/Divider';
 // import Profile from '../components/Profile';
@@ -21,13 +21,13 @@ import Barchart from "../chart/Barchart";
 import Linechart from "../chart/Linechart";
 import Button from '@mui/material/Button';
 import { Line } from 'rc-progress';
-// import Paper from '@mui/material/Paper';
-// import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
-// import PublishedWithChangesOutlinedIcon from '@mui/icons-material/PublishedWithChangesOutlined';
-// import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSearchOutlined';
-// import AssignmentLateOutlinedIcon from '@mui/icons-material/AssignmentLateOutlined';
+import { Link } from 'react-router-dom';
 
 const Manager = () => {
+
+  const onActivityClick = useCallback(() => {
+    
+  }, []);
 
   return (
     <>
@@ -44,8 +44,10 @@ const Manager = () => {
              '&:hover': {
               backgroundColor: '#E2A925',
               color: '#fff',
-              }, }}>
-              Candidates Daily Activity
+              }, }}
+              onClick={onActivityClick}>
+              <Link to="/activity">
+              Candidates Daily Activity</Link>
               </Button>
               </Stack>
               </Grid>

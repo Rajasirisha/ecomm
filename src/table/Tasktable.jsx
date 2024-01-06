@@ -29,6 +29,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import AttachmentIcon from '@mui/icons-material/Attachment';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import Addtask from '../Popup/Addtask';
 
 function createData(id, name, code, description, words, date, owner, writer, reviewer, link, status, marks, result) {
   return {
@@ -249,6 +250,17 @@ EnhancedTableHead.propTypes = {
 function EnhancedTableToolbar(props) {
   const { numSelected } = props;
 
+  const [openPopup, setOpenPopup] = React.useState(false);
+
+  const handleAddTaskClick = () => {
+    setOpenPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setOpenPopup(false);
+  };
+
+
   return (
     <Toolbar
       sx={{
@@ -295,12 +307,13 @@ function EnhancedTableToolbar(props) {
              '&:hover': {
               backgroundColor: '#E2A925',
               color: '#fff',
-              }, }}>
+              }, }}
+              onClick={handleAddTaskClick}>
                 <AddIcon sx={{mr: '2px'}}/>Add Task
               </Button>
+              <Addtask open={openPopup} onClose={handleClosePopup} />
               </Grid>
-              </Grid>
-               
+              </Grid>   
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
@@ -518,7 +531,7 @@ export default function EnhancedTable() {
                     {row.link ? (
                       <Tooltip title="Attachment">
                               <IconButton>
-                                <AttachmentIcon sx={{ color: '#173767' }}/>
+                                <AttachmentIcon sx={{ color: '#173767', transform: 'rotate(-45deg)' }}/>
                               </IconButton>
                             </Tooltip>
                           ) : (

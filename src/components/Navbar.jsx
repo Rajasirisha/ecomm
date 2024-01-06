@@ -178,7 +178,7 @@ export default function Navbar() {
             {dopen ? 
             (<FormatIndentDecreaseIcon sx={{color: '#173767' }}/>) : (<FormatIndentIncreaseIcon sx={{color: '#173767' }}/>)}
           </IconButton>
-          <img className='mt-1 mr-5 bg-[#A3A3A3] rounded ' 
+          <img className='mt-1 mr-5 rounded ' 
           style={{ width: '90px', height: '40px' }} 
           src="menulogo.png" 
           alt="logo" />

@@ -227,7 +227,7 @@ export default function Sidebar() {
                     color: '#ffffff',
                   }}
                 >
-                  <PushPinIcon/>
+                  <PushPinIcon sx={{transform: 'rotate(45deg)',}}/>
                 </ListItemIcon>
                 <ListItemText primary="Task" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>

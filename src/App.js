@@ -13,14 +13,12 @@ import Recovery from './page/Recovery';
 import SetPassword from "./page/SetPassword";
 import Alldone from "./page/Alldone";
 import Task from "./page/Task";
-// import { Calendar } from "antd";
 import Calendar from "./page/Calendar";
 import Contacts from "./page/Contacts";
 import Invoicebills from "./page/Invoicebills";
-import Dashboard from "./page/Dashboard";
+import Activity from "./page/Activity";
 
 function App() {
-  //  const { collapseSidebar } = useProSidebar();
   return(
 <div>
   <BrowserRouter>
@@ -30,12 +28,10 @@ function App() {
     <Route path="/recovery" element={<Recovery/>} />
     <Route path="/setpassword" element={<SetPassword/>} />
     <Route path="/alldone" element={<Alldone/>} />
-  {/* <SideNavBar /> */}    
-    {/* <Route path="/home" element={<Home/>} /> */}
     <Route path="/manager" element={<Manager />} />
     <Route path="/employee" element={<Employee/>} />
     <Route path="/freelancer" element={<Freelancer/>} />
-    <Route path="/dashboard" element={<Dashboard/>} />
+    <Route path="/activity" element={<Activity/>} />
     <Route path="/task" element={<Task/>} />
     <Route path="/calendar" element={<Calendar/>} />
     <Route path="/contacts" element={<Contacts/>} />
