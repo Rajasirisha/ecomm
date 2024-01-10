@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState} from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -27,6 +27,7 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import Addclient from '../Popup/Addclient';
 
 function createData(sno, name, id, phone, email, address) {
   return {
@@ -94,7 +95,7 @@ const headCells = [
     id: 'id',
     numeric: true,
     disablePadding: false,
-    label: 'Client Id',
+    label: 'Client ID',
   },
   {
     id: 'phone',
@@ -199,6 +200,28 @@ EnhancedTableHead.propTypes = {
 
 function EnhancedTableToolbar(props) {
   const { numSelected } = props;
+  const [selected, setSelected] = useState([]);
+  const [clients, setClients] = useState([]);
+
+  const handleAddClient = (newClient) => {
+    setClients([...clients, newClient]);
+  };
+
+  const [openPopup, setOpenPopup] = React.useState(false);
+
+  const handleAddClientClick = () => {
+    setOpenPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setOpenPopup(false);
+  };
+
+  const handleDelete = () => {
+    const updatedClients = clients.filter((client) => !selected.includes(client.id));
+    setClients(updatedClients);
+    setSelected([]);
+  };
 
   return (
     <Toolbar
@@ -246,16 +269,18 @@ function EnhancedTableToolbar(props) {
              '&:hover': {
               backgroundColor: '#E2A925',
               color: '#fff',
-              }, }}>
+              }, }}
+              onClick={handleAddClientClick}>
                 <AddIcon sx={{mr: '2px'}}/>Add Client
               </Button>
+              <Addclient open={openPopup} onClose={handleClosePopup} onAddClient={handleAddClient}/>
               </Grid>
               </Grid>
                
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
-          <IconButton>
+          <IconButton onClick={handleDelete}>
             <DeleteIcon sx={{ color: '#173767' }}/>
           </IconButton>
         </Tooltip>
@@ -351,7 +376,7 @@ export default function EnhancedTable() {
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '1220px', mb: 1 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} selected={selected}/>
          <div style={{ overflowX: 'auto' }}>
         <TableContainer>
         <Grid container>

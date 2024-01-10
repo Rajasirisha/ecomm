@@ -111,7 +111,7 @@ const headCells = [
     id: 'id',
     numeric: true,
     disablePadding: false,
-    label: 'Client Id',
+    label: 'Client ID',
   },
   {
     id: 'amount',

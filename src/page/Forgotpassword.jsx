@@ -24,16 +24,16 @@ const backtoLogin = {
               <img src="images/Logo.png" alt="logo" />
             </div>
           </div>
-          <div className="w-full w-[63px] h-[63px]">
+          <div className="w-full w-[63px] h-[63px] pt-10">
           {/* <div className="max-w-[600px] mx-auto rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
               className=" mx-auto rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro w-[35px] h-[35px] overflow-hidden "
               alt=""
               src="/heroiconsoutlinefingerprint.svg"/>
-          </div>
-          <div className="flex justify-center items-center">
+          
+          <div className="h-full flex justify-center items-center pt-12">
             <div className="w-full m-auto" style={{ maxWidth: "293px" }}>
-              <h4 className="pt-10 pb-10 text-4xl text-center">Forgot Password?</h4>
+              <h4 className="pb-10 text-4xl text-center">Forgot Password?</h4>
               <div className="w-full">
                 <p className="pb-2 leading-none font-semibold">
                     Email<span className="text-[#FF0000]"> *</span>
@@ -42,7 +42,7 @@ const backtoLogin = {
                   className="text-base w-full outline-none leading-none bg-transparent border-2 border-[#B3B3B3] p-2 rounded"
                   placeholder="Enter Your Email"/>
               </div>
-              <div className="w-full pb-2 pt-10">
+              <div className="w-full pb-2 pt-12">
                     <button
                       style={{ background: "#173767" }}
                       className="w-full bg-[#173767]  p-2 rounded-xl outline-none border-none font-semibold"
@@ -60,6 +60,7 @@ const backtoLogin = {
                <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
                <div className="bg-[#B3B3B3] w-[70px] h-1.5 rounded-8xs" />
                <div className="bg-[#B3B3B3] w-[70px] h-1.5 rounded-8xs" />
+            </div>
             </div>
             </div>
           </div>

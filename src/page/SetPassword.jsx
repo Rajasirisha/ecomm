@@ -24,22 +24,22 @@ const backtoLogin = {
           <img src="images/Logo.png" alt="logo" />
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full pt-8">
           {/* <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
               className="mx-auto w-[63px] h-[63px] w-[35px] h-[35px] overflow-hidden"
               alt=""
               src="/group-5.svg"/>
-          </div>
-          <div className="flex justify-center items-center">
+          
+          <div className="h-full flex justify-center items-center pt-6">
             <div className="w-full" style={{ maxWidth: "293px" }}>
-              <h4 className="pt-10 text-center text-4xl w-[319px]">Set New Password</h4>
+              <h4 className="text-center text-4xl  md:w-[319px]">Set New Password</h4>
                 <div className="w-full">
-                  <p className="leading-none text-center">
+                  <p className="pt-2 leading-none text-center">
                     Must be atleast 8 characters</p>
                 </div>
                 <div className="pb-1 leading-none font-semibold"> 
-                  <div className="w-full">
+                  <div className="w-full pt-4 pb-4">
                     <p className="pb-1 leading-none font-semibold">
                         Password
                     </p>
@@ -57,7 +57,7 @@ const backtoLogin = {
                       placeholder="********"
                       type="password"/>
                   </div>
-                  <div className="w-full pb-2 pt-3">
+                  <div className="w-full pb-2 pt-5">
                     <button
                       style={{ background: "#173767", height:"40px" }}
                       className="w-full bg-[#173767] text-white p-2 rounded-xl outline-none border-none font-semibold"
@@ -72,10 +72,11 @@ const backtoLogin = {
                          
                   <Link to="" className="link-no-underline text-[#173767]"><span>&#8701; </span> Back to Login</Link>
               </p>
-                <div className="w-full max-w-[600px] flex justify-between mt-8">
+                <div className="w-full max-w-[600px] flex justify-between mt-4">
                 <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
                 <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
                 <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
+                </div>
                 </div>
                 </div> 
                 </div>

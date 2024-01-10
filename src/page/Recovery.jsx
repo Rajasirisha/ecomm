@@ -25,21 +25,21 @@ const backtoLogin = {
           <img src="images/Logo.png" alt="logo" />
           </div>
         </div>
-        <div className="w-full w-[63px] h-[63px]">
+        <div className="w-full w-[63px] h-[63px] pt-10">
           {/* <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
               className="mx-auto rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro w-[35px] h-[35px] overflow-hidden "
               alt=""
               src="/heroiconsoutlinemailopen.svg"/>
-          </div>
-          <div className="flex justify-center items-center">
+          
+          <div className="h-full flex justify-center items-center pt-8">
             <div className="w-full m-auto" style={{ maxWidth: "319px" }}>
               <h4 className="pt-10 text-center text-4xl">Password Recovery</h4>
                 <div className="w-full">
                   <p className="leading-none text-center">
                       We sent a code to your Email</p>
                 </div>
-                <div className="flex justify-center mt-8">
+                <div className="flex justify-center pb-3 mt-5">
         <div className="w-full max-w-[600px] flex justify-between items-center">
           <div className="input-container">
             <input
@@ -101,6 +101,7 @@ const backtoLogin = {
                <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
                <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
                <div className="bg-[#B3B3B3] w-[70px] h-1.5 rounded-8xs" />
+              </div>
               </div>
               </div>
             </div>

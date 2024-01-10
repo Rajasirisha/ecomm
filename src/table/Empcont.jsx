@@ -94,7 +94,7 @@ const headCells = [
     id: 'id',
     numeric: true,
     disablePadding: false,
-    label: 'Employee Id',
+    label: 'Employee ID',
   },
   {
     id: 'phone',

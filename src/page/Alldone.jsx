@@ -22,31 +22,33 @@ const Alldone = () => {
           <img src="images/Logo.png" alt="logo" />
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full pt-10">
           {/* <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
               className="mx-auto  w-[63px] h-[63px] w-[35px] h-[35px] overflow-hidden"
               alt=""
               src="/tick.svg"/>
-          </div>
-          <div className="flex justify-center items-center">
+          
+          <div className="h-full flex justify-center items-center pt-10">
             <div className="w-full m-auto" style={{ maxWidth: "293px" }}>
-              <h4 className="pt-10 pb-2 text-4xl text-center">All Done !</h4>
+              <h4 className="pb-5 text-4xl text-center">All Done !</h4>
                 <div className="w-full">
                   <p className="leading-none text-center">
                       Your password has been reset.
                   </p>
-                  <p className="leading-none text-center">
+                  <p className="leading-none text-center pt-1 pb-5">
                       Now you can go to Login Page</p>
                 
-            <div className="cursor-pointer text-center pt-5">
+            <div className="cursor-pointer text-center pt-10">
                 <button
                     style={{ background: "#173767" }}
                     className="w-[120px] h-[40px] bg-[#173767] text-white p-2 rounded-xl outline-none border-[1px] font-semibold"
                     onClick={handleOkClicked}>
                    <Link to="/" className="link-no-underline text-white">Ok</Link>
                 </button>
-            </div></div>
+            </div>
+            </div>
+            </div>
             </div>
           </div>
         </div>         
