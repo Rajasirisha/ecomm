@@ -90,7 +90,7 @@ export default function Addclient({ open, onClose, onAddClient }) {
         
         <Stack spacing={1} direction="row">
         <Grid item xs={4}>
-        <Card sx={{width: '140px', height: 160, border: '1px solid #B3B3B3', borderRadius: '5px',}}>
+        <Card sx={{display: 'flex', alignItems: 'center', width: '140px', height: 160, border: '1px solid #B3B3B3', borderRadius: '5px',}}>
         <CardContent>
                 <div
                   style={{
@@ -166,7 +166,7 @@ export default function Addclient({ open, onClose, onAddClient }) {
             </Grid>
 
             <Grid item xs={11}>
-        <Card sx={{ width: '100%', height: 160, border: '1px solid #B3B3B3', borderRadius: '5px',}}>
+        <Card sx={{display: 'flex', alignItems: 'center', width: '100%', height: 160, border: '1px solid #B3B3B3', borderRadius: '5px',}}>
         <CardContent >
         <Grid item >
             <div>

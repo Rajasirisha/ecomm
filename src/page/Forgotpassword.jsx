@@ -56,7 +56,7 @@ const backtoLogin = {
                          
                   <Link to="" className="link-no-underline text-[#173767]"><span>&#8701; </span> Back to Login</Link>
               </p>
-               <div className="w-full max-w-[600px] flex justify-between mt-8">
+               <div className="w-full max-w-[600px] flex justify-between mt-12">
                <div className="bg-[#173767] w-[70px] h-1.5 rounded-8xs" />
                <div className="bg-[#B3B3B3] w-[70px] h-1.5 rounded-8xs" />
                <div className="bg-[#B3B3B3] w-[70px] h-1.5 rounded-8xs" />

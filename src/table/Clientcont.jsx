@@ -116,10 +116,10 @@ const headCells = [
     label: 'Address',
   },
   {
-    id: 'action',
+    id: 'actions',
     numeric: true,
     disablePadding: false,
-    label: 'Action',
+    label: 'Actions',
   },
 ];
 
@@ -203,9 +203,9 @@ function EnhancedTableToolbar(props) {
   const [selected, setSelected] = useState([]);
   const [clients, setClients] = useState([]);
 
-  const handleAddClient = (newClient) => {
-    setClients([...clients, newClient]);
-  };
+  // const handleAddClient = (newClient) => {
+  //   setClients([...clients, newClient]);
+  // };
 
   const [openPopup, setOpenPopup] = React.useState(false);
 
@@ -222,6 +222,29 @@ function EnhancedTableToolbar(props) {
     setClients(updatedClients);
     setSelected([]);
   };
+  
+  const handleAddClientDetails = (clientDetails) => {
+  const { name, id, email, phone, address } = clientDetails;
+
+  const newClientRow = {
+    sno: tableData.length + 1,
+    name: name, 
+    id: id, 
+    email: email, 
+    phone: phone,
+    address: address,
+  };
+
+  const updatedTableData = [...tableData, newClientRow];
+  setTableData(updatedTableData);
+};
+
+const [tableData, setTableData] = useState([
+  {name: '', id: '', email: '', phone: '', address: '', },
+  {name: '', id: '', email: '', phone: '', address: '', },
+  {name: '', id: '', email: '', phone: '', address: '', },
+]);
+
 
   return (
     <Toolbar
@@ -273,7 +296,7 @@ function EnhancedTableToolbar(props) {
               onClick={handleAddClientClick}>
                 <AddIcon sx={{mr: '2px'}}/>Add Client
               </Button>
-              <Addclient open={openPopup} onClose={handleClosePopup} onAddClient={handleAddClient}/>
+              <Addclient open={openPopup} onClose={handleClosePopup} onAddClient={handleAddClientDetails}/>
               </Grid>
               </Grid>
                
@@ -439,12 +462,12 @@ export default function EnhancedTable() {
                     <TableCell align="right" sx={{ textAlign: 'center' }}>
                             <Tooltip title="View">
                               <IconButton>
-                                <VisibilityIcon sx={{ color: '#173767' }}/>
+                                <VisibilityIcon sx={{ color: '#173767', width: '25px', height: '20px' }}/>
                               </IconButton>
                             </Tooltip>
                             <Tooltip title="Edit details">
                               <IconButton>
-                                <EditIcon sx={{ color: '#173767' }}/>
+                                <EditIcon sx={{ color: '#173767', width: '25px', height: '20px' }}/>
                               </IconButton>
                             </Tooltip>
                           </TableCell>

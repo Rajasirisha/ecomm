@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState} from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -27,25 +27,29 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import Addemp from '../Popup/Addemp';
 
-function createData(sno, name, id, phone, email, address) {
+function createData(sno, name, id, phone, email, department, role, officemode, onboarding) {
   return {
     sno,
     name,
     id,
     phone,
     email,
-    address,
+    department,
+    role,
+    officemode,
+    onboarding,
   };
 }
 
 const rows = [
-  createData(1, 'Rahul', 10814, 9999999900, 'abc@gmail.com', 'Chennai'),
-  createData(2, 'Madhu Bala', 10815,  8888882500, 'abc@gmail.com', 'Chennai'),
-  createData(3, 'Mariyam', 10816,  7777771000, 'abc@gmail.com', 'Vellore'),
-  createData(4, 'Jafreen', 10817, 9999999500, 'abc@gmail.com', 'Vellore'),
-  createData(5, 'Antara', 10818,  8888881600, 'abc@gmail.com', 'Vellore'),
-  createData(6, 'Monu', 10819,  9009999999, 'abc@gmail.com', 'Vellore'),
+  createData(1, 'Rahul', 10814, 9999999900, 'abc@gmail.com', 'Content writing', 'Writer', 'In-Office', '05-03-2022'),
+  createData(2, 'Madhu Bala', 10815,  8888882500, 'abc@gmail.com', 'Finance','Manager', 'In-Office', '18-03-2022'),
+  createData(3, 'Mariyam', 10816,  7777771000, 'abc@gmail.com', 'Content writing', 'Writer','In-Office', '15-02-2023'),
+  createData(4, 'Jafreen', 10817, 9999999500, 'abc@gmail.com', 'Content writing', 'Writer', 'WFH', '01-08-2023'),
+  createData(5, 'Antara', 10818,  8888881600, 'abc@gmail.com', 'Content writing', 'Writer', 'WFH', '08-10-2023'),
+  createData(6, 'Monu', 10819,  9009999999, 'abc@gmail.com','Content writing', 'Writer', 'WFH', '12-11-2023'),
 
 ];
 
@@ -109,16 +113,34 @@ const headCells = [
     label: 'Email',
   },
   {
-    id: 'adderss',
+    id: 'department',
     numeric: true,
     disablePadding: false,
-    label: 'Address',
+    label: 'Department',
   },
   {
-    id: 'action',
+    id: 'role',
     numeric: true,
     disablePadding: false,
-    label: 'Action',
+    label: 'Role',
+  },
+  {
+    id: 'officemode',
+    numeric: true,
+    disablePadding: false,
+    label: 'Office Mode',
+  },
+  {
+    id: 'onboarding',
+    numeric: true,
+    disablePadding: false,
+    label: 'Onboarding',
+  },
+  {
+    id: 'actions',
+    numeric: true,
+    disablePadding: false,
+    label: 'Actions',
   },
 ];
 
@@ -199,6 +221,49 @@ EnhancedTableHead.propTypes = {
 
 function EnhancedTableToolbar(props) {
   const { numSelected } = props;
+  const [selected, setSelected] = useState([]);
+  const [emp, setEmp] = useState([]);
+
+  const [openPopup, setOpenPopup] = React.useState(false);
+
+  const handleAddEmpClick = () => {
+    setOpenPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setOpenPopup(false);
+  };
+
+  const handleDelete = () => {
+    const updatedEmp = emp.filter((emp) => !selected.includes(emp.id));
+    setEmp(updatedEmp);
+    setSelected([]);
+  };
+  
+  const handleAddEmpDetails = (empDetails) => {
+  const { name, id, email, phone, department, role, officemode, onboarding } = empDetails;
+
+  const newEmpRow = {
+    sno: tableData.length + 1,
+    name: name, 
+    id: id, 
+    email: email, 
+    phone: phone,
+    department: department,
+    role: role,
+    officemode: officemode,
+    onboarding: onboarding,
+  };
+
+  const updatedTableData = [...tableData, newEmpRow];
+  setTableData(updatedTableData);
+};
+
+const [tableData, setTableData] = useState([
+  {name: '', id: '', email: '', phone: '', department: '', role: '', officemode: '', onboarding: '' },
+  {name: '', id: '', email: '', phone: '', department: '', role: '', officemode: '', onboarding: '' },
+  {name: '', id: '', email: '', phone: '', department: '', role: '', officemode: '', onboarding: '' },
+]);
 
   return (
     <Toolbar
@@ -246,16 +311,18 @@ function EnhancedTableToolbar(props) {
              '&:hover': {
               backgroundColor: '#E2A925',
               color: '#fff',
-              }, }}>
+              }, }}
+              onClick={handleAddEmpClick}>
                 <AddIcon sx={{mr: '2px'}}/>Add Employee
               </Button>
+              <Addemp open={openPopup} onClose={handleClosePopup} onAddEmp={handleAddEmpDetails}/>
               </Grid>
               </Grid>
                
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
-          <IconButton>
+          <IconButton onClick={handleDelete}>
             <DeleteIcon sx={{ color: '#173767' }}/>
           </IconButton>
         </Tooltip>
@@ -410,19 +477,22 @@ export default function EnhancedTable() {
                     <TableCell align="right" sx={{ textAlign: 'center' }}>{row.id }</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>{row.phone }</TableCell>
                     <TableCell align="right" sx={{ whiteSpace: 'nowrap',textAlign: 'center' }}>{row.email }</TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{row.address }</TableCell>
-                    <TableCell align="right" sx={{ textAlign: 'center' }}>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{row.department }</TableCell>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{row.role }</TableCell>
+                    <TableCell align="right" sx={{ textAlign: 'center' }}>{row.officemode }</TableCell>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center', }}>{row.onboarding }</TableCell>
+                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center'}}>
                             <Tooltip title="View">
                               <IconButton>
-                                <VisibilityIcon sx={{ color: '#173767' }}/>
+                                <VisibilityIcon sx={{ color: '#173767', width: '25px', height: '20px' }}/>
                               </IconButton>
                             </Tooltip>
                             <Tooltip title="Edit details">
                               <IconButton>
-                                <EditIcon sx={{ color: '#173767' }}/>
+                                <EditIcon sx={{ color: '#173767', width: '25px', height: '20px' }}/>
                               </IconButton>
                             </Tooltip>
-                          </TableCell>
+                            </TableCell>  
                   </TableRow>
                 );
               })}
@@ -432,7 +502,7 @@ export default function EnhancedTable() {
                     height: (dense ? 33 : 53) * emptyRows,
                   }}
                 >
-                  <TableCell colSpan={7} />
+                  <TableCell colSpan={10} />
                 </TableRow>
               )}
             </TableBody>

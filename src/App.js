@@ -17,6 +17,7 @@ import Calendar from "./page/Calendar";
 import Contacts from "./page/Contacts";
 import Invoicebills from "./page/Invoicebills";
 import Activity from "./page/Activity";
+import Empgenerate from "./page/Empgenerate";
 
 function App() {
   return(
@@ -36,6 +37,7 @@ function App() {
     <Route path="/calendar" element={<Calendar/>} />
     <Route path="/contacts" element={<Contacts/>} />
     <Route path="/invoicebills" element={<Invoicebills/>} />
+    <Route path="/empgenerate" element={<Empgenerate/>} />
     
  </Routes>
   </BrowserRouter>

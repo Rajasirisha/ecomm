@@ -61,10 +61,7 @@ const Manager = () => {
               <Stack spacing={2} direction="row">
                 <Box sx={{width: "40%", height: "20%"}}>
                   <div  className='card w-[210px] h-[170px]'> 
-                  {/* <Paper className="iconCircle" elevation={3}>
-                  <AssignmentOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper> */}
-               {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150, bg: '#FFE19B', radius: '20px' }}> */}
+                  
                <img className="iconCircle" src="/assignment.png" alt="" />
                <Typography className='title'  variant="subtitle1">
                       Assignment
@@ -80,17 +77,12 @@ const Manager = () => {
                   <Namebutton />
                   </div>
                  </CardContent>
-                {/* </Card> */}
-                </div>
+                  </div>
               </Box>
               
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  {/* <Paper className="iconCircle" elevation={3}>
-                  <AssignmentLateOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper> */}
-              {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
-              <img className="iconCircle" src="/yettoallocate.png" alt="" />
+                <img className="iconCircle" src="/yettoallocate.png" alt="" />
              
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       Yet to Allocate
@@ -109,16 +101,13 @@ const Manager = () => {
                    </Typography>
                   </div>
                   </CardContent>
-              {/* </Card> */}
+             
               </div>
               </Box>
               
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  {/* <Paper className="iconCircle" elevation={3}>
-                  <PublishedWithChangesOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper> */}
-              {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+                  
               <img className="iconCircle" src="/inprogress.png" alt="" />
               
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
@@ -138,16 +127,13 @@ const Manager = () => {
                    </Typography>
                   </div>
                   </CardContent>
-              {/* </Card> */}
+             
               </div>
               </Box>
              
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  {/* <Paper className="iconCircle" elevation={3}>
-                  <ContentPasteSearchOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper> */}
-              {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+                 
               <img className="iconCircle" src="/inreview.png" alt="" />
               
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
@@ -167,25 +153,20 @@ const Manager = () => {
                    </Typography>
                   </div>
                   </CardContent>
-              {/* </Card> */}
+              
               </div>
               </Box>
               </Stack>
               </Grid>
-               {/* sx={{  minWidth: 40 + "%", height: 360, }}> */}
-             
-               
+              
              
               <Box height={20} />
-              {/* <Grid container spacing={2}> */}
+              
               <Grid item xs={12}>
               <Stack spacing={2} direction="row">
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  {/* <Paper className="iconCircle" elevation={3}>
-                  <AssignmentOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper> */}
-              {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150 }}> */}
+                  
               <img className="iconCircle" src="/assignment.png" alt="" />
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
                       Dissertation
@@ -201,16 +182,13 @@ const Manager = () => {
                   <Dissbutton />
                   </div>
                   </CardContent>
-              {/* </Card> */}
+             
               </div>
               </Box>
 
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  {/* <Paper className="iconCircle" elevation={3}>
-                  <AssignmentLateOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper> */}
-              {/* <Card className='card' sx={{ minWidth: 24 + "%", height: 150 }}> */}
+                 
               <img className="iconCircle" src="/yettoallocate.png" alt="" />
               
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
@@ -230,16 +208,13 @@ const Manager = () => {
                    </Typography>
                   </div>
                   </CardContent>
-              {/* </Card> */}
+              
               </div>
               </Box>
               
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[210px] h-[170px]'> 
-                  {/* <Paper className="iconCircle" elevation={3}>
-                  <PublishedWithChangesOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper> */}
-              {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+                  
               <img className="iconCircle" src="/inprogress.png" alt="" />
              
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
@@ -259,16 +234,13 @@ const Manager = () => {
                    </Typography>
                   </div>
                   </CardContent>
-              {/* </Card> */}
+             
               </div>
               </Box>
              
               <Box sx={{width: "40%", height: "20%"}}>
               <div  className='card w-[220px] h-[170px]'> 
-                  {/* <Paper className="iconCircle" elevation={3}>
-                  <ContentPasteSearchOutlinedIcon sx={{ color: '#173767' }}/>
-                  </Paper> */}
-              {/* <Card className='card' sx={{  minWidth: 24 + "%", height: 150 }}> */}
+                  
               <img className="iconCircle" src="/inreview.png" alt="" />
              
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
@@ -288,22 +260,17 @@ const Manager = () => {
                    </Typography>
                   </div>
                   </CardContent>
-              {/* </Card> */}
+              
               </div>
               </Box>
               </Stack>
               </Grid>
               </Stack>
-              {/* </Grid> */}
               
-              {/* <Grid item xs={4}> */}
                 <Stack  spacing={2} sx={{ marginLeft: 2 }}>
                 <Box >
                    <div  className="datecalendar w-[330px] h-[385px] " > 
-                {/* <Typography className='title' gutterBottom variant="subtitle1" component="div">
-                      Calendar
-                  </Typography> */}
-                {/* <Card sx={{ p:1, minWidth: 40 + "%", height: 360 }}> */}
+                
                 <CardContent >
                
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -312,17 +279,15 @@ const Manager = () => {
                 
                 </LocalizationProvider>
                 </CardContent>            
-                {/* </Card> */}
+               
                 </div>
                 </Box>
                 </Stack>
-                {/* </Grid> */}
-
+                
               </Grid>
            
               <Box height={20} />
-              {/* <Grid container spacing={2}> */}
-              {/* <Grid item xs={8}> */}
+              
               <Stack spacing={2} direction="row">
               <Grid item xs={8}>
                 <Card className='card1' sx={{ width: 410, height: 200}}>
@@ -341,11 +306,9 @@ const Manager = () => {
                   </Card>
                   </Grid> 
                   </Stack>
-              {/* </Grid> */}
-              {/* </Grid> */}
-
+             
               <Box height={20} />
-              {/* <Grid container spacing={2}> */}
+             
               <Grid item xs={12}>
               <Stack spacing={2}>
               
@@ -356,8 +319,7 @@ const Manager = () => {
                 </Card>
                 </Stack>
               </Grid>
-              {/* </Grid> */}
-           
+                        
             </Box>
             </Box>
             </div>
