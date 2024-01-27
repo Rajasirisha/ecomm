@@ -7,14 +7,14 @@ import { AppBar, TableFooter } from '@mui/material';
 import { Stack, Grid, Card, CardContent, DialogActions, Button, Divider} from '@mui/material';
 import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 import SyncIcon from '@mui/icons-material/Sync';
+// import { useNavigate } from 'react-router-dom';
 
 export default function Empgenerate({ open, onClose, onEmpGenerate }) {
-
+  
   const initialState = {
     empDetails: {
       name: "",
       id: "",
-      email: "",
       department: "",
       designation: "",
       location: "",
@@ -40,10 +40,12 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
     ],
   };
 
-      const handleEmpGenerate = () => {
-        onEmpGenerate(empDetails);
-        onClose();
-      };
+  // const navigate = useNavigate();    
+  // const handleEmpGenerate = () => {
+  //       onEmpGenerate(empDetails);
+  //       // onClose();
+  //       navigate('/emppayview');
+  //     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -180,7 +182,6 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
                 <div>
                 <input
                   type="month"
-                  placeholder="Month,2024"
                   style={{outline: 'none', width: '130px' , height: '30px', border: '1px solid #173767', borderRadius: '5px', padding: '2px' }}
                 />
                 </div>
@@ -438,6 +439,9 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
               ))}
             
             <TableRow>
+              <TableCell style={{padding: '29px'}}></TableCell>
+            </TableRow>
+            <TableRow>
               <TableCell style={{fontWeight: '600'}}>Total Deductions</TableCell>
               <TableCell style={{fontWeight: '600'}} align="right">₹{calculateTotal(deductions)}</TableCell>
             </TableRow>
@@ -461,7 +465,8 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
     Gross Earnings - Total Deductions
   </Typography></TableCell>
   </div>
-  <TableCell align="center" style={{width: '180px',backgroundColor: '#173767', color: '#FFF', fontSize: '20px', borderRadius: ' 0 20px 20px 0' }}>₹{grossEarnings - totalDeductions}</TableCell>
+  <TableCell align="center" style={{width: '180px',backgroundColor: '#173767', color: '#FFF', fontSize: '20px', borderRadius: ' 0 20px 20px 0' }}>
+    ₹{grossEarnings - totalDeductions}</TableCell>
   </TableRow>
   </TableFooter>
   </Table>
@@ -490,7 +495,12 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
           '&:hover': {
            backgroundColor: '#173767',
            color: '#E2A925',
-           }, }} onClick={handleEmpGenerate}>Generate Payslip
+           }, }} 
+          //  onClick={handleEmpGenerate}
+           >
+            <Link to="/emppayview">
+              Generate Payslip
+              </Link>
            </Button>
            
            <Button variant="outlined" 

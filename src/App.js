@@ -3,7 +3,6 @@ import React from "react";
 // import { Select, Space } from "antd";
 // import './styles.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import Login from "./page/Login";
 import Freelancer from "./page/Freelancer";
 import Manager from './page/Manager';
@@ -18,6 +17,9 @@ import Contacts from "./page/Contacts";
 import Invoicebills from "./page/Invoicebills";
 import Activity from "./page/Activity";
 import Empgenerate from "./page/Empgenerate";
+import Emppayview from './page/Emppayview';
+import Freelancergenerate from "./page/Freelancergenerate";
+import Freelancerpayview from './page/Freelancerpayview';
 
 function App() {
   return(
@@ -38,6 +40,9 @@ function App() {
     <Route path="/contacts" element={<Contacts/>} />
     <Route path="/invoicebills" element={<Invoicebills/>} />
     <Route path="/empgenerate" element={<Empgenerate/>} />
+    <Route path="/emppayview" element={<Emppayview/>} />
+    <Route path="/freelancergenerate" element={<Freelancergenerate/>} />
+    <Route path="/freelancerpayview" element={<Freelancerpayview/>} />
     
  </Routes>
   </BrowserRouter>
