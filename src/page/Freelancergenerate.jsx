@@ -7,6 +7,7 @@ import { AppBar, TableFooter } from '@mui/material';
 import { Stack, Grid, Card, CardContent, DialogActions, Button, Divider} from '@mui/material';
 import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 import SyncIcon from '@mui/icons-material/Sync';
+import './Generate.css';
 // import { useNavigate } from 'react-router-dom';
 
 export default function Freelancergenerate({ open, onClose, onFreelancerGenerate }) {
@@ -149,7 +150,7 @@ const handleSubmit = (e) => {
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: 'flex', }}
           >
             Generate Freelancer Payslip
           </Typography>
@@ -158,8 +159,8 @@ const handleSubmit = (e) => {
 
       <Box height={70} />
       <form onSubmit={handleSubmit}>
-      <Stack spacing={1} direction="row">
-      <Card sx={{display: 'flex', alignItems: 'center', width: '100%', height: '100%', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
+      <Stack spacing={2}>
+      <Card sx={{display: 'flex', flexDirection: 'column', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
         <CardContent>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -191,18 +192,23 @@ const handleSubmit = (e) => {
                 </div>
           <Divider sx={{ border: '1px solid #B3B3B3'}}/>
 
+          <div>
           <Typography
             variant="h6"
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' }, '& span': { color: 'Red' } }}
+            sx={{ display: 'flex', '& span': { color: 'Red' } }}
             >
             Freelancer Pay Summary <span>*</span>
           </Typography>
 
-                <Stack spacing={13} direction="row">  
-                <Box sx={{display: 'flex', alignItems: 'center', width: '600px', height: '120px', fontSize: '14px' }}>
+            <div>
+                <Stack spacing={5} direction="row" className="freelancer-info-container">  
+                <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                <Box sx={{display: 'flex', alignItems: 'left', maxwidth: '600px', minWidth: '400px', height: '120px', fontSize: '14px' }}
+                className="freelancer-info-box">
                 <CardContent>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
@@ -243,8 +249,11 @@ const handleSubmit = (e) => {
                 </div>
                 </CardContent>
                 </Box>
+                </Grid>
 
-                <Box sx={{display: 'flex', alignItems: 'center', width: '600px', height: '120px', fontSize: '14px' }}>
+                <Grid item xs={12} sm={6}>
+                <Box sx={{display: 'flex', alignItems: 'left', maxwidth: '600px', minWidth: '400px', height: '120px', fontSize: '14px' }}
+                className="freelancer-info-box">
                 <CardContent>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
@@ -286,18 +295,24 @@ const handleSubmit = (e) => {
                 </div>
                 </CardContent>
                 </Box>
+                </Grid>
+                </Grid>
                 </Stack>
+                </div>
+                </div>
 
+                <div>
                 <Typography
             variant="h6"
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' }, '& span': { color: 'Red' } }}
+            sx={{display: 'flex', '& span': { color: 'Red' } }}
             >
             Income Details <span>*</span>
           </Typography>
          
+          <div>
           <Box sx={{display: 'flex', alignItems: 'center', width: '100%', height: '100%',
            border: '1px solid #B3B3B3', padding: '10px', borderRadius: '20px', fontSize: '14px' }}>
           <Grid container spacing={2}>
@@ -393,6 +408,8 @@ const handleSubmit = (e) => {
         </Grid>
       </Grid>
       </Box>
+      </div>
+      </div>
 
       <Box height={20} />
       <Box sx={{
@@ -409,12 +426,13 @@ const handleSubmit = (e) => {
                 <TableRow>
                     <TableCell variant="subtitle1" noWrap component="div" color="#000000" sx={{
                       fontWeight: '600',
-                      display: { xs: 'none', sm: 'block' }
+                      display: 'flex',
                     }}>
                       Total Net Payable
                     </TableCell>
                   <TableCell align="center" style={{
-                    width: '180px',
+                    maxWidth: '150px',
+                    minWidth: '100px',
                     backgroundColor: '#173767',
                     color: '#FFF',
                     fontSize: '20px',
@@ -433,7 +451,7 @@ const handleSubmit = (e) => {
             noWrap
             component="div"
             color="gray"
-            sx={{ display: { xs: 'none', sm: 'block' }, '& span': { color: '#000000' } }}
+            sx={{ display: 'flex-end', '& span': { color: '#000000' } }}
             >
              Amount in Words :<span>{amountInWords}</span>
           </Typography>
@@ -450,7 +468,7 @@ const handleSubmit = (e) => {
           '&:hover': {
            backgroundColor: '#173767',
            color: '#E2A925',
-           }, }} 
+           },'@media (max-width: 600px)': { fontSize: '12px' }, }} 
           //  onClick={handleFreelancerGenerate}
            >
             <Link to="/freelancerpayview">
@@ -465,7 +483,8 @@ const handleSubmit = (e) => {
           '&:hover': {
            backgroundColor: '#B3B3B3',
            color: '#173767',
-           }, }} onClick={handleReset}> <SyncIcon sx={{color: '#173767'}}/> Reset
+           }, '@media (max-width: 600px)': { fontSize: '12px' }, }} 
+            onClick={handleReset}> <SyncIcon sx={{color: '#173767'}}/> Reset
            </Button>
         
         <Button 
@@ -477,7 +496,8 @@ const handleSubmit = (e) => {
           '&:hover': {
            backgroundColor: '#E2A925',
            color: '#000000',
-           }, }} onClick={onClose}>Back
+           },'@media (max-width: 600px)': { fontSize: '12px' }, }} 
+           onClick={onClose}>Back
            </Button>
       </DialogActions>
           </form>

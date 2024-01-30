@@ -20,6 +20,8 @@ import Empgenerate from "./page/Empgenerate";
 import Emppayview from './page/Emppayview';
 import Freelancergenerate from "./page/Freelancergenerate";
 import Freelancerpayview from './page/Freelancerpayview';
+import Clientgenerate from "./page/Clientgenerate";
+import Clientibview from './page/Clientibview';
 
 function App() {
   return(
@@ -43,6 +45,8 @@ function App() {
     <Route path="/emppayview" element={<Emppayview/>} />
     <Route path="/freelancergenerate" element={<Freelancergenerate/>} />
     <Route path="/freelancerpayview" element={<Freelancerpayview/>} />
+    <Route path="/clientgenerate" element={<Clientgenerate/>} />
+    <Route path="/clientibview" element={<Clientibview/>} />
     
  </Routes>
   </BrowserRouter>

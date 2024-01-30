@@ -7,6 +7,7 @@ import { AppBar, TableFooter } from '@mui/material';
 import { Stack, Grid, Card, CardContent, DialogActions, Button, Divider} from '@mui/material';
 import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 import SyncIcon from '@mui/icons-material/Sync';
+import './Generate.css';
 // import { useNavigate } from 'react-router-dom';
 
 export default function Empgenerate({ open, onClose, onEmpGenerate }) {
@@ -147,7 +148,7 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: 'flex', }}
           >
             Generate Employee Payslip
           </Typography>
@@ -156,8 +157,8 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
 
       <Box height={70} />
       <form onSubmit={handleSubmit}>
-      <Stack spacing={1} direction="row">
-      <Card sx={{display: 'flex', alignItems: 'center', width: '100%', height: '100%', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
+      <Stack spacing={2} >
+      <Card sx={{display: 'flex', flexDirection: 'column', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
         <CardContent>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -182,25 +183,30 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
                 <div>
                 <input
                   type="month"
-                  style={{outline: 'none', width: '130px' , height: '30px', border: '1px solid #173767', borderRadius: '5px', padding: '2px' }}
+                  style={{outline: 'none', Width: '130px' , height: '30px', border: '1px solid #173767', borderRadius: '5px', padding: '2px' }}
                 />
                 </div>
                 </div>
                 </div>
           <Divider sx={{ border: '1px solid #B3B3B3'}}/>
 
+          <div>
           <Typography
             variant="h6"
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' }, '& span': { color: 'Red' } }}
+            sx={{ display: 'flex', '& span': { color: 'Red' } }}
             >
             Employee Pay Summary <span>*</span>
           </Typography>
 
-                <Stack spacing={13} direction="row">  
-                <Box sx={{display: 'flex', alignItems: 'center', width: '400px', height: '200px', fontSize: '14px' }}>
+              <div>
+                <Stack spacing={5} direction="row" className="employee-info-container"> 
+                <Grid container spacing={2}>
+                <Grid item xs={12} sm={4}>
+                <Box sx={{display: 'flex', alignItems: 'center', Width: '500px', minWidth: '350px', height: '200px', fontSize: '14px' }}
+                className="employee-info-box">
                 <CardContent>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
@@ -265,8 +271,11 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
                 </div>
                 </CardContent>
                 </Box>
+                </Grid>
 
-                <Box sx={{display: 'flex', alignItems: 'center',  justifyContent: 'center', width: '400px', height: '200px', fontSize: '14px' }}>
+                <Grid item xs={12} sm={4}>
+                <Box sx={{display: 'flex', alignItems: 'center',  justifyContent: 'center', Width: '500px', minWidth: '350px', height: '200px', fontSize: '14px' }}
+                className="employee-info-box">
                 <CardContent>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
@@ -301,7 +310,7 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
                   name="pay"
                   value={empDetails.pay}
                   onChange={(e) => setEmpDetails({ ...empDetails, pay: e.target.value })}
-                  style={{ margin: '5px', marginLeft: '90px', outline: 'none', height: '25px', border: '1px solid #173767', borderRadius: '10px', padding: '2px' }}
+                  style={{ width: '150px', margin: '5px', marginLeft: '90px', outline: 'none', height: '25px', border: '1px solid #173767', borderRadius: '10px', padding: '2px' }}
                 />
                 </div>
 
@@ -331,8 +340,11 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
                 </div>
                 </CardContent>
                 </Box>
+                </Grid>
 
-                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'right', width: '300px', height: '200px', fontSize: '14px' }}>
+                <Grid item xs={12} sm={4}>
+                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'right', Width: '300px', minWidth: '200px', height: '200px', fontSize: '14px' }}
+                className="employee-info-box">
                 <CardContent>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <div>
@@ -361,19 +373,25 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
                 </div>
                 </CardContent>
                 </Box>
+                </Grid>
+                </Grid>
                 </Stack>
+                </div>
+                </div>
 
+                <div>
                 <Typography
             variant="h6"
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' }, '& span': { color: 'Red' } }}
+            sx={{ display: 'flex', '& span': { color: 'Red' } }}
             >
             Income Details <span>*</span>
           </Typography>
          
-          <Box sx={{display: 'flex', alignItems: 'center', width: '100%', height: '100%',
+          <div>
+          <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',
            border: '1px solid #B3B3B3', padding: '10px', borderRadius: '20px', fontSize: '14px' }}>
           <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
@@ -451,6 +469,8 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
       </Grid>
       </Grid>
       </Box>
+      </div>
+      </div>
 
       <Box height={20} />
         <Box sx={{ display: 'flex',justifyContent: 'space-between', width: '100%', height: '80px', border: '1px solid #B3B3B3', padding: '5px', borderRadius: '20px'}}>
@@ -458,14 +478,14 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
             <TableFooter>
         <TableRow>
           <div>
-    <TableCell variant="subtitle1" noWrap component="div" color="#000000" sx={{ fontWeight: '600', display: { xs: 'none', sm: 'block' } }}>
+    <TableCell variant="subtitle1" noWrap component="div" color="#000000" sx={{ fontWeight: '600', display: 'flex', flexDirection: 'column'}}>
     Total Net Payable
   
-  <Typography noWrap component="div" color="gray" sx={{ fontSize: '12px', display: { xs: 'none', sm: 'block' }}}>
+  <Typography noWrap component="div" color="gray" sx={{ fontSize: '12px', display: 'flex',}}>
     Gross Earnings - Total Deductions
   </Typography></TableCell>
   </div>
-  <TableCell align="center" style={{width: '180px',backgroundColor: '#173767', color: '#FFF', fontSize: '20px', borderRadius: ' 0 20px 20px 0' }}>
+  <TableCell align="center" style={{Width: '150px', minWidth: '100px',backgroundColor: '#173767', color: '#FFF', fontSize: '20px', borderRadius: ' 0 20px 20px 0' }}>
     ₹{grossEarnings - totalDeductions}</TableCell>
   </TableRow>
   </TableFooter>
@@ -477,7 +497,7 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
             noWrap
             component="div"
             color="gray"
-            sx={{ display: { xs: 'none', sm: 'block' }, '& span': { color: '#000000' } }}
+            sx={{ display: 'flex-end', '& span': { color: '#000000' } }}
             >
              Amount in Words :<span>{amountInWords}</span>
           </Typography>
@@ -495,7 +515,8 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
           '&:hover': {
            backgroundColor: '#173767',
            color: '#E2A925',
-           }, }} 
+           },
+           '@media (max-width: 600px)': { fontSize: '12px' }, }} 
           //  onClick={handleEmpGenerate}
            >
             <Link to="/emppayview">
@@ -510,7 +531,9 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
           '&:hover': {
            backgroundColor: '#B3B3B3',
            color: '#173767',
-           }, }} onClick={handleReset}> <SyncIcon sx={{color: '#173767'}}/> Reset
+           },
+           '@media (max-width: 600px)': { fontSize: '12px' }, }}
+            onClick={handleReset}> <SyncIcon sx={{color: '#173767'}}/> Reset
            </Button>
         
         <Button 
@@ -522,7 +545,8 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
           '&:hover': {
            backgroundColor: '#E2A925',
            color: '#000000',
-           }, }} onClick={onClose}>Back
+           },'@media (max-width: 600px)': { fontSize: '12px' }, }}
+            onClick={onClose}>Back
            </Button>
       </DialogActions>
           </form>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -27,6 +27,7 @@ import Button from '@mui/material/Button';
 import DownloadIcon from '@mui/icons-material/Download';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import jsPDF from 'jspdf';
+import { Link } from 'react-router-dom';
 
 const handleDownloadPdf = (rowData) => {
   const { sno, name, id, amount, date } = rowData;
@@ -211,6 +212,9 @@ EnhancedTableHead.propTypes = {
 function EnhancedTableToolbar(props) {
   const { numSelected } = props;
 
+  const onClientgenerateClick = useCallback(() => {
+  }, []);
+
   return (
     <Toolbar
       sx={{
@@ -257,8 +261,10 @@ function EnhancedTableToolbar(props) {
              '&:hover': {
               backgroundColor: '#E2A925',
               color: '#fff',
-              }, }}>
-                Generate
+              }, }}
+              onClick={onClientgenerateClick}>
+              <Link to="/clientgenerate">
+              Generate</Link>
               </Button>
               </Grid>
               </Grid>

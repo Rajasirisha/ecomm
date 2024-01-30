@@ -349,7 +349,7 @@ import { useNavigate } from 'react-router-dom';
 import PrintIcon from '@mui/icons-material/Print';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import jsPDF from 'jspdf';
-import './Generate.css'
+import './Generate.css';
 
 export default function Emppayview({ open, onClose }) {
     const navigate = useNavigate();
@@ -542,7 +542,7 @@ export default function Emppayview({ open, onClose }) {
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: 'flex', }}
           >
             Employee Payslip Details
           </Typography>
@@ -551,8 +551,8 @@ export default function Emppayview({ open, onClose }) {
 
       <Box height={70} />
       <form onSubmit={handleSubmit}>
-      <Stack spacing={1} direction="row">
-      <Card sx={{display: 'flex', alignItems: 'center', width: '100%', height: '100%', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
+      <Stack spacing={2} >
+      <Card sx={{display: 'flex', flexDirection: 'column', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
         <CardContent>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -589,65 +589,74 @@ export default function Emppayview({ open, onClose }) {
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' }, }}
+            sx={{ display: 'flex', }}
             >
             Employee Pay Summary 
           </Typography>
 
-                <Stack spacing={13} direction="row">  
-                <Box sx={{display: 'flex', alignItems: 'center', width: '400px', height: '200px', fontSize: '12px' }}>
+                <Stack spacing={5} direction="row" className="employee-info-container">  
+                <Grid container spacing={2}>
+              <Grid item xs={12} sm={4}>
+                <Box sx={{display: 'flex', alignItems: 'left', justifyContent: 'left', maxWidth: '500px', minWidth: '350px', height: '160px' }}
+                className="employee-info-box">
                 <CardContent>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                <Typography  gutterBottom>
+                <Typography style={{ fontSize: '14px' }} gutterBottom>
                      Employee Name : {empDetails.name}
                  </Typography>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                      Employee ID : {empDetails.id}
                  </Typography>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                      Department : {empDetails.department}
                  </Typography>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                      Designation : {empDetails.designation}
                  </Typography>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                      Location : {empDetails.location}
                  </Typography>
                 </div>
                 </div>
                 </CardContent>
                 </Box>
+                </Grid>
 
-                <Box sx={{display: 'flex', alignItems: 'center',  justifyContent: 'center', width: '400px', height: '200px', fontSize: '12px' }}>
+                <Grid item xs={12} sm={4}>
+                <Box sx={{display: 'flex', alignItems: 'left',  justifyContent: 'left', maxWidth: '500px', minWidth: '350px', height: '160px' }}
+                className="employee-info-box">
                 <CardContent>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                  Bank Account Number : {empDetails.account}
                  </Typography>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                  PAN Number : {empDetails.pan}
                  </Typography>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                  Pay Date : {empDetails.pay}
                  </Typography>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                  Days in Month : {empDetails.dimonth}
                  </Typography>
-                 <Typography variant="subtitle1" gutterBottom>
+                 <Typography style={{ fontSize: '14px' }} gutterBottom>
                  Working Days : {empDetails.working}
                  </Typography>
                 </div>
                 </div>
                 </CardContent>
                 </Box>
+                </Grid>
 
-                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #B3B3B3', borderRadius: '20px', width: '300px', height: '150px', }}>
+                <Grid item xs={12} sm={4}>
+                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '300px', minWidth: '200px', maxHeight: '150px', minHeight: '100px' }}
+                className="employee-info-box">
                 <CardContent>
                 <div style={{ display: 'flex',alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
                 <div>
-                <Box className="pay">
+                <Box className="emppay" >
                   <Box className="netpay">
                 <Typography sx={{ fontSize: '20px', color: '#000000'}}>
                 ₹{grossEarnings - totalDeductions}</Typography>
@@ -657,16 +666,18 @@ export default function Emppayview({ open, onClose }) {
                  </Box>
                 </Box>
                 <Divider sx={{ border: '1px dashed #B3B3B3'}}/>
-                <Typography sx={{padding: '10px', marginLeft: '10px',fontSize: '14px'}}>
+                <Typography sx={{padding: '5px', marginLeft: '5px',fontSize: '14px'}}>
                  Paid Days : {empDetails.paid}
                  </Typography>
-                 <Typography sx={{padding: '10px', marginLeft: '10px',fontSize: '14px'}}>
+                 <Typography sx={{padding: '5px', marginLeft: '5px',fontSize: '14px'}}>
                  LOP Days : {empDetails.lop}
                  </Typography>
                 </div>
                 </div>
                 </CardContent>
                 </Box>
+                </Grid>
+                </Grid>
                 </Stack>
 
                 <Typography
@@ -674,12 +685,12 @@ export default function Emppayview({ open, onClose }) {
             noWrap
             component="div"
             color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' }, }}
+            sx={{ display:'flex', }}
             >
             Income Details
           </Typography>
          
-          <Box sx={{display: 'flex', alignItems: 'center', width: '100%', height: '100%',
+          <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column',
            border: '1px solid #B3B3B3', padding: '10px', borderRadius: '20px', fontSize: '14px' }}>
           <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
@@ -753,14 +764,14 @@ export default function Emppayview({ open, onClose }) {
             <TableFooter>
         <TableRow>
           <div>
-    <TableCell variant="subtitle1" noWrap component="div" color="#000000" sx={{ fontWeight: '600', display: { xs: 'none', sm: 'block' } }}>
+    <TableCell variant="subtitle1" noWrap component="div" color="#000000" sx={{ fontWeight: '600', display: 'flex', flexDirection: 'column' }}>
     Total Net Payable
   
-  <Typography noWrap component="div" color="gray" sx={{ fontSize: '12px', display: { xs: 'none', sm: 'block' }}}>
+  <Typography noWrap component="div" color="gray" sx={{ fontSize: '12px', display: 'flex',}}>
     Gross Earnings - Total Deductions
   </Typography></TableCell>
   </div>
-  <TableCell align="center" style={{width: '180px',backgroundColor: '#173767', color: '#FFF', fontSize: '20px', borderRadius: ' 0 20px 20px 0' }}>
+  <TableCell align="center" style={{maxWidth: '180px', minWidth: '100px', backgroundColor: '#173767', color: '#FFF', fontSize: '20px', borderRadius: ' 0 20px 20px 0' }}>
     ₹{grossEarnings - totalDeductions}</TableCell>
   </TableRow>
   </TableFooter>
@@ -772,7 +783,7 @@ export default function Emppayview({ open, onClose }) {
             noWrap
             component="div"
             color="gray"
-            sx={{ display: { xs: 'none', sm: 'block' }, '& span': { color: '#000000' } }}
+            sx={{ display: 'flex-end', '& span': { color: '#000000' } }}
             >
              Amount in Words :<span>{amountInWords}</span>
           </Typography>
@@ -784,11 +795,10 @@ export default function Emppayview({ open, onClose }) {
             {/* <Divider sx={{ border: '1px solid #B3B3B3'}}/> */}
             <Typography
             fontSize={10}
-            align='center'
             noWrap
             component="div"
             color="gray"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}
             >
              --This is a system generated payslip, hence the signature is not required--
           </Typography>
@@ -802,7 +812,8 @@ export default function Emppayview({ open, onClose }) {
           '&:hover': {
            backgroundColor: '#B3B3B3',
            color: '#173767',
-           }, }} onClick={() => {
+           },
+           '@media (max-width: 600px)': { fontSize: '12px' }, }} onClick={() => {
             downloadReceipt();
             goToEmpGenerate();
             }}> 
@@ -816,7 +827,8 @@ export default function Emppayview({ open, onClose }) {
           '&:hover': {
            backgroundColor: '#B3B3B3',
            color: '#173767',
-           }, }} onClick={printReceipt}> <PrintIcon sx={{color: '#173767'}}/> Print Receipt
+           }, '@media (max-width: 600px)': { fontSize: '12px' },
+            }} onClick={printReceipt}> <PrintIcon sx={{color: '#173767'}}/> Print Receipt
            </Button>
         
         <Button 
@@ -828,7 +840,8 @@ export default function Emppayview({ open, onClose }) {
           '&:hover': {
            backgroundColor: '#E2A925',
            color: '#000000',
-           }, }} onClick={onClose}>Back
+           }, '@media (max-width: 600px)': { fontSize: '12px' }, }} 
+            onClick={onClose}>Back
            </Button>
       </DialogActions>
           </form>
