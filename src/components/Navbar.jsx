@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import { useState } from 'react';
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 // import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,6 +18,8 @@ import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'; 
 import MuiAppBar from '@mui/material/AppBar';
 import { useAppStore } from '../appStore';
+import Profile from '../Popup/Profile';
+import { useNavigate } from 'react-router-dom';
 
 const AppBar = styled(MuiAppBar, {
   })(({ theme }) => ({
@@ -65,10 +67,12 @@ const AppBar = styled(MuiAppBar, {
 // }));
 
 export default function Navbar() {
+  const [profilePopupOpen, setProfilePopupOpen] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const updateOpen = useAppStore((state) => state.updateOpen);
   const dopen = useAppStore((state) => state.dopen);
+  const navigate = useNavigate(); 
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -95,6 +99,20 @@ export default function Navbar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const openProfilePopup = () => {
+    setProfilePopupOpen(true);
+    handleMenuClose();
+    handleMobileMenuClose();
+  };
+
+  const closeProfilePopup = () => {
+    setProfilePopupOpen(false);
+  };
+
+  const handleProfileDetails = (profileDetails) => {
+    openProfilePopup(profileDetails);
+  };
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -112,7 +130,8 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={openProfilePopup}>Profile</MenuItem>
+      <MenuItem onClick={()=>{navigate( "/")}}>Logout</MenuItem>
     </Menu>
   );
 
@@ -238,6 +257,7 @@ export default function Navbar() {
           </Box>
         </Toolbar>
       </AppBar>
+      <Profile isOpen={profilePopupOpen} onClose={closeProfilePopup} onProfilePage={handleProfileDetails}/>
       {renderMobileMenu}
       {renderMenu}
     </Box>

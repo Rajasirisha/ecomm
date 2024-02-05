@@ -158,7 +158,7 @@ const handleSubmit = (e) => {
       </AppBar>
 
       <Box height={70} />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: '20px'}}>
       <Stack spacing={2}>
       <Card sx={{display: 'flex', flexDirection: 'column', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
         <CardContent>
@@ -424,14 +424,16 @@ const handleSubmit = (e) => {
             <Table>
               <TableFooter>
                 <TableRow>
+                  <div>
                     <TableCell variant="subtitle1" noWrap component="div" color="#000000" sx={{
                       fontWeight: '600',
                       display: 'flex',
                     }}>
                       Total Net Payable
                     </TableCell>
+                    </div>
                   <TableCell align="center" style={{
-                    maxWidth: '150px',
+                    width: '180px',
                     minWidth: '100px',
                     backgroundColor: '#173767',
                     color: '#FFF',

@@ -550,7 +550,7 @@ export default function Emppayview({ open, onClose }) {
       </AppBar>
 
       <Box height={70} />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: '20px'}}>
       <Stack spacing={2} >
       <Card sx={{display: 'flex', flexDirection: 'column', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
         <CardContent>
@@ -571,6 +571,14 @@ export default function Emppayview({ open, onClose }) {
           <div style={{ fontSize: '10px'}}>Vellore</div>
           </div>
           </div>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            color="#000000"
+          >
+            Employee Payslip
+          </Typography>
             
             <div>
                 <label htmlFor="name" style={{fontWeight: '600'}}> Payslip For The Month</label>
@@ -771,7 +779,7 @@ export default function Emppayview({ open, onClose }) {
     Gross Earnings - Total Deductions
   </Typography></TableCell>
   </div>
-  <TableCell align="center" style={{maxWidth: '180px', minWidth: '100px', backgroundColor: '#173767', color: '#FFF', fontSize: '20px', borderRadius: ' 0 20px 20px 0' }}>
+  <TableCell align="center" style={{width: '180px', minWidth: '100px', backgroundColor: '#173767', color: '#FFF', fontSize: '20px', borderRadius: ' 0 20px 20px 0' }}>
     ₹{grossEarnings - totalDeductions}</TableCell>
   </TableRow>
   </TableFooter>

@@ -198,7 +198,7 @@ export default function Freelancerpayview({ open, onClose }) {
       </AppBar>
 
       <Box height={70} />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: '20px'}}>
       <Stack spacing={2} >
       <Card sx={{display: 'flex', flexDirection: 'column', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
         <CardContent>
@@ -219,6 +219,14 @@ export default function Freelancerpayview({ open, onClose }) {
           <div style={{ fontSize: '10px'}}>Vellore</div>
           </div>
           </div>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            color="#000000"
+          >
+            Freelancer Payslip
+          </Typography>
             
             <div>
                 <label htmlFor="name" style={{fontWeight: '600'}}> Payslip For The Month</label>

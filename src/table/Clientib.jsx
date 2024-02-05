@@ -37,7 +37,7 @@ const handleDownloadPdf = (rowData) => {
   const content = `
     S.No: ${sno}
     Client Name: ${name}
-    Client Id: ${id}
+    Invoice ID: ${id}
     Amount(₹): ${amount}
     Date: ${date}
     `;
@@ -112,7 +112,7 @@ const headCells = [
     id: 'id',
     numeric: true,
     disablePadding: false,
-    label: 'Client ID',
+    label: 'Invoice ID',
   },
   {
     id: 'amount',
