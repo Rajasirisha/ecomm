@@ -3,7 +3,7 @@ import { Grid, Box, Stack, Card, CardContent, Dialog, DialogTitle, DialogContent
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import CancelIcon from '@mui/icons-material/Cancel';
-
+import TaskIcon from '@mui/icons-material/Task';
 
 export default function Addclient({ open, onClose, onAddClient }) {
 
@@ -18,7 +18,13 @@ export default function Addclient({ open, onClose, onAddClient }) {
         image: '',
       });
 
+      const [dialogOpen, setDialogOpen] = useState(false);
+      const handleDialogClose = () => {
+        setDialogOpen(false);
+      };
+
       const handleAddClient = () => {
+        setDialogOpen(true);
         onAddClient(clientDetails);
         onClose();
       };
@@ -72,8 +78,8 @@ export default function Addclient({ open, onClose, onAddClient }) {
         setTableData(updatedData);
       };
     
-
   return (
+    <>
     <Dialog open={open} onClose={onClose} sx={{ '& .MuiDialog-paper': { width: '950px', height: '950px', borderRadius: '20px' } }}>
       <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <img className='rounded ' 
@@ -358,5 +364,17 @@ export default function Addclient({ open, onClose, onAddClient }) {
         </form>
       </DialogContent>
     </Dialog>
+
+    <Dialog
+    open={dialogOpen}
+    onClose={handleDialogClose}
+    sx={{ '& .MuiDialog-paper': { width: '300px', height: '180px', borderRadius: '10px' } }}
+  >
+    <DialogContent sx={{ display: 'flex', flexDirection: 'column' , alignItems: 'center', textAlign: 'center' }}>
+    <TaskIcon sx={{ color: '#E2A925', fontSize: '70px'}}/>
+      Client details added successfully
+    </DialogContent>
+  </Dialog>
+  </>
   );
 }

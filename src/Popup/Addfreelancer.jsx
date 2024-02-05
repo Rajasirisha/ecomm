@@ -7,6 +7,7 @@ import AttachmentIcon from '@mui/icons-material/Attachment';
 import { styled } from '@mui/material/styles';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import TaskIcon from '@mui/icons-material/Task';
 
 export default function Addfreelancer({ open, onClose, onAddFreelancer }) {
 
@@ -23,7 +24,13 @@ export default function Addfreelancer({ open, onClose, onAddFreelancer }) {
         expertise: "",
       });
 
+      const [dialogOpen, setDialogOpen] = useState(false);
+      const handleDialogClose = () => {
+        setDialogOpen(false);
+      };
+
       const handleAddFreelancer = () => {
+        setDialogOpen(true);
         onAddFreelancer(freelancerDetails);
         onClose();
       };
@@ -92,6 +99,7 @@ export default function Addfreelancer({ open, onClose, onAddFreelancer }) {
   };
     
   return (
+    <>
     <Dialog open={open} onClose={onClose} sx={{ '& .MuiDialog-paper': { width: '950px', height: '950px', borderRadius: '20px' } }}>
       <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <img className='rounded ' 
@@ -428,5 +436,17 @@ export default function Addfreelancer({ open, onClose, onAddFreelancer }) {
         </form>
       </DialogContent>
     </Dialog>
+
+<Dialog
+open={dialogOpen}
+onClose={handleDialogClose}
+sx={{ '& .MuiDialog-paper': { width: '300px', height: '180px', borderRadius: '10px' } }}
+>
+<DialogContent sx={{ display: 'flex', flexDirection: 'column' , alignItems: 'center', textAlign: 'center' }}>
+<TaskIcon sx={{ color: '#E2A925', fontSize: '70px'}}/>
+  Freelancer details added successfully
+</DialogContent>
+</Dialog>
+</>
   );
 }

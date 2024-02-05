@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { AppBar } from '@mui/material';
 import { Stack, Grid, Card, CardContent, DialogActions, Button, Divider} from '@mui/material';
+import { Dialog, DialogTitle, DialogContent} from '@mui/material';
 import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 import SyncIcon from '@mui/icons-material/Sync';
 import PrintIcon from '@mui/icons-material/Print';
@@ -63,6 +64,23 @@ const [tableData, setTableData] = useState([
 
   ]);
 
+  const handleInputChange = (field, value) => {
+    setClientDetails((prevDetails) => ({
+      ...prevDetails,
+      [field]: value,
+    }));
+  };
+
+  const [resetOpen, setResetOpen] = useState(false);
+
+  const handleResetOpen = () => {
+    setResetOpen(true);
+  };
+
+  const handleResetClose = () => {
+    setResetOpen(false);
+  };
+
   const handleReset = () => {
     setClientDetails(initialState.clientDetails);
     setReceiver(initialState.receiver);
@@ -75,6 +93,7 @@ const [tableData, setTableData] = useState([
     { taskDescription: '', hsnCode: '', qty: '', rate: '', amount: '', discover: '', taxable : '', igstrate: '', igstamount: '', total : '' },
     { taskDescription: '', hsnCode: '', qty: '', rate: '', amount: '', discover: '', taxable : '', igstrate: '', igstamount: '', total : '' },
       ]);
+      handleResetClose();
   };
 
   const downloadReceipt = () => {
@@ -147,6 +166,35 @@ console.log('Downloading Receipt...');
            </div>
 
            <Box height={10} />
+           <Dialog
+          open={resetOpen}
+          onClose={handleResetClose}
+          sx={{ '& .MuiDialog-paper': { width: '400px', borderRadius: '10px' } }}
+        >
+          <DialogTitle sx={{ textAlign: 'center' }} >Reset Confirmation</DialogTitle>
+          <DialogContent sx={{ display: 'flex', flexDirection: 'column' , alignItems: 'center', textAlign: 'center' }}>
+          <SyncIcon sx={{color: '#173767', fontSize: '50px'}}/>
+              Are you sure you want to reset? This action cannot be undone.
+          </DialogContent>
+          <DialogActions>
+            <Button variant='filled' 
+        sx={{color: '#fff', backgroundColor: '#E2A925', height: '20px',
+          textTransform: 'none', borderRadius: '10px',
+          '&:hover': {
+           backgroundColor: 'red',
+           color: '#fff',
+           }, }} onClick={handleResetClose}>Cancel</Button>
+            <Button variant='filled' 
+        sx={{color: '#fff', backgroundColor: '#173767', height: '20px',
+          textTransform: 'none', borderRadius: '10px',
+          '&:hover': {
+           backgroundColor: 'green',
+           color: 'fff',
+           }, }} onClick={handleReset} autoFocus>
+              Yes,Reset
+            </Button>
+          </DialogActions>
+        </Dialog>
       <form onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: '20px'}}>
       <Stack spacing={2} >
       <Card sx={{display: 'flex', flexDirection: 'column', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
@@ -441,6 +489,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="text"
                   value={clientDetails.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
                   style={{outline: 'none', maxWidth: '150px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -449,6 +498,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="text"
                   value={clientDetails.bankName}
+                  onChange={(e) => handleInputChange('bankName', e.target.value)}
                   style={{outline: 'none', maxWidth: '150px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -457,6 +507,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="account"
                   value={clientDetails.account}
+                  onChange={(e) => handleInputChange('account', e.target.value)}
                   style={{outline: 'none', maxWidth: '150px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -465,6 +516,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="text"
                   value={clientDetails.ifsc}
+                  onChange={(e) => handleInputChange('ifsc', e.target.value)}
                   style={{outline: 'none', maxWidth: '150px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -476,6 +528,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="amount"
                   value={clientDetails.beforeTax}
+                  onChange={(e) => handleInputChange('beforeTax', e.target.value)}
                   style={{outline: 'none', maxWidth: '90px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -484,6 +537,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="amount"
                   value={clientDetails.igst}
+                  onChange={(e) => handleInputChange('igst', e.target.value)}
                   style={{outline: 'none', maxWidth: '90px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -492,6 +546,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="amount"
                   value={clientDetails.total}
+                  onChange={(e) => handleInputChange('total', e.target.value)}
                   style={{outline: 'none', maxWidth: '90px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -500,6 +555,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="amount"
                   value={clientDetails.afterTax}
+                  onChange={(e) => handleInputChange('afterTax', e.target.value)}
                   style={{outline: 'none', maxWidth: '90px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -508,6 +564,7 @@ console.log('Downloading Receipt...');
                 <input
                   type="amount"
                   value={clientDetails.gst}
+                  onChange={(e) => handleInputChange('gst', e.target.value)}
                   style={{outline: 'none', maxWidth: '90px' , height: '25px', borderBottom: '1px solid #173767', padding: '2px', fontSize: '12px' }}
                 />
                 </div>
@@ -571,7 +628,7 @@ console.log('Downloading Receipt...');
            color: '#173767',
            },
            '@media (max-width: 600px)': { fontSize: '12px' }, }}
-            onClick={handleReset}> <SyncIcon sx={{color: '#173767'}}/> Reset
+           onClick={handleResetOpen}> <SyncIcon sx={{color: '#173767'}}/> Reset
            </Button>
           
         <Button 
@@ -586,8 +643,7 @@ console.log('Downloading Receipt...');
            },'@media (max-width: 600px)': { fontSize: '12px' }, }}
             onClick={onClose}>Back
            </Button>
-           
-           
+                      
       </DialogActions>
           </form>
     </Box>

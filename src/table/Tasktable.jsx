@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -248,7 +248,12 @@ EnhancedTableHead.propTypes = {
 };
 
 function EnhancedTableToolbar(props) {
-  const { numSelected } = props;
+  const { numSelected, onDelete, selected, updateTaskTable } = props;
+  // const [selected, setSelected] = React.useState([]);
+
+  const handleDeleteClick = () => {
+    onDelete(selected);
+  };
 
   const [openPopup, setOpenPopup] = React.useState(false);
 
@@ -259,7 +264,6 @@ function EnhancedTableToolbar(props) {
   const handleClosePopup = () => {
     setOpenPopup(false);
   };
-
 
   return (
     <Toolbar
@@ -311,13 +315,13 @@ function EnhancedTableToolbar(props) {
               onClick={handleAddTaskClick}>
                 <AddIcon sx={{mr: '2px'}}/>Add Task
               </Button>
-              <Addtask open={openPopup} onClose={handleClosePopup} />
+              <Addtask open={openPopup} onClose={handleClosePopup} updateTaskTable={updateTaskTable}/>
               </Grid>
               </Grid>   
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
-          <IconButton>
+          <IconButton onClick={handleDeleteClick}>
             <DeleteIcon sx={{ color: '#173767' }}/>
           </IconButton>
         </Tooltip>
@@ -382,7 +386,6 @@ export default function EnhancedTable() {
     }
   };
   
-
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -452,10 +455,20 @@ export default function EnhancedTable() {
   setTableData(updatedData);
 };
 
+ const handleDelete = () => {
+    console.log("Delete clicked");
+  };
+
+  const [tasks, setTasks] = useState([]);
+
+const updateTaskTable = (newTask) => {
+  setTasks([...tasks, newTask]);
+};
+
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '1250px', mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} onDelete={handleDelete} updateTaskTable={updateTaskTable}/>
          <div style={{ overflowX: 'auto' }}>
         <TableContainer>
         <Grid container>

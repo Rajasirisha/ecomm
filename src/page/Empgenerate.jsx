@@ -8,6 +8,7 @@ import { Stack, Grid, Card, CardContent, DialogActions, Button, Divider} from '@
 import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 import SyncIcon from '@mui/icons-material/Sync';
 import './Generate.css';
+import { Dialog, DialogTitle, DialogContent} from '@mui/material';
 // import { useNavigate } from 'react-router-dom';
 
 export default function Empgenerate({ open, onClose, onEmpGenerate }) {
@@ -58,10 +59,21 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
     const [earnings, setEarnings] = useState(initialState.earnings);
     const [deductions, setDeductions] = useState(initialState.deductions);
 
+    const [resetOpen, setResetOpen] = useState(false);
+
+  const handleResetOpen = () => {
+    setResetOpen(true);
+  };
+
+  const handleResetClose = () => {
+    setResetOpen(false);
+  };
+    
     const handleReset = () => {
       setEmpDetails(initialState.empDetails);
       setEarnings(initialState.earnings);
       setDeductions(initialState.deductions);
+      handleResetClose();
     };
 
   const handleAmountChange = (index, type, e) => {
@@ -156,6 +168,35 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
       </AppBar>
 
       <Box height={70} />
+      <Dialog
+          open={resetOpen}
+          onClose={handleResetClose}
+          sx={{ '& .MuiDialog-paper': { width: '400px', borderRadius: '10px' } }}
+        >
+          <DialogTitle sx={{ textAlign: 'center' }} >Reset Confirmation</DialogTitle>
+          <DialogContent sx={{ display: 'flex', flexDirection: 'column' , alignItems: 'center', textAlign: 'center' }}>
+          <SyncIcon sx={{color: '#173767', fontSize: '50px'}}/>
+              Are you sure you want to reset? This action cannot be undone.
+          </DialogContent>
+          <DialogActions>
+            <Button variant='filled' 
+        sx={{color: '#fff', backgroundColor: '#E2A925', height: '20px',
+          textTransform: 'none', borderRadius: '10px',
+          '&:hover': {
+           backgroundColor: 'red',
+           color: '#fff',
+           }, }} onClick={handleResetClose}>Cancel</Button>
+            <Button variant='filled' 
+        sx={{color: '#fff', backgroundColor: '#173767', height: '20px',
+          textTransform: 'none', borderRadius: '10px',
+          '&:hover': {
+           backgroundColor: 'green',
+           color: 'fff',
+           }, }} onClick={handleReset} autoFocus>
+              Yes,Reset
+            </Button>
+          </DialogActions>
+        </Dialog>
       <form onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: '20px'}}>
       <Stack spacing={2} >
       <Card sx={{display: 'flex', flexDirection: 'column', border: '1px solid #B3B3B3', borderRadius: '20px', fontSize: '14px' }}>
@@ -533,7 +574,7 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
            color: '#173767',
            },
            '@media (max-width: 600px)': { fontSize: '12px' }, }}
-            onClick={handleReset}> <SyncIcon sx={{color: '#173767'}}/> Reset
+            onClick={handleResetOpen}> <SyncIcon sx={{color: '#173767'}}/> Reset
            </Button>
         
         <Button 

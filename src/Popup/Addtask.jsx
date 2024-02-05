@@ -17,8 +17,9 @@ import Menu from '@mui/material/Menu';
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
+import Grid from '@mui/material/Grid';
 
-export default function Addtask({ open, onClose }) {
+export default function Addtask({ open, onClose , updateTaskTable }) {
 
     const currencies = [
   {
@@ -150,7 +151,87 @@ const [paymentDetails, setPaymentDetails] = useState({
     width: 1,
   });
 
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogTaskOpen, setDialogTaskOpen] = useState(false);
+  const [dialogMessage, setDialogMessage] = useState('');
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
+  const handleAssignClick = () => {
+    const newTask = {
+      taskType: taskDetails.taskType,
+      code: taskDetails.code,
+      taskName: taskDetails.taskName,
+      owner: selectedOwner,
+      reviewer: selectedReviewer,
+      wordCount: taskDetails.wordCount,
+      client: taskDetails.client,
+      clientNumber: taskDetails.clientNumber,
+      payment: taskDetails.payment,
+      paid: taskDetails.paid,
+      balance: taskDetails.balance,
+      university: taskDetails.university,
+      email: taskDetails.email,
+      password: taskDetails.password,
+      start: taskDetails.start,
+      end: taskDetails.end,
+    };
+
+    updateTaskTable(newTask);
+    setDialogMessage('Task assigned to the "Assignee Name"');
+    setDialogOpen(true);
+    onClose();
+  };
+
+  const handleSaveClick = () => {
+    setDialogMessage('Changes are saved!');
+    setDialogOpen(true);
+    onClose();
+  };
+
+  const handleDialogTaskClose = () => {
+    setDialogTaskOpen(false);
+  };
+
+  const handleCancelClick = () => {
+    setDialogTaskOpen(true);
+  };
+
+  const handleCancelConfirm = () => {
+    setDialogTaskOpen(false);
+    onClose();
+  };
+
+  const handleCancelDeny = () => {
+    setDialogTaskOpen(false);
+  };
+
+
   return (
+    <>
+    <Dialog
+        open={dialogTaskOpen}
+        onClose={handleDialogTaskClose}
+        sx={{ '& .MuiDialog-paper': { width: '300px', height: '150px', borderRadius: '10px' } }}
+      >
+        <DialogTitle sx={{ textAlign: 'center' }}>
+        Changes not saved!
+        </DialogTitle>
+        <DialogContent sx={{ textAlign: 'center' }}>
+          Do you want to discard changes?
+        </DialogContent>
+        <DialogActions>
+          <Button variant="filled" onClick={handleCancelConfirm} sx={{ textTransform: 'none', height: '20px',color: '#fff', backgroundColor: '#173767', borderRadius: '10px', '&:hover': { backgroundColor: 'green', color: '#fff' } }}>
+            Yes
+          </Button>
+          <Button variant="filled" onClick={handleCancelDeny} sx={{ textTransform: 'none', height: '20px',color: '#fff', backgroundColor: '#E2A925', borderRadius: '10px', '&:hover': { backgroundColor: 'red', color: '#fff' } }}>
+            No
+          </Button>
+        </DialogActions>
+      </Dialog>
+
     <Dialog open={open} onClose={onClose}
     sx={{ '& .MuiDialog-paper': { width: '950px', height: '950px', borderRadius: '20px' } }}>
       <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -158,8 +239,8 @@ const [paymentDetails, setPaymentDetails] = useState({
           style={{ width: '70px', height: '30px' }} 
           src="menulogo.png" 
           alt="logo" />
-        Add Task
-       <CancelRoundedIcon onClick={onClose} sx={{color: '#173767',  cursor: 'pointer'}}/>
+        Add Task        
+       <CancelRoundedIcon onClick={handleCancelClick} sx={{color: '#173767',  cursor: 'pointer'}}/>
         </DialogTitle>
       <Divider sx={{ marginTop: '-10px' }}/>
       
@@ -372,9 +453,11 @@ const [paymentDetails, setPaymentDetails] = useState({
         </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '10px' }}>
-        <div>
-          <label htmlFor="client" style={{ paddingRight: '65px' }}>Client : </label>
+        <Grid container spacing={0}>
+        <Grid item xs={12} sm={6}>
+        <div style={{ display: 'flex' , flexDirection: 'column', padding: '2px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+          <label htmlFor="client" >Client : </label>
           <input
             type="text"
             id="client"
@@ -391,12 +474,88 @@ const [paymentDetails, setPaymentDetails] = useState({
           />
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <label htmlFor="payment">Payment Amount : </label>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px'}}>
+        <label htmlFor="clientNumber" >Client Number : </label>
+          <input
+            type="text"
+            id="clientNumber"
+            name="clientNumber"
+            value={taskDetails.clientNumber}
+            placeholder="Enter number"
+            onChange={handleChange}
+            style={{ width: '150px',  outline: 'none',
+                    height: '30px',
+                    border: '1px solid #B3B3B3', 
+                    borderRadius: '10px', 
+                    padding: '2px',
+                    }}
+          />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+        <label htmlFor="university">University Name : </label>
+          <input
+            type="text"
+            id="university"
+            name="university"
+            value={taskDetails.university}
+            placeholder="Enter university"
+            onChange={handleChange}
+            style={{ width: '150px',  outline: 'none',
+                    height: '30px',
+                    border: '1px solid #B3B3B3', 
+                    borderRadius: '10px', 
+                    padding: '2px',
+                    }}
+          />
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+        <label htmlFor="email" >Email : </label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={taskDetails.email}
+            placeholder="exp@gmail.com"
+            onChange={handleChange}
+            style={{ width: '180px',  outline: 'none',
+                    height: '30px',
+                    border: '1px solid #B3B3B3', 
+                    borderRadius: '10px', 
+                    padding: '2px',
+                    }}
+          />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+        <label htmlFor="password" >Password : </label>
+          <input
+            type="text"
+            id="password"
+            name="password"
+            value={taskDetails.password}
+            placeholder="password"
+            onChange={handleChange}
+            style={{ width: '150px', outline: 'none',
+                    height: '30px',
+                    border: '1px solid #B3B3B3', 
+                    borderRadius: '10px', 
+                    padding: '2px',
+                    }}
+          />
+        </div>
+        </div>
+        </Grid>
+        
+        <Grid item xs={12} sm={6}>
+        <div style={{ display: 'flex' , flexDirection: 'column', padding: '2px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+        <label htmlFor="payment">Payment Amount : </label>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Select
         value={paymentDetails.currency}
         onChange={(e) => handleChange(e)}
-        style={{ maxWidth: '60px', height: '30px', borderRadius: '10px 0 0 10px',  outline: 'none', }}
+        style={{ maxWidth: '50px', width: '40px', height: '30px', borderRadius: '10px 0 0 10px',  outline: 'none' }}
       >
         {currencies.map((option) => (
           <MenuItem key={option.value} value={option.value}>
@@ -417,35 +576,17 @@ const [paymentDetails, setPaymentDetails] = useState({
                     borderRadius: '0 10px 10px 0', 
                     padding: '2px',
                     }}
-            />
-          </div>
+            /> 
+            </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '10px' }}>
-        <div>
-          <label htmlFor="clientNumber" style={{ paddingRight: '10px' }}>Client Number : </label>
-          <input
-            type="text"
-            id="clientNumber"
-            name="clientNumber"
-            value={taskDetails.clientNumber}
-            placeholder="Enter number"
-            onChange={handleChange}
-            style={{ width: '150px',  outline: 'none',
-                    height: '30px',
-                    border: '1px solid #B3B3B3', 
-                    borderRadius: '10px', 
-                    padding: '2px',
-                    }}
-          />
-        </div>
-       
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <label htmlFor="paid">Amount Paid : </label>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+        <label htmlFor="paid">Amount Paid : </label>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Select
         value={paymentDetails.currency}
         onChange={(e) => handleChange(e)}
-        style={{ maxWidth: '60px', height: '30px', borderRadius: '10px 0 0 10px',  outline: 'none', }}
+        style={{ maxWidth: '50px', width: '40px', height: '30px', borderRadius: '10px 0 0 10px',  outline: 'none', }}
       >
         {currencies.map((option) => (
           <MenuItem key={option.value} value={option.value}>
@@ -467,34 +608,16 @@ const [paymentDetails, setPaymentDetails] = useState({
                     padding: '2px',
                     }}
       />
-    </div>
+      </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '10px' }}>
-        <div>
-          <label htmlFor="university">University Name : </label>
-          <input
-            type="text"
-            id="university"
-            name="university"
-            value={taskDetails.university}
-            placeholder="Enter university"
-            onChange={handleChange}
-            style={{ width: '150px',  outline: 'none',
-                    height: '30px',
-                    border: '1px solid #B3B3B3', 
-                    borderRadius: '10px', 
-                    padding: '2px',
-                    }}
-          />
-        </div>
-        
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <label htmlFor="balance">Balance Amount : </label>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+        <label htmlFor="balance">Balance Amount : </label>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Select
         value={paymentDetails.currency}
         onChange={(e) => handleChange(e)}
-        style={{ maxWidth: '60px', height: '30px', borderRadius: '10px 0 0 10px', outline: 'none', }}
+        style={{ maxWidth: '50px', width: '40px', height: '30px', borderRadius: '10px 0 0 10px', outline: 'none', }}
       >
         {currencies.map((option) => (
           <MenuItem key={option.value} value={option.value}>
@@ -516,29 +639,11 @@ const [paymentDetails, setPaymentDetails] = useState({
                     padding: '2px',
                     }}
       />
-    </div>
+      </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '10px' }}>
-        <div>
-          <label htmlFor="email" style={{ paddingRight: '40px' }}>Email : </label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={taskDetails.email}
-            placeholder="exp@gmail.com"
-            onChange={handleChange}
-            style={{ width: '180px',  outline: 'none',
-                    height: '30px',
-                    border: '1px solid #B3B3B3', 
-                    borderRadius: '10px', 
-                    padding: '2px',
-                    }}
-          />
-        </div>
-        <div>
-          <label htmlFor="start">Start Date : </label>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+        <label htmlFor="start">Start Date : </label>
           <input
             type="date"
             id="start"
@@ -554,28 +659,9 @@ const [paymentDetails, setPaymentDetails] = useState({
                     }}
           />
         </div>
-        </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div>
-          <label htmlFor="password" style={{ paddingRight: '40px' }}>Password : </label>
-          <input
-            type="text"
-            id="password"
-            name="password"
-            value={taskDetails.password}
-            placeholder="password"
-            onChange={handleChange}
-            style={{ width: '150px', outline: 'none',
-                    height: '30px',
-                    border: '1px solid #B3B3B3', 
-                    borderRadius: '10px', 
-                    padding: '2px',
-                    }}
-          />
-        </div> 
-        <div>
-          <label htmlFor="end">End Date : </label>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2px' }}>
+        <label htmlFor="end">End Date : </label>
           <input
             type="date"
             id="end"
@@ -592,6 +678,8 @@ const [paymentDetails, setPaymentDetails] = useState({
           />
         </div>
         </div>
+        </Grid>
+        </Grid>
 
         <div style={{ border: '1px solid #B3B3B3', borderRadius: '10px 10px 0 0', padding: '10px', marginTop: '10px', height: '80px', width: '550px' }}>
         {sentMessages.map((msg, index) => (
@@ -639,6 +727,7 @@ const [paymentDetails, setPaymentDetails] = useState({
      <VisuallyHiddenInput type="file" />
      </Button>
      </div>
+
       <DialogActions>
         <Button variant='filled' 
         sx={{color: '#fff', backgroundColor: '#173767', height: '30px',
@@ -646,15 +735,25 @@ const [paymentDetails, setPaymentDetails] = useState({
           '&:hover': {
            backgroundColor: '#E2A925',
            color: '#fff',
-           }, }} onClick={onClose}>Assigne</Button>
+           }, }} onClick={handleAssignClick}>
+            Assigne</Button>
         <Button variant='filled' 
         sx={{color: '#fff', backgroundColor: 'green', height: '30px',
           textTransform: 'none', borderRadius: '10px',
           '&:hover': {
            backgroundColor: 'limegreen',
            color: '#fff',
-           }, }} onClick={onClose}>Save</Button>
+           }, }} onClick={handleSaveClick}
+        > Save</Button>
       </DialogActions>
     </Dialog>
+    <Dialog open={dialogOpen} onClose={handleDialogClose} sx={{ '& .MuiDialog-paper': { width: '300px', height: '150px', borderRadius: '10px' } }}>
+        <DialogTitle sx={{ display: 'flex', justifyContent: 'flex-end',}}>
+        <CancelRoundedIcon onClick={handleDialogClose} sx={{ color: '#173767',  cursor: 'pointer'}}/>
+          </DialogTitle>
+        <DialogContent sx={{ textAlign: 'center'}}>{dialogMessage}
+          </DialogContent>
+      </Dialog>
+      </>
   );
 }

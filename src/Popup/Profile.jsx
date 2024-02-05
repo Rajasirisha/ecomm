@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Grid, Box, Stack, Card, CardContent, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Divider} from '@mui/material';
+import { Grid, Box, Stack, Card, CardContent, Dialog, DialogTitle, DialogContent, DialogActions, Button, Divider} from '@mui/material';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -122,19 +122,15 @@ export default function  Profilepage({ isOpen, onClose, onProfilePage }) {
     }}
   >
     <Dialog open={confirmationDialogOpen} onClose={handleSaveCanceled}
-  maxWidth="xs"
-  fullWidth
-  sx={{ borderRadius: '20px'}}
+  sx={{ '& .MuiDialog-paper': { width: '300px', height: '180px', borderRadius: '10px' } }}
 >
-  <DialogTitle>Confirm Save</DialogTitle>
-  <DialogContent>
-    <DialogContentText >
-      Are you sure you want to save the profile details?
-    </DialogContentText>
+  <DialogTitle sx={{ textAlign: 'center' }}>Save Changes</DialogTitle>
+  <DialogContent sx={{ textAlign: 'center' }}>
+     Do you want to save the profile details?
   </DialogContent>
   <DialogActions>
   <Button variant="filled" onClick={handleSaveConfirmed}
-    sx={{color: '#fff', backgroundColor: '#173767', height: '25px',
+    sx={{color: '#fff', backgroundColor: '#173767', height: '20px',
     textTransform: 'none', borderRadius: '10px',
     '&:hover': {
       backgroundColor: 'green',
@@ -143,7 +139,7 @@ export default function  Profilepage({ isOpen, onClose, onProfilePage }) {
       Yes
     </Button>
     <Button variant="filled" onClick={handleSaveCanceled}
-     sx={{color: '#fff', backgroundColor: '#E2A925', height: '25px',
+     sx={{color: '#fff', backgroundColor: '#E2A925', height: '20px',
      textTransform: 'none', borderRadius: '10px',
      '&:hover': {
       backgroundColor: 'red',
