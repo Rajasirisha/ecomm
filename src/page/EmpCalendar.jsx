@@ -3,10 +3,10 @@ import Fullcalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from "@fullcalendar/interaction";
-import Navbar from '../components/Navbar';
+import EmpNavbar from '../components/EmpNavbar';
 import Box from '@mui/material/Box';
-import Sidebar from '../components/Sidebar';
 import Button from '@mui/material/Button';
+import EmpSidebar from '../components/EmpSidebar';
 import "./Calendar.css";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -45,50 +45,50 @@ function Calendar() {
       };
 
   return (
-    <> 
-        <Navbar />
+    <>
+        <EmpNavbar />
         <Box height={40} />
         <Box sx={{display: "flex"}}>  
-        <Sidebar />
+        <EmpSidebar />
        <Box component="main" sx={{ flexGrow: 1, p:3}}>
-    <Fullcalendar
-    plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-    initialView={"dayGridMonth"}
-    headerToolbar={{
-      start: "prev,today,next",
-      center: "title",
-      end: "timeGridDay,timeGridWeek,dayGridMonth", 
-    }}
-    buttonText={{
-        today: 'Today',
-        month: 'Month',
-        week: 'Week',
-        day: 'Day'
-      }}
-      buttonColor={{
-        backgroundColor: '#173767',
-        color: '#fff',
-      }}
-      height={"90vh"}
-      events={events}
-    />
-    <div>
-          <Button variant= "filled" sx={{mr: 1, textTransform: 'none', borderRadius: '10px',
-           backgroundColor: '#173767', color: '#fff', height: '25px',
-          '&:hover': {
-              backgroundColor: 'green',
-              color: '#fff',}, }} 
-          onClick={handleAddEvent}>Add Event</Button>
-          <Button variant= "filled" sx={{textTransform: 'none',  borderRadius: '10px',
-           backgroundColor: '#E2A925', color: '#fff', height: '25px',
-          '&:hover': {
-              backgroundColor: 'red',
-              color: '#fff',}, }}
-          onClick={handleRemoveEvent}>Remove Event</Button>
-  </div>
-  </Box>
-     </Box>
-     <Dialog open={open} onClose={handleClose} sx={{'& .MuiDialog-paper':{ borderRadius: '10px'}}}>
+      <Fullcalendar
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        initialView={"dayGridMonth"}
+        headerToolbar={{
+          start: "prev,today,next",
+          center: "title",
+          end: "timeGridDay,timeGridWeek,dayGridMonth", 
+        }}
+        buttonText={{
+            today: 'Today',
+            month: 'Month',
+            week: 'Week',
+            day: 'Day'
+          }}
+          buttonColor={{
+            backgroundColor: '#173767',
+            color: '#fff',
+          }}
+        height={"90vh"}
+        events={events}
+      />
+      <div>
+            <Button variant= "filled" sx={{mr: 1, textTransform: 'none', borderRadius: '10px',
+             backgroundColor: '#173767', color: '#fff', height: '25px',
+            '&:hover': {
+                backgroundColor: 'green',
+                color: '#fff',}, }} 
+            onClick={handleAddEvent}>Add Event</Button>
+            <Button variant= "filled" sx={{textTransform: 'none',  borderRadius: '10px',
+             backgroundColor: '#E2A925', color: '#fff', height: '25px',
+            '&:hover': {
+                backgroundColor: 'red',
+                color: '#fff',}, }}
+            onClick={handleRemoveEvent}>Remove Event</Button>
+    </div>
+    </Box>
+       </Box>
+       <Dialog open={open} onClose={handleClose} sx={{'& .MuiDialog-paper':{ borderRadius: '10px'}}}>
         <DialogTitle>Add Event</DialogTitle>
         <DialogContent>
           

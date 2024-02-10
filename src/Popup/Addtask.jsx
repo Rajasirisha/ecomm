@@ -277,7 +277,7 @@ const [paymentDetails, setPaymentDetails] = useState({
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '10px' }}>
         <div>
-          <label htmlFor="code">Code : </label>
+          <label htmlFor="code">Task Code : </label>
           <input
             type="text"
             id="code"

@@ -201,6 +201,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom'; 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -268,6 +269,7 @@ function Carousel() {
         enableMouseEvents
       >
         {tasks.map((task, index) => (
+          <Link to="/task" style={{ textDecoration: 'none', color: 'inherit' }}>
           <div key={task.taskCode}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
@@ -284,6 +286,8 @@ function Carousel() {
                   alignItems: 'end',
                 }}
               >
+                
+                
                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
                  <Typography variant="body2">
                   Task Name   :
@@ -381,6 +385,7 @@ function Carousel() {
               </Box>
             ) : null}
           </div>
+          </Link>
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper

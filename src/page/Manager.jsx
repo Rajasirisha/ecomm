@@ -1,8 +1,6 @@
 import React, { useCallback } from 'react';
 import Sidebar from '../components/Sidebar';
 import Divider from '@mui/material-next/Divider';
-// import Profile from '../components/Profile';
-// import PortalPopup from '../components/PortalPopup';
 import Navbar from '../components/Navbar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -60,7 +58,7 @@ const Manager = () => {
               <Grid item xs={12}>
               <Stack spacing={2} direction="row">
                 <Box sx={{width: "40%", height: "20%"}}>
-                  <div  className='card w-[210px] h-[170px]'> 
+                  <div  className='smallcard w-[210px] h-[170px]'> 
                   
                <img className="iconCircle" src="/assignment.png" alt="" />
                <Typography className='title'  variant="subtitle1">
@@ -81,7 +79,7 @@ const Manager = () => {
               </Box>
               
               <Box sx={{width: "40%", height: "20%"}}>
-              <div  className='card w-[210px] h-[170px]'> 
+              <div  className='smallcard w-[210px] h-[170px]'> 
                 <img className="iconCircle" src="/yettoallocate.png" alt="" />
              
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
@@ -106,7 +104,7 @@ const Manager = () => {
               </Box>
               
               <Box sx={{width: "40%", height: "20%"}}>
-              <div  className='card w-[210px] h-[170px]'> 
+              <div  className='smallcard w-[210px] h-[170px]'> 
                   
               <img className="iconCircle" src="/inprogress.png" alt="" />
               
@@ -132,7 +130,7 @@ const Manager = () => {
               </Box>
              
               <Box sx={{width: "40%", height: "20%"}}>
-              <div  className='card w-[210px] h-[170px]'> 
+              <div  className='smallcard w-[210px] h-[170px]'> 
                  
               <img className="iconCircle" src="/inreview.png" alt="" />
               
@@ -165,7 +163,7 @@ const Manager = () => {
               <Grid item xs={12}>
               <Stack spacing={2} direction="row">
               <Box sx={{width: "40%", height: "20%"}}>
-              <div  className='card w-[210px] h-[170px]'> 
+              <div  className='smallcard w-[210px] h-[170px]'> 
                   
               <img className="iconCircle" src="/assignment.png" alt="" />
                   <Typography className='title' gutterBottom variant="subtitle1" component="div">
@@ -187,7 +185,7 @@ const Manager = () => {
               </Box>
 
               <Box sx={{width: "40%", height: "20%"}}>
-              <div  className='card w-[210px] h-[170px]'> 
+              <div  className='smallcard w-[210px] h-[170px]'> 
                  
               <img className="iconCircle" src="/yettoallocate.png" alt="" />
               
@@ -213,7 +211,7 @@ const Manager = () => {
               </Box>
               
               <Box sx={{width: "40%", height: "20%"}}>
-              <div  className='card w-[210px] h-[170px]'> 
+              <div  className='smallcard w-[210px] h-[170px]'> 
                   
               <img className="iconCircle" src="/inprogress.png" alt="" />
              
@@ -239,7 +237,7 @@ const Manager = () => {
               </Box>
              
               <Box sx={{width: "40%", height: "20%"}}>
-              <div  className='card w-[220px] h-[170px]'> 
+              <div  className='smallcard w-[220px] h-[170px]'> 
                   
               <img className="iconCircle" src="/inreview.png" alt="" />
              
@@ -269,7 +267,7 @@ const Manager = () => {
               
                 <Stack  spacing={2} sx={{ marginLeft: 2 }}>
                 <Box >
-                   <div  className="datecalendar w-[330px] h-[385px] " > 
+                   <div  className="datecalendars w-[330px] h-[385px] " > 
                 
                 <CardContent >
                

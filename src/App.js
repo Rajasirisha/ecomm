@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./page/Login";
 import Freelancer from "./page/Freelancer";
 import Manager from './page/Manager';
-import Employee from './page/Employee'
+import Employee from './page/Employee';
 import Forgotpassword from "./page/Forgotpassword";
 import Recovery from './page/Recovery';
 import SetPassword from "./page/SetPassword";
@@ -22,6 +22,12 @@ import Freelancergenerate from "./page/Freelancergenerate";
 import Freelancerpayview from './page/Freelancerpayview';
 import Clientgenerate from "./page/Clientgenerate";
 import Clientibview from './page/Clientibview';
+import EmpTask from './page/EmpTask';
+import EmpCalendar from './page/EmpCalendar';
+import FreelancerTask from "./page/FreelancerTask";
+import FreelancerCalendar from "./page/FreelancerCalendar";
+import EmpDActive from './page/EmpDActive';
+import FDActive from './page/FDActive';
 
 function App() {
   return(
@@ -47,6 +53,13 @@ function App() {
     <Route path="/freelancerpayview" element={<Freelancerpayview/>} />
     <Route path="/clientgenerate" element={<Clientgenerate/>} />
     <Route path="/clientibview" element={<Clientibview/>} />
+    <Route path="/emptask" element={<EmpTask/>} />
+    <Route path="/empcalendar" element={<EmpCalendar/>} />
+    <Route path="/freelancertask" element={<FreelancerTask/>} />
+    <Route path="/freelancercalendar" element={<FreelancerCalendar/>} />
+    <Route path="/empdactive" element={<EmpDActive/>} />
+    <Route path="/fdactive" element={<FDActive/>} />
+
     
  </Routes>
   </BrowserRouter>

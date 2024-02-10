@@ -23,25 +23,20 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import Grid from '@mui/material/Grid';
 import Search from '../components/Search';
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AttachmentIcon from '@mui/icons-material/Attachment';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import Addtask from '../Popup/Addtask';
+import Emptaskview from '../Popup/Emptaskview';
 
-function createData(id, name, code, description, words, date, owner, writer, reviewer, link, status, marks, result) {
+function createData(id, code, description, words, date, owner, link, status, marks, result) {
   return {
     id,
-    name,
     code,
     description,
     words,
     date,
     owner,
-    writer,
-    reviewer,
     link,
     status,
     marks,
@@ -50,16 +45,16 @@ function createData(id, name, code, description, words, date, owner, writer, rev
 }
 
 const rows = [
-  createData(1, 'Aneesh', 'KRZ-2023-0814', 'Data science', 1500, '31-Oct-2023', 'Kayal', 'Madhu Bala', 'Inprogress', 'link', '', '', ''),
-  createData(2, 'Prathik', 'KRZ-2023-0815', 'Manufacturing', 2500, '31-Dec-2023', 'Zubair', 'Mariyam', 'Completed', 'link', 'Delivered/Done', 80, 'Pass'),
-  createData(3, 'Sruthi', 'KRZ-2023-0816', 'Medicin', 1000, '31-Jan-2023', 'Khalique', 'Jafreen', 'Inprogress', 'link', '', '', ''),
-  createData(4, 'Abdul', 'KRZ-2023-0817', 'Design', 500, '01-Jan-2023', 'Zubair', 'Rahul', 'Inprogress', '', '', '', ''),
-  createData(5, 'A', 'KRZ-2023-0818', 'PPT', 1600, '01-Feb-2023', 'Kayal', 'Antara', 'Inprogress', 'link', '', '', ''),
-  createData(6, 'B', 'KRZ-2023-0819', 'Data science', 900, '11-Jan-2023', 'Khalique', 'Madhu Bala', 'Inprogress', 'link', '', '-', ''),
-  createData(7, 'C', 'KRZ-2023-0810', 'Data science', 800, '11-Feb-2023', 'Zubair', 'Monu', 'Inprogress', '', 'Delivered/Done', '33', 'Fail'),
-  createData(8, 'D', 'KRZ-2023-0811', 'Data science', 1300, '20-Feb-2023', 'Zubair', 'Madhu Bala', 'Inprogress', 'link', '', '', ''),
-  createData(9, 'E', 'KRZ-2023-0812', 'Data science', 1800, '30-Jan-2023', 'Khalique', 'Madhu Bala', 'Inprogress', 'link', '', '', ''),
-  createData(10, 'F', 'KRZ-2023-0813', 'Data science', 1500, '10-Jan-2023', 'Kayal', 'Madhu Bala', 'Inprogress', 'link', '', '', ''),
+  createData(1, 'KRZ-2023-0814', 'Data science', 1500, '31-Oct-2023', 'Kayal', 'link', '', '', ''),
+  createData(2, 'KRZ-2023-0815', 'Manufacturing', 2500, '31-Dec-2023', 'Zubair', 'link', 'Delivered/Done', 80, 'Pass'),
+  createData(3, 'KRZ-2023-0816', 'Medicin', 1000, '31-Jan-2023', 'Khalique', 'link', '', '', ''),
+  createData(4, 'KRZ-2023-0817', 'Design', 500, '01-Jan-2023', 'Zubair', '', '', '', ''),
+  createData(5, 'KRZ-2023-0818', 'PPT', 1600, '01-Feb-2023', 'Kayal', 'link', '', '', ''),
+  createData(6, 'KRZ-2023-0819', 'Data science', 900, '11-Jan-2023', 'Khalique', 'link', '', '-', ''),
+  createData(7, 'KRZ-2023-0810', 'Data science', 800, '11-Feb-2023', 'Zubair', '', 'Delivered/Done', '33', 'Fail'),
+  createData(8, 'KRZ-2023-0811', 'Data science', 1300, '20-Feb-2023', 'Zubair', 'link', '', '', ''),
+  createData(9, 'KRZ-2023-0812', 'Data science', 1800, '30-Jan-2023', 'Khalique', 'link', '', '', ''),
+  createData(10, 'KRZ-2023-0813', 'Data science', 1500, '10-Jan-2023', 'Kayal', 'link', '', '', ''),
 
 ];
 
@@ -92,12 +87,7 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  {
-    id: 'name',
-    numeric: false,
-    disablePadding: true,
-    label: 'Client Name',
-  },
+  
   {
     id: 'code',
     numeric: true,
@@ -127,18 +117,6 @@ const headCells = [
     numeric: true,
     disablePadding: false,
     label: 'Owner',
-  },
-  {
-    id: 'writer',
-    numeric: true,
-    disablePadding: false,
-    label: 'Writer',
-  },
-  {
-    id: 'reviewer',
-    numeric: true,
-    disablePadding: false,
-    label: 'Reviewer',
   },
   {
     id: 'link',
@@ -248,21 +226,10 @@ EnhancedTableHead.propTypes = {
 };
 
 function EnhancedTableToolbar(props) {
-  const { numSelected, onDelete, selected, updateTaskTable } = props;
-  // const [selected, setSelected] = React.useState([]);
+  const { numSelected, onDelete, selected } = props;
 
   const handleDeleteClick = () => {
     onDelete(selected);
-  };
-
-  const [openPopup, setOpenPopup] = React.useState(false);
-
-  const handleAddTaskClick = () => {
-    setOpenPopup(true);
-  };
-
-  const handleClosePopup = () => {
-    setOpenPopup(false);
   };
 
   return (
@@ -300,23 +267,6 @@ function EnhancedTableToolbar(props) {
              <Grid item>
                 <Search />
               </Grid>
-            <Grid item>
-             <Button variant="filled" 
-             sx={{ backgroundColor: '#173767',
-              position: 'relative', 
-             color: '#fff',
-             height: '30px',
-             textTransform: 'none', 
-             borderRadius: '20px',
-             '&:hover': {
-              backgroundColor: '#E2A925',
-              color: '#fff',
-              }, }}
-              onClick={handleAddTaskClick}>
-                <AddIcon sx={{mr: '2px'}}/>Add Task
-              </Button>
-              <Addtask open={openPopup} onClose={handleClosePopup} updateTaskTable={updateTaskTable}/>
-              </Grid>
               </Grid>   
 
       {numSelected > 0 ? (
@@ -341,6 +291,13 @@ EnhancedTableToolbar.propTypes = {
 };
 
 export default function EnhancedTable() {
+  const [openEmpTaskView, setOpenEmpTaskView] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
+
+  const handleEditViewClick = (row) => {
+    setSelectedRow(row);
+    setOpenEmpTaskView(true);
+  };
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('desc');
   const [selected, setSelected] = React.useState([]);
@@ -426,10 +383,10 @@ export default function EnhancedTable() {
   };
 
   const handleMarksChange = (event, rowId) => {
-    const marks = parseInt(event.target.value);
+    const updatedMarks = parseInt(event.target.value);
     const updatedData = tableData.map((row) => {
       if (row.id === rowId) {
-        return { ...row, marks };
+        return { ...row, marks: updatedMarks };
       }
       return row;
     });
@@ -500,11 +457,10 @@ const updateTaskTable = (newTask) => {
                     tabIndex={-1}
                     key={row.id}
                     selected={isItemSelected}
-                    sx={{ '& .MuiTableCell-root': {padding: '5px',},}}
+                    sx={{ '& .MuiTableCell-root': {padding: '3px',},}}
                   >
                     <TableCell padding="checkbox">
                       <Checkbox
-                        // color="primary"
                         checked={isItemSelected}
                         inputProps={{
                           'aria-labelledby': labelId,
@@ -513,15 +469,6 @@ const updateTaskTable = (newTask) => {
                           color: '#E2A925',
                         }, }}
                       />
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      id={labelId}
-                      scope="row"
-                      padding="none"
-                      sx={{ textAlign: 'center' }}
-                    >
-                      {row.name }
                     </TableCell>
                     <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{ row.code}</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>{row.description }</TableCell>
@@ -538,8 +485,6 @@ const updateTaskTable = (newTask) => {
                       }}>{row.date }</div>
                      </TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>{row.owner }</TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap',textAlign: 'center' }}>{row.writer }</TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap', textAlign: 'center' }}>{row.reviewer }</TableCell>
                     <TableCell align="right" sx={{ textAlign: 'center' }}>
                     {row.link ? (
                       <Tooltip title="Attachment">
@@ -585,7 +530,7 @@ const updateTaskTable = (newTask) => {
                     <TableCell align="right" sx={{ textAlign: 'center' }}>
                             <Tooltip title="View">
                               <IconButton>
-                                <VisibilityIcon sx={{ color: '#173767' }}/>
+                                <VisibilityIcon onClick={() => handleEditViewClick(row)} sx={{ color: '#173767' }}/>
                               </IconButton>
                             </Tooltip>
                           </TableCell>
@@ -627,6 +572,7 @@ const updateTaskTable = (newTask) => {
     },
   }}
       />
+      <Emptaskview open={openEmpTaskView} onClose={() => setOpenEmpTaskView(false)} selectedRow={selectedRow} />
     </Box>
   );
 }

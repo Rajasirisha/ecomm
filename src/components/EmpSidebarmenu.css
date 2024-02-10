@@ -1,0 +1,46 @@
+.nav-pills i.bi {
+    color: white;
+  
+  }
+  .nav-pills li a:hover {
+    background-color: #E2A925;
+  }
+  
+  .nav-item a:hover{
+    background-color: #E2A925;
+  }
+  
+  .dashboard-header{
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  
+  .input-style{
+    color: #173767;
+    width: 50px;
+    height: 50px;
+    border-bottom: solid;
+    text-align: center;
+    outline: none;
+    font-weight:600;
+  
+  }
+  
+  @media screen  and (max-width: 992px){
+    .sidebarOpen{
+      width: 80px;
+    }
+    .sidebarOpen .nav-pills a{
+      display: flex ;
+    }
+    .sidebarOpen .nav-pills{
+      padding: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .sidebarOpen {
+      display: flex;
+    }
+  }
