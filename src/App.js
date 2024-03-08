@@ -28,6 +28,7 @@ import FreelancerTask from "./page/FreelancerTask";
 import FreelancerCalendar from "./page/FreelancerCalendar";
 import EmpDActive from './page/EmpDActive';
 import FDActive from './page/FDActive';
+import Writer from './page/Writer';
 
 function App() {
   return(
@@ -59,6 +60,7 @@ function App() {
     <Route path="/freelancercalendar" element={<FreelancerCalendar/>} />
     <Route path="/empdactive" element={<EmpDActive/>} />
     <Route path="/fdactive" element={<FDActive/>} />
+    <Route path="/writer" element={<Writer/>} />
 
     
  </Routes>

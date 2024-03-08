@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
@@ -18,6 +18,7 @@ import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
 
 export default function Addtask({ open, onClose , updateTaskTable }) {
 
@@ -208,6 +209,8 @@ const [paymentDetails, setPaymentDetails] = useState({
     setDialogTaskOpen(false);
   };
 
+  const handelSelectWriter = useCallback(() => {
+      }, []);
 
   return (
     <>
@@ -271,7 +274,8 @@ const [paymentDetails, setPaymentDetails] = useState({
            backgroundColor: '#E2A925',
            color: '#fff',
            }, }} 
-          onClick={onClose}>Select Writer</Button>
+          onClick={handelSelectWriter}>
+            <Link to="/writer">Select Writer</Link></Button>
         </div>
         </div>
 
