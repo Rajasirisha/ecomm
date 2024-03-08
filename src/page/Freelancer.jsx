@@ -125,7 +125,6 @@ const Freelancer = ({ open, onClose}) => {
               </Grid>
               
               <Grid item xs={12} md={12}>
-              {/* <Stack spacing={2}> */}
               
                 <Card className='fullcard' sx={{ width: 100 + "%", height: 250, borderRadius: '20px'}}>
                 <CardContent >
@@ -139,7 +138,6 @@ const Freelancer = ({ open, onClose}) => {
                 </div>
                 </CardContent>
                 </Card>
-                {/* </Stack> */}
               </Grid>
               </Stack>
                 
@@ -158,7 +156,6 @@ const Freelancer = ({ open, onClose}) => {
            
               <Box height={20} />
               
-              {/* <Stack spacing={2} direction="row"> */}
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                 <Card className='fullcard' sx={{ borderRadius: '20px'}}>
@@ -281,7 +278,6 @@ const Freelancer = ({ open, onClose}) => {
                   </Card>
                   </Grid>
                    </Grid> 
-                  {/* </Stack> */}
             </Box>
             </Box>
             </div>

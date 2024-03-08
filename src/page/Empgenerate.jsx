@@ -9,7 +9,6 @@ import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody
 import SyncIcon from '@mui/icons-material/Sync';
 import './Generate.css';
 import { Dialog, DialogTitle, DialogContent} from '@mui/material';
-// import { useNavigate } from 'react-router-dom';
 
 export default function Empgenerate({ open, onClose, onEmpGenerate }) {
   
@@ -41,13 +40,6 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
       { name: 'Loss of Pay', amount: '' },
     ],
   };
-
-  // const navigate = useNavigate();    
-  // const handleEmpGenerate = () => {
-  //       onEmpGenerate(empDetails);
-  //       // onClose();
-  //       navigate('/emppayview');
-  //     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -558,7 +550,6 @@ export default function Empgenerate({ open, onClose, onEmpGenerate }) {
            color: '#E2A925',
            },
            '@media (max-width: 600px)': { fontSize: '12px' }, }} 
-          //  onClick={handleEmpGenerate}
            >
             <Link to="/emppayview">
               Generate Payslip

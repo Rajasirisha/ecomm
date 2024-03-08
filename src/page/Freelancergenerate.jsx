@@ -9,7 +9,6 @@ import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody
 import SyncIcon from '@mui/icons-material/Sync';
 import './Generate.css';
 import { Dialog, DialogTitle, DialogContent} from '@mui/material';
-// import { useNavigate } from 'react-router-dom';
 
 export default function Freelancergenerate({ open, onClose, onFreelancerGenerate }) {
   
@@ -23,13 +22,6 @@ export default function Freelancergenerate({ open, onClose, onFreelancerGenerate
       date: "",
     },
 };
-
-  // const navigate = useNavigate();    
-  // const handleFreelancerGenerate = () => {
-  //       onFreelancerGenerate(freelancerDetails);
-  //       // onClose();
-  //       navigate('/freelancerpayview');
-  //     };
 
 const handleSubmit = (e) => {
         e.preventDefault();

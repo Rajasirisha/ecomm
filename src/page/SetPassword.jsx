@@ -25,7 +25,6 @@ const backtoLogin = {
           </div>
         </div>
         <div className="w-full pt-8">
-          {/* <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
               className="mx-auto w-[63px] h-[63px] w-[35px] h-[35px] overflow-hidden"
               alt=""

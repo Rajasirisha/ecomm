@@ -25,12 +25,6 @@ export default function  Profilepage({ isOpen, onClose, onProfilePage }) {
         officemode: "",
       });
 
-      // const handleProfilePage = () => {
-      //   onProfilePage(profileDetails);
-      //   setConfirmationDialogOpen(true);
-      //   onClose();
-      // };
-
       const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Profile details submitted: ", profileDetails);
@@ -245,7 +239,6 @@ export default function  Profilepage({ isOpen, onClose, onProfilePage }) {
         <CardContent >
         <Grid item >
             <div>
-              {/* <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> */}
               <div>
                 <label htmlFor="name">Name :</label>
                 <input

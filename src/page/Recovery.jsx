@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-// import Login from "./Login";
 import { Link } from 'react-router-dom';
 import { useNavigate} from 'react-router-dom';
 
@@ -26,7 +25,6 @@ const backtoLogin = {
           </div>
         </div>
         <div className="w-full w-[63px] h-[63px] pt-10">
-          {/* <div className="absolute top-[0px] left-[0px] rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro" /> */}
             <img
               className="mx-auto rounded-lg bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[63px] h-[63px] border-[1px] border-solid border-gainsboro w-[35px] h-[35px] overflow-hidden "
               alt=""
@@ -76,7 +74,6 @@ const backtoLogin = {
         </div>
       </div>
             
-                {/* <div className="absolute m-auto top-[405px] left-[300px] w-[293px] h-[40px]">      */}
                 <div className="w-full pt-5">
                     <button
                       style={{ background: "#173767"}}

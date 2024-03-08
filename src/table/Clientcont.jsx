@@ -203,10 +203,6 @@ function EnhancedTableToolbar(props) {
   const [selected, setSelected] = useState([]);
   const [clients, setClients] = useState([]);
 
-  // const handleAddClient = (newClient) => {
-  //   setClients([...clients, newClient]);
-  // };
-
   const [openPopup, setOpenPopup] = React.useState(false);
 
   const handleAddClientClick = () => {

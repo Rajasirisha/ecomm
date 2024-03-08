@@ -12,7 +12,6 @@ const Invoicebills = () => {
              <Box sx={{display: "flex"}}>  
              <Sidebar />
             <Box component="main" sx={{ flexGrow: 1, p:4}}>
-            {/* <h1>Welcome to Invoice Bills</h1> */}
             <TabBarib/>
             </Box>
             </Box>

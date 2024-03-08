@@ -76,7 +76,6 @@ export default function FullWidthTabs() {
               '&.Mui-selected': {
                 color: '#173767', 
               },
-              // width: 350,
             },
           }}
         >

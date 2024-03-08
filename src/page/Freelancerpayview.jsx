@@ -20,28 +20,21 @@ export default function Freelancerpayview({ open, onClose }) {
         pdf.setFontSize(12);
         pdf.setFont('helvetica', 'normal');
     
-        // Add receipt content to the PDF
         pdf.text('Freelancer Payslip Receipt', 20, 20);
         pdf.text('--------------------------', 20, 30);
     
-        // Add freelancerloyee details
         pdf.text(`Freelancer Name: ${freelancerDetails.name}`, 20, 40);
         pdf.text(`Freelancer ID: ${freelancerDetails.id}`, 20, 50);
         pdf.text(`Location: ${freelancerDetails.location}`, 20, 60);
-        // Add more details as needed
-    
-        // Add earnings details in table format
+        
         pdf.text('Income Details', 20, 80);
         pdf.text('--------------------------', 20, 90);
         generateTable(pdf, tableData);
-    
-        // Add net payable
+           
         pdf.text(`Net Payable: ₹${totalNetPayable}`, 20, 260);
     
-        // Add amount in words
         pdf.text(`Amount in Words: ${amountInWords}`, 20, 280);
     
-        // Save the PDF with a specific filename
         pdf.save('freelancer_receipt.pdf');
     
     console.log('Downloading Receipt...');
@@ -75,12 +68,6 @@ export default function Freelancerpayview({ open, onClose }) {
       date: "",
     },
 };
-  // const navigate = useNavigate();    
-  // const handleFreelancerGenerate = () => {
-  //       onFreelancerGenerate(freelancerDetails);
-  //       // onClose();
-  //       navigate('/freelancerpayview');
-  //     };
 
   const [freelancerDetails, setFreelancerDetails] = useState(initialState.freelancerDetails);
 
