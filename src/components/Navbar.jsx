@@ -1,210 +1,128 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import FormatIndentDecreaseIcon from '@mui/icons-material/FormatIndentDecrease';
-import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'; 
-import MuiAppBar from '@mui/material/AppBar';
-import { useAppStore } from '../appStore';
-import Profile from '../Popup/Profile';
-import { useNavigate } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Search from '../components/Search';
 
-const AppBar = styled(MuiAppBar, {
-  })(({ theme }) => ({
-    zIndex: theme.zIndex.drawer + 1,
-}));
+const drawerWidth = 240;
+const navItems = [
+  { text: 'Home', path: '/' },
+  { text: 'About', path: '/about' },
+  { text: 'Contact', path: '/contact' },
+  { text: 'Login' },
+];
 
-export default function Navbar() {
-  const [profilePopupOpen, setProfilePopupOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const updateOpen = useAppStore((state) => state.updateOpen);
-  const dopen = useAppStore((state) => state.dopen);
-  const navigate = useNavigate(); 
+function NavBar(props) {
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
+  const handleLogin = () => {
+    // Implement your login logic here
+    setIsLoggedIn(true);
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
+  const handleLogout = () => {
+    // Implement your logout logic here
+    setIsLoggedIn(false);
   };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const openProfilePopup = () => {
-    setProfilePopupOpen(true);
-    handleMenuClose();
-    handleMobileMenuClose();
-  };
-
-  const closeProfilePopup = () => {
-    setProfilePopupOpen(false);
-  };
-
-  const handleProfileDetails = (profileDetails) => {
-    openProfilePopup(profileDetails);
-  };
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={openProfilePopup}>Profile</MenuItem>
-      <MenuItem onClick={()=>{navigate( "/")}}>Logout</MenuItem>
-    </Menu>
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: 'pink' }}>
+      <Typography sx={{ my: 2, color: '#8D2F4F', fontWeight: '600', fontStyle: 'italic'  }}>
+        <h2>Fashion</h2>
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.text} disablePadding>
+            <ListItemButton component={Link} to={item.path} sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item.text}  sx={{ color: '#8D2F4F' }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <ListItemButton sx={{ textAlign: 'center' }} onClick={isLoggedIn ? handleLogout : handleLogin}>
+        <ListItemText primary={isLoggedIn ? 'Logout' : 'Login'} sx={{ color: '#8D2F4F' }} />
+      </ListItemButton>
+    </Box>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 5 new notifications"
-          color="#000000"
-        >
-          <Badge badgeContent={5} color="error">
-            <NotificationsIcon sx={{color: '#173767'}}/>
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="#000000"
-        >
-          <AccountCircleIcon sx={{ color: '#173767' }}/>
-          <ListItemText primary="Name" sx={{ marginLeft: 1, color: '#173767' }}/>
-        </IconButton>
-      </MenuItem>
-    </Menu>
-  );
+  const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ backgroundColor: '#ffffff', height: '60px' }}>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar component="nav" sx={{ bgcolor: 'pink', height: 60}}>
         <Toolbar>
           <IconButton
-            size="large"
-            edge="start"
-            color="#000000"
             aria-label="open drawer"
-            sx={{ mr: 1, '&:hover': {
-              backgroundColor: '#E2A925',
-              borderRadius: '50%',
-            },}}
-            onClick={()=>updateOpen(!dopen)}
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 0, display: { sm: 'none' } }}
           >
-            {dopen ? 
-            (<FormatIndentDecreaseIcon sx={{color: '#173767' }}/>) : (<FormatIndentIncreaseIcon sx={{color: '#173767' }}/>)}
+            <MenuIcon sx={{ color: '#8D2F4F' }}/>
           </IconButton>
-          <img className='mt-1 mr-5 rounded ' 
-          style={{ width: '90px', height: '40px' }} 
-          src="menulogo.png" 
-          alt="logo" />
           <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            color="#000000"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' }, 
+            color: '#8D2F4F', bgcolor: 'pink', fontWeight: '600', fontStyle: 'italic',
+          '&.MuiTypography-root': { height: 60} }}
           >
-            Welcome Name...
+           <h2>Fashion</h2> 
           </Typography>
-          
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              aria-label="show 5 new notifications"
-              color="#000000"
-            >
-              <Badge badgeContent={5} color="error">
-                <NotificationsIcon sx={{color: '#173767' }}/>
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="#000000"
-            >
-            <AccountCircleIcon sx={{ color: '#173767' }}/>
-            <ListItemText primary="Name" sx={{ marginLeft: 1, color: '#173767' }}/>
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="#000000"
-            >
-              <MoreIcon />
+          <Box sx={{ display: 'flex' }}>
+            <Search />
+            <Box sx={{ display: { xs: 'none', sm: 'block' }, bgcolor: 'pink' }}>
+              {navItems.map((item) => (
+                <Button key={item.text} component={Link} to={item.path} sx={{ color: '#8D2F4F' }}>
+                  {item.text}
+                </Button>
+              ))}
+            </Box>
+            <IconButton sx={{ color: '#8D2F4F' }}>
+              <ShoppingCartIcon />
             </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
-      <Profile isOpen={profilePopupOpen} onClose={closeProfilePopup} onProfilePage={handleProfileDetails}/>
-      {renderMobileMenu}
-      {renderMenu}
+      <nav>
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, 
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </nav>
+      <Box height={40}/>
     </Box>
   );
 }
+
+export default NavBar;
