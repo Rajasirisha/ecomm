@@ -1,21 +1,3 @@
-// import React from 'react';
-// import Navbar from '../components/Navbar';
-// import Box from '@mui/material/Box';
-
-// const Contact = () => {
-//   return (
-//     <div>
-//       <Navbar />
-//       <Box height={40}/>
-//       <Box component="main" sx={{ pl: 3}}>
-//       <h1 style={{color: '#8D2F4F'}}>Contact Details</h1>
-//       </Box>
-//     </div>
-//   )
-// }
-
-// export default Contact
-
 import React from "react";
 import Navbar from '../components/Navbar';
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
