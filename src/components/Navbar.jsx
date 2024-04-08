@@ -21,6 +21,7 @@ import {FormControl, InputBase, Menu, MenuItem } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
+import Loginpopup from './Loginpopup';
 
 const drawerWidth = 240;
 const navItems = [
@@ -35,6 +36,7 @@ const NavBar = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { state: {cart},dispatch, productDispatch } = CartState();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [showLoginpopup, setShowLoginpopup] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -42,6 +44,7 @@ const NavBar = (props) => {
 
   const handleLogin = () => {
     setIsLoggedIn(true);
+    setShowLoginpopup(false);
   };
 
   const handleLogout = () => {
@@ -174,9 +177,12 @@ const NavBar = (props) => {
                   {item.text}
                 </Button>
               ))}
-              <Button sx={{ ml: 1, color: '#8D2F4F' }} onClick={isLoggedIn ? handleLogout : handleLogin}>
-                {isLoggedIn ? 'Logout' : 'Login'}
-              </Button>
+              {!isLoggedIn && (
+            <Button sx={{ color: '#8D2F4F' }} onClick={() => setShowLoginpopup(true)}>Login</Button>
+          )}
+          {isLoggedIn && (
+            <Button sx={{ color: '#8D2F4F' }} onClick={handleLogout}>Logout</Button>
+          )}
             </Box>
             <IconButton sx={{ color: '#8D2F4F' }} onClick={handleMenuOpen}>
               <Badge badgeContent={cart.length} color="red">
@@ -258,6 +264,7 @@ const NavBar = (props) => {
           {drawer}
         </Drawer>
       </nav> 
+      <Loginpopup open={showLoginpopup} handleClose={() => setShowLoginpopup(false)} handleLogin={handleLogin} />
     </Box>
   );
 }
