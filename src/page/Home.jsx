@@ -49,7 +49,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Box height={50}/>
-      <Box component="main" >
+      <Box component="main" className="main-content" >
       <div className="home">
       <Filter />
       <div className="productContainer">
