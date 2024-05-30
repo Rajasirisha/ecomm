@@ -22,6 +22,8 @@ import { useLocation } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import Loginpopup from './Loginpopup';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const drawerWidth = 240;
 const navItems = [
@@ -51,6 +53,9 @@ const NavBar = (props) => {
     setIsLoggedIn(false);
   };
 
+const NavBar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -73,7 +78,7 @@ const NavBar = (props) => {
       width: 'auto',
     },
   }));
-  
+
   const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
@@ -83,7 +88,7 @@ const NavBar = (props) => {
     alignItems: 'center',
     justifyContent: 'center',
   }));
-  
+
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: '#8D2F4F',
     width: '100%',
@@ -174,68 +179,69 @@ const NavBar = (props) => {
             <Box sx={{ display: { xs: 'none', sm: 'block' }, bgcolor: 'pink' }}>
               {navItems.map((item) => (
                 <Button key={item.text} component={Link} to={item.path} sx={{ color: '#8D2F4F' }}>
-                  {item.text}
-                </Button>
+                {item.text}
+              </Button>
+            ))}
+            {!isLoggedIn && (
+          <Button sx={{ color: '#8D2F4F' }} onClick={() => setShowLoginpopup(true)}>Login</Button>
+        )}
+        {isLoggedIn && (
+          <Button sx={{ color: '#8D2F4F' }} onClick={handleLogout}>Logout</Button>
+        )}
+          </Box>
+          <IconButton sx={{ color: '#8D2F4F' }} onClick={handleMenuOpen}>
+            <Badge badgeContent={cart.length} color="red">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+          <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleMenuClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          getContentAnchorEl={null}
+          sx={{ minWidth: 370 }}
+        >
+          {cart.length > 0 ? (
+            <>
+              {cart.map((prod) => (
+                <MenuItem >
+                <span className="cartitem" key={prod.id}>
+                  <img className="cartItemImg" src={prod.image} alt={prod.name} sx={{ width: 50, height: 50, marginRight: 10 }} />
+                  <div className="cartItemDetail">
+                    <span>{prod.name}</span>
+                    <span>₹ {prod.price.split(".")[0]}</span>
+                  </div>
+                  <AiFillDelete
+                    fontSize="20px"
+                    color='#8D2F4F'
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      dispatch({
+                        type: "REMOVE_FROM_CART",
+                        payload: prod,
+                      })
+                    }
+                  />
+                  </span>
+                </MenuItem>
               ))}
-              {!isLoggedIn && (
-            <Button sx={{ color: '#8D2F4F' }} onClick={() => setShowLoginpopup(true)}>Login</Button>
-          )}
-          {isLoggedIn && (
-            <Button sx={{ color: '#8D2F4F' }} onClick={handleLogout}>Logout</Button>
-          )}
-            </Box>
-            <IconButton sx={{ color: '#8D2F4F' }} onClick={handleMenuOpen}>
-              <Badge badgeContent={cart.length} color="red">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
-            <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            getContentAnchorEl={null}
-            sx={{ minWidth: 370 }}
-          >
-            {cart.length > 0 ? (
-              <>
-                {cart.map((prod) => (
-                  <MenuItem >
-                  <span className="cartitem" key={prod.id}>
-                    <img className="cartItemImg" src={prod.image} alt={prod.name} sx={{ width: 50, height: 50, marginRight: 10 }} />
-                    <div className="cartItemDetail">
-                      <span>{prod.name}</span>
-                      <span>₹ {prod.price.split(".")[0]}</span>
-                    </div>
-                    <AiFillDelete
-                      fontSize="20px"
-                      color='#8D2F4F'
-                      style={{ cursor: "pointer" }}
-                      onClick={() =>
-                        dispatch({
-                          type: "REMOVE_FROM_CART",
-                          payload: prod,
-                        })
-                      }
-                    />
-                    </span>
-                  </MenuItem>
-                ))}
-                <MenuItem>
-                  <Link to="/cart" sx={{ textDecoration: 'none' }}>
-                    <Button variant="outlined"
-                    sx={{'&.MuiButtonBase-root': {color: '#8D2F4F', backgroundColor: 'pink', borderColor: '#8D2F4F', width: '95%', margin: '0 10px' }}}
+              <MenuItem>
+                <Link to="/cart" sx={{ textDecoration: 'none' }}>
+                  <Button variant="outlined"
+                  sx={{'&.MuiButtonBase-root': {color: '#8D2F4F', backgroundColor: 'pink', borderColor: '#8D2F4F', width: '95%', margin: '0 10px' }}}
                     >
                       Go To Cart
+                      <ArrowDropDownIcon />
                     </Button>
-                  </Link>
+                    </Link>
                 </MenuItem>
               </>
             ) : (
@@ -260,13 +266,11 @@ const NavBar = (props) => {
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
-        >
-          {drawer}
-        </Drawer>
-      </nav> 
-      <Loginpopup open={showLoginpopup} handleClose={() => setShowLoginpopup(false)} handleLogin={handleLogin} />
-    </Box>
+          >
+            {drawer}
+          </Drawer>
+        </nav> 
+        <Loginpopup open={showLoginpopup} handleClose={() => setShowLoginpopup(false)} handleLogin={handleLogin} />
+      </Box>
   );
 }
-
-export default NavBar;
