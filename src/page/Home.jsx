@@ -71,6 +71,7 @@ const Home = () => {
     <div>
       <Navbar />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Box height={50}/>
       <Box component="main" className="main-content" >
       <div className="home">
@@ -82,6 +83,8 @@ const Home = () => {
       </div>
     </div>
 =======
+=======
+>>>>>>> 87faf5c425f709f94e3dbdd37d89c31cd4cc28d7
       <Box>
         <div className="home">
           <img 
@@ -411,6 +414,9 @@ const Home = () => {
             </div>
             <Bottombar />
 
+<<<<<<< HEAD
+>>>>>>> 87faf5c425f709f94e3dbdd37d89c31cd4cc28d7
+=======
 >>>>>>> 87faf5c425f709f94e3dbdd37d89c31cd4cc28d7
       </Box>
     </div>
