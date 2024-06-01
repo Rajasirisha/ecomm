@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Link} from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
-import Badge from '@mui/material/Badge';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+<<<<<<< HEAD
 import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
@@ -22,43 +21,41 @@ import { useLocation } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import Loginpopup from './Loginpopup';
+=======
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+>>>>>>> 87faf5c425f709f94e3dbdd37d89c31cd4cc28d7
 
-const drawerWidth = 240;
 const navItems = [
-  { text: 'Home', path: '/' },
-  { text: 'About', path: '/about' },
-  { text: 'Contact', path: '/contact' },
+  { text: 'Find suppliers', path: '/' },
+  { text: 'Find service tags', path: '/service-tags' },
 ];
 
-const NavBar = (props) => {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { state: {cart},dispatch, productDispatch } = CartState();
+const serviceTags = [
+  { text: 'Service 1', path: '/service1' },
+  { text: 'Service 2', path: '/service2' },
+];
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Poppins, sans-serif',
+  },
+});
+
+const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [showLoginpopup, setShowLoginpopup] = useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-    setShowLoginpopup(false);
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
-
-  const handleMenuOpen = (event) => {
+  const handleServiceTagMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = () => {
+  const handleServiceTagMenuClose = () => {
     setAnchorEl(null);
   };
 
+<<<<<<< HEAD
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: 20,
@@ -238,40 +235,78 @@ const NavBar = (props) => {
                     <Button variant="outlined"
                     sx={{'&.MuiButtonBase-root': {color: '#541743', backgroundColor: '#eddcd9',
                      borderColor: '#541743', width: '95%', margin: '0 10px', textTransform: 'none' }}}
+=======
+  return (
+    <ThemeProvider theme={theme}>
+      <Box sx={{ display: 'flex', width: '100%' }}>
+        <AppBar component="nav" sx={{ bgcolor: 'white', minHeight: 40 }}>
+          <Toolbar>
+            <img  
+              style={{ width: '150px', height: '60px', marginLeft: '10px' }} 
+              src="./images/habotlogo.png" 
+              alt="logo" 
+            />
+            <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'flex-end', gap: '20px' }}>
+              {navItems.map((item) => (
+                item.text === 'Find service tags' ? (
+                  <Box key={item.text} sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Button
+                      aria-controls="service-tags-menu"
+                      aria-haspopup="true"
+                      onClick={handleServiceTagMenuOpen}
+                      sx={{ color: '#6D6E71', textTransform: 'none'}}
+>>>>>>> 87faf5c425f709f94e3dbdd37d89c31cd4cc28d7
                     >
-                      Go To Cart
+                      {item.text}
+                      <ArrowDropDownIcon />
                     </Button>
-                  </Link>
-                </MenuItem>
-              </>
-            ) : (
-              <MenuItem>
-                <span sx={{ padding: 5 }}>Cart is Empty!</span>
-              </MenuItem>
-            )}
-          </Menu>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, 
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                  </Box>
+                ) : (
+                  <Button 
+                    key={item.text} 
+                    component={Link} 
+                    to={item.path} 
+                    sx={{ color: '#6D6E71', textTransform: 'none' }}
+                  >
+                    {item.text}
+                  </Button>
+                )
+              ))}
+              <Button 
+                variant="outlined" 
+                sx={{ 
+                  color: '#00732F', 
+                  borderColor: '#00732F', 
+                  borderRadius: '5px', 
+                  textTransform: 'none', 
+                  marginRight: '10px',
+                  paddingLeft: '20px',
+                  paddingRight: '20px',
+                  fontWeight: '700'
+                }}
+              >
+                Login / Signup
+              </Button>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Menu
+          id="service-tags-menu"
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleServiceTagMenuClose}
+          MenuListProps={{
+            'aria-labelledby': 'service-tags-button',
           }}
         >
-          {drawer}
-        </Drawer>
-      </nav> 
-      <Loginpopup open={showLoginpopup} handleClose={() => setShowLoginpopup(false)} handleLogin={handleLogin} />
-    </Box>
+          {serviceTags.map((tag) => (
+            <MenuItem key={tag.text} component={Link} to={tag.path} onClick={handleServiceTagMenuClose}>
+              {tag.text}
+            </MenuItem>
+          ))}
+        </Menu>
+      </Box>
+    </ThemeProvider>
   );
 }
 
