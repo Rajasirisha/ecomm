@@ -11,7 +11,7 @@ const SingleProduct = ({ prod }) => {
   return (
     <div className="products">
       <Card>
-        <Card.Img variant="top" width="300px" src={prod.image} alt={prod.name} />
+        <Card.Img variant="top" src={prod.image} alt={prod.name} width="300px" />
         <Card.Body>
           <Card.Title>{prod.name}</Card.Title>
           <Card.Subtitle style={{ paddingBottom: 10 }}>
@@ -25,8 +25,8 @@ const SingleProduct = ({ prod }) => {
           </Card.Subtitle>
           {cart.some((p) => p.id === prod.id) ? (
             <Button
-              variant="outlined"
-              style={{backgroundColor: 'pink', color: '#8D2F4F', borderRadius: '5px', borderColor: '#8D2F4F'}}
+              variant="danger"
+              style={{backgroundColor: 'red', color: 'white', borderRadius: '5px', borderColor: 'red'}}
               onClick={() =>
                 dispatch({
                   type: "REMOVE_FROM_CART",
@@ -38,7 +38,7 @@ const SingleProduct = ({ prod }) => {
             </Button>
           ) : (
             <Button
-            style={{backgroundColor: '#8D2F4F', color: 'pink', borderRadius: '5px', borderColor: '#8D2F4F'}}
+            style={{backgroundColor: '#541743', color: 'white', borderRadius: '5px', borderColor: '#541743'}}
               onClick={() =>
                 dispatch({
                   type: "ADD_TO_CART",
