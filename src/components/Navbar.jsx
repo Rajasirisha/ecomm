@@ -22,8 +22,6 @@ import { useLocation } from "react-router-dom";
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import Loginpopup from './Loginpopup';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const drawerWidth = 240;
 const navItems = [
