@@ -6,9 +6,9 @@ const Rating = ({ rating, onClick, style }) => {
       {[...Array(5)].map((_, i) => (
         <span key={i} onClick={() => onClick(i)} style={style}>
           {rating > i ? (
-            <AiFillStar fontSize="16px" color='orange'/>
+            <AiFillStar fontSize="small" color='orange'/>
           ) : (
-            <AiOutlineStar fontSize="16px" color='#541743'/>
+            <AiOutlineStar fontSize="small" color='#541743'/>
           )}
         </span>
       ))}
