@@ -59,8 +59,8 @@
   .filter {
     position: fixed;
     top: 60px;
-    background-color: #eddcd9;
-    color: #541743;
+    background-color: #b98259;
+    color: #FFFFFF;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -72,8 +72,8 @@
   }
 
   .subtotal {
-    background-color: #eddcd9;
-    color: #541743;
+    background-color: #b98259;
+    color: #FFFFFF;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -88,6 +88,8 @@
   
   .title {
     font-size: 20px;
+    padding-top: 20px;
+    text-align: center;
   }
   
   .productContainer {
@@ -122,8 +124,8 @@
     .filter {
       position: fixed;
       top: 60px;
-      background-color: #eddcd9;
-      color: #541743;
+      background-color: #b98259;
+      color: #FFFFFF;
       padding: 10px;
       display: flex;
       flex-direction: column;

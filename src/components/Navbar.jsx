@@ -62,9 +62,9 @@ const NavBar = (props) => {
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: 20,
-    backgroundColor: alpha(theme.palette.common.white, 0.40),
+    backgroundColor: alpha(theme.palette.common.white, 0.50),
     '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.60),
+      backgroundColor: alpha(theme.palette.common.white, 0.80),
     },
     marginLeft: 0,
     width: '100%',
@@ -85,7 +85,7 @@ const NavBar = (props) => {
   }));
   
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: '#541743',
+    color: '#b98259',
     width: '100%',
     '& .MuiInputBase-input': {
       padding: theme.spacing(1, 1, 1, 0),
@@ -101,10 +101,10 @@ const NavBar = (props) => {
   }));
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: '#eddcd9' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: '#b98259' }}>
       <Typography 
         variant="h6"
-        sx={{ my: 2, color: '#541743', fontWeight: '700', fontStyle: 'italic' }}
+        sx={{ my: 2, color: '#FFFFFF', fontWeight: '700', fontStyle: 'italic' }}
       >
         Ecommerce..
       </Typography>
@@ -113,14 +113,14 @@ const NavBar = (props) => {
         {navItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton component={Link} to={item.path} sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item.text}  sx={{ color: '#541743' }} />
+              <ListItemText primary={item.text}  sx={{ color: '#FFFFFF' }} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
       <ListItemButton sx={{ textAlign: 'center' }} onClick={isLoggedIn ? handleLogout : handleLogin}>
-        <ListItemText primary={isLoggedIn ? 'Logout' : 'Login'} sx={{ color: '#541743' }} />
+        <ListItemText primary={isLoggedIn ? 'Logout' : 'Login'} sx={{ color: '#FFFFFF' }} />
       </ListItemButton>
     </Box>
   );
@@ -129,7 +129,7 @@ const NavBar = (props) => {
 
   return (
     <Box sx={{ display: 'flex'}}>
-      <AppBar component="nav" sx={{ bgcolor: '#eddcd9', minHeight: 50}}>
+      <AppBar component="nav" sx={{ bgcolor: '#b98259', minHeight: 50, boxShadow: 'none'}}>
         <Toolbar>
           <IconButton
             aria-label="open drawer"
@@ -137,7 +137,7 @@ const NavBar = (props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon sx={{ color: '#541743' }}/>
+            <MenuIcon sx={{ color: '#FFFFFF' }}/>
           </IconButton>
           <img  
               style={{ width: '100px', height: '60px', marginLeft: '10px' }} 
@@ -148,7 +148,7 @@ const NavBar = (props) => {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, 
-            color: '#541743', bgcolor: '#eddcd9', fontWeight: '600', fontStyle: 'italic',
+            color: '#FFFFFF', bgcolor: '#b98259', fontWeight: '600', fontStyle: 'italic',
           }}
           >
             Ecommerce..
@@ -157,7 +157,7 @@ const NavBar = (props) => {
             <div className="search">
             <Search >
             <SearchIconWrapper>
-              <SearchIcon sx={{ color: '#541743'}}/>
+              <SearchIcon sx={{ color: '#b98259'}}/>
             </SearchIconWrapper>
             {useLocation().pathname.split("/")[1] !== "cart" && (
             <FormControl >
@@ -176,22 +176,22 @@ const NavBar = (props) => {
           )}
           </ Search>
           </div>
-            <Box sx={{ display: { xs: 'none', sm: 'block' }, bgcolor: '#eddcd9' }}>
+            <Box sx={{ display: { xs: 'none', sm: 'block' }, bgcolor: '#b98259' }}>
               {navItems.map((item) => (
-                <Button key={item.text} component={Link} to={item.path} sx={{ color: '#541743' }}>
+                <Button key={item.text} component={Link} to={item.path} sx={{ color: '#FFFFFF' }}>
                   {item.text}
                 </Button>
               ))}
               {!isLoggedIn && (
-            <Button sx={{ color: '#541743' }} onClick={() => setShowLoginpopup(true)}>Login</Button>
+            <Button sx={{ color: '#FFFFFF' }} onClick={() => setShowLoginpopup(true)}>Login</Button>
           )}
           {isLoggedIn && (
-            <Button sx={{ color: '#541743' }} onClick={handleLogout}>Logout</Button>
+            <Button sx={{ color: '#FFFFFF' }} onClick={handleLogout}>Logout</Button>
           )}
             </Box>
             <IconButton  onClick={handleMenuOpen}>
               <Badge badgeContent={cart.length} color="error">
-                <ShoppingCartIcon sx={{ color: '#541743' }}/>
+                <ShoppingCartIcon sx={{ color: '#FFFFFF' }}/>
               </Badge>
             </IconButton>
             <Menu
@@ -236,8 +236,8 @@ const NavBar = (props) => {
                 <MenuItem>
                   <Link to="/cart" sx={{ textDecoration: 'none' }}>
                     <Button variant="outlined"
-                    sx={{'&.MuiButtonBase-root': {color: '#541743', backgroundColor: '#eddcd9',
-                     borderColor: '#541743', width: '95%', margin: '0 10px', textTransform: 'none' }}}
+                    sx={{'&.MuiButtonBase-root': {color: '#FFFFFF', backgroundColor: '#b98259',
+                     borderColor: '#FFFFFF', width: '95%', margin: '0 10px', textTransform: 'none' }}}
                     >
                       Go To Cart
                     </Button>

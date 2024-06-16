@@ -26,7 +26,7 @@ const SingleProduct = ({ prod }) => {
           {cart.some((p) => p.id === prod.id) ? (
             <Button
               variant="danger"
-              style={{backgroundColor: 'red', color: 'white', borderRadius: '5px', borderColor: 'red'}}
+              style={{backgroundColor: 'red', color: 'white', borderRadius: '5px', borderColor: 'red', padding: '8px'}}
               onClick={() =>
                 dispatch({
                   type: "REMOVE_FROM_CART",
@@ -38,7 +38,8 @@ const SingleProduct = ({ prod }) => {
             </Button>
           ) : (
             <Button
-            style={{backgroundColor: '#541743', color: 'white', borderRadius: '5px', borderColor: '#541743'}}
+            style={{backgroundColor: '#b98259', color: '#FFFFFF', borderRadius: '5px',
+               borderColor: '#b98259', padding: '8px'}}
               onClick={() =>
                 dispatch({
                   type: "ADD_TO_CART",

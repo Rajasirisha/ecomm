@@ -18,9 +18,9 @@ const Contact = () => {
   return (
     <div>
     <Navbar />
-    <Box height={40}/>
+    <Box height={50}/>
       <Box component="main" sx={{ pl: 3}}>
-        <h1 style={{color: '#541743'}}>Contact My Store</h1>
+        <h1 style={{color: '#b98259'}}>Contact My Store</h1>
         <p>
           Contact Details are provided below...
         </p>
@@ -40,7 +40,7 @@ const Contact = () => {
             <TableHead>
               <TableRow>
                 <TableCell
-                  sx={{ bgcolor: "#541743", color: "white" }}
+                  sx={{ bgcolor: '#b98259', color: "#FFFFFF" }}
                   align="center"
                 >
                   Contact Details

@@ -32,7 +32,7 @@ const Loginpopup = ({ open, handleClose, handleLogin }) => {
             onChange={(e) => setEmail(e.target.value)}
             required
             margin="normal"
-            sx={{textcolor: '#8D2F4F'}}
+            sx={{textcolor: '#FFFFFF'}}
           />
           <TextField
             label="Password"
@@ -44,7 +44,7 @@ const Loginpopup = ({ open, handleClose, handleLogin }) => {
             margin="normal"
           />
           <Button type="submit" variant="filled" 
-          sx={{ mt: 2, backgroundColor: '#8D2F4F', color: '#fff', '&:hover': {backgroundColor: 'pink', color: '#8D2F4F'} }}>
+          sx={{ mt: 2, backgroundColor: '#b98259', color: '#FFFFFF', '&:hover': {backgroundColor: '#b98200', color: '#FFFFFF'} }}>
             Login
           </Button>
         </form>

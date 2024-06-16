@@ -6,9 +6,9 @@ const About = () => {
   return (
     <div>
         <Navbar />
-        <Box height={40}/>
+        <Box height={50}/>
         <Box component="main" sx={{ pl: 3}}>
-        <h1 style={{color: '#541743'}}>About Ecommerce</h1>
+        <h1 style={{color: '#b98259'}}>About Ecommerce</h1>
         <p>One of the world's largest e-commerce platforms offers a vast array of products, 
           ranging from electronics and clothing to groceries and entertainment. 
           Known for its user-friendly interface and convenient delivery options, 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControlLabel, Checkbox, Radio, Button } from '@mui/material';
+import { FormControlLabel, Checkbox, Radio, Button, Divider, Box } from '@mui/material';
 import { CartState } from '../context/Context';
 import Rating from './Rating';
 
@@ -12,8 +12,9 @@ const Filter = () => {
   return (
     <div className="filter">
       <span className="title">Filter Products</span>
+      <Divider sx={{ backgroundColor: '#ffffff' }} />
       <FormControlLabel
-        control={<Radio sx={{ '&.Mui-checked': {color: '#541743'},}} />}
+        control={<Radio sx={{ color: '#ffffff', '&.Mui-checked': { color: '#ffffff' } }} />}
         label="Ascending"
         checked={sort === 'lowToHigh'}
         onChange={() =>
@@ -24,7 +25,7 @@ const Filter = () => {
         }
       />
       <FormControlLabel
-        control={<Radio sx={{ '&.Mui-checked': {color: '#541743'},}}/>}
+        control={<Radio sx={{ color: '#ffffff', '&.Mui-checked': { color: '#ffffff' } }} />}
         label="Descending"
         checked={sort === 'highToLow'}
         onChange={() =>
@@ -37,7 +38,7 @@ const Filter = () => {
       <FormControlLabel
         control={
           <Checkbox
-           sx={{'&.MuiCheckbox-root': {color: '#541743'}}}
+           sx={{'&.MuiCheckbox-root': {color: '#FFFFFF'}}}
             checked={byStock}
             onChange={() =>
               productDispatch({
@@ -51,7 +52,7 @@ const Filter = () => {
       <FormControlLabel
         control={
           <Checkbox
-           sx={{'&.MuiCheckbox-root': {color: '#541743'}}}
+           sx={{'&.MuiCheckbox-root': {color: '#FFFFFF'}}}
             checked={byFastDelivery}
             onChange={() =>
               productDispatch({
@@ -62,8 +63,8 @@ const Filter = () => {
         }
         label="Fast Delivery Only"
       />
-      <span>
-        <label style={{ paddingRight: 10 }}>Rating: </label>
+      <span style={{ padding: 10 }}>
+        <label >Rating: </label>
         <Rating
           rating={byRating}
           onClick={(i) =>
@@ -75,9 +76,10 @@ const Filter = () => {
           style={{ cursor: 'pointer' }}
         />
       </span>
+      <Box height={30} />
       <Button
         variant="filled"
-        sx={{'&.MuiButtonBase-root': {backgroundColor: '#541743', color: '#eddcd9', textTransform: 'none'}}}
+        sx={{'&.MuiButtonBase-root': {backgroundColor: '#FFFFFF', color: '#b98259', textTransform: 'none', fontWeight: '600'}}}
         onClick={() =>
           productDispatch({
             type: 'CLEAR_FILTERS',
@@ -86,11 +88,11 @@ const Filter = () => {
       >
         Clear Filters
       </Button>
-      <img  
-              style={{ width: '100%', height: '100%' }} 
+      {/* <img  
+              style={{ width: '100%', height: '100%', paddingTop: '10px' }} 
               src="./images/delivery.jpg" 
               alt="delivery" 
-            />
+            /> */}
     </div>
   );
 };

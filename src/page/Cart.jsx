@@ -98,13 +98,13 @@ const Cart = () => {
         </Typography>
         <div className="cartbuttons">
         <Button variant="filled"
-        sx={{'&.MuiButtonBase-root': {backgroundColor: '#541743', color: '#eddcd9', textTransform: 'none'}}}
+        sx={{'&.MuiButtonBase-root': {backgroundColor: '#FFFFFF', color: '#b98259', textTransform: 'none', fontWeight: 600} }}
          disabled={cart.length === 0}>
           Proceed to Checkout
         </Button>
         <Link to="/" style={{ textDecoration: 'none' }}>
           <Button variant="outlined"
-              sx={{'&.MuiButtonBase-root': {color: '#541743', borderColor: '#541743', textTransform: 'none' }}}
+              sx={{'&.MuiButtonBase-root': {color: '#FFFFFF', borderColor: '#FFFFFF', textTransform: 'none' }}}
               >
               Go To Home
           </Button>
